@@ -2,7 +2,7 @@
 
 namespace GestaoPortfolioInvestimento.Models
 {
-    public class Cliente
+    public class Cliente : ICliente
     {
         public int ID { get; set; }
 

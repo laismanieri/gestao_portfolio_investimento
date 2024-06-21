@@ -1,8 +1,10 @@
 ﻿using GestaoPortfolioInvestimento.Models;
+using GestaoPortfolioInvestimento.Interfaces;
 
 namespace GestaoPortfolioInvestimento.Services
+
 {
-    public class ClienteService
+    public class ClienteService 
     {
 
         private List<Cliente> clientes = new List<Cliente>();

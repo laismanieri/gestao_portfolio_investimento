@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GestaoPortfolioInvestimento",
+    "\\GestaoPortfolioInvestimento\\Interfaces",
+    "\\GestaoPortfolioInvestimento\\Models",
+    "\\GestaoPortfolioInvestimento\\Services"
+  ],
+  "SelectedNode": "\\GestaoPortfolioInvestimento\\Services\\ClienteService.cs",
+  "PreviewInSolutionExplorer": false
+}
