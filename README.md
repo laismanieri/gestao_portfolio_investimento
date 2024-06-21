@@ -1,12 +1,9 @@
 <p align="center">
-      <a href="https://github.com/laismanieri/projeto_FWBE_PWFE/commits/main">
-        <img alt="GitHub last commit" src="https://img.shields.io/badge/last%20commit-%21june%202024-yellow">
-      </a>
       <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellowgreen"/>
       <a href="https://github.com/laismanieri">
         <img alt="Feito por Lais Manieri" src="https://img.shields.io/badge/feito%20por-laismanieri-yellow">
-      <img alt="GitHub last commit" src="https://img.shields.io/badge/release%20date-%21june%202024-yellowgreen">
-      <img alt="GitHub last commit" src="https://img.shields.io/badge/project%20-%20Frontend-yellowgreen">
+      </a>
+      <img alt="GitHub last commit" src="https://img.shields.io/badge/project%20-%20Backend-yellowgreen">
 </p>
 
 
@@ -34,7 +31,7 @@
   ---  
  ### Pré-requisitos 
   Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-  [Git](https://git-scm.com) e um ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) ou [Visual Studio Community]([https://nodejs.org/en/download/]
+  [Git](https://git-scm.com) e um ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) ou [Visual Studio Community](https://nodejs.org/en/download/)
  ---
  
 ## 🛠 Tecnologias
@@ -43,7 +40,7 @@
   #### **API**  
   
   -   **C#** 
-  -   **Net**
+  -   **.Net**
   
   **Utilitários**
              
