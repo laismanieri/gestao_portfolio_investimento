@@ -3,36 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\ClienteService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Services\\ClienteService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Models\\Cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\models\\investimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\models\\investimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\gestaoportfolioinvestimento.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Transacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Models\\Transacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\services\\transacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\services\\transacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Investimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestaoPortfolioInvestimento\\Models\\Investimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\models\\transacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\models\\transacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\models\\tipotransacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\models\\tipotransacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\services\\investimentoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\services\\investimentoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\services\\produtofinanceiroservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\services\\produtofinanceiroservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\interfaces\\itransacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\interfaces\\itransacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\interfaces\\icliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\interfaces\\icliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\interfaces\\iprodutofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\interfaces\\iprodutofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|c:\\users\\lais\\desktop\\case_xp\\gestao_portfolio_investimento\\gestaoportfolioinvestimento\\gestaoportfolioinvestimento\\interfaces\\iinvestimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45BDFA34-F424-4BFF-9BF0-44D66E3C8705}|GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj|solutionrelative:gestaoportfolioinvestimento\\interfaces\\iinvestimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,121 +73,225 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 118,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IClienteInterface.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Interfaces\\IClienteInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T18:37:48.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InvestimentoService.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T17:32:14.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TipoProdutoFinanceiro.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\TipoProdutoFinanceiro.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T17:19:31.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Transacao.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Transacao.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Transacao.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Transacao.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Transacao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T16:22:48.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProdutoFinanceiro.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\ProdutoFinanceiro.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T16:22:23.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Investimento.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Investimento.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Investimento.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Investimento.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Investimento.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T16:21:31.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 118,
+          "DockedWidth": 385,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Cliente.cs",
-              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Cliente.cs",
-              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Cliente.cs",
-              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Cliente.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Program.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Program.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Program.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T18:39:37.131Z",
+              "WhenOpened": "2024-06-21T22:13:13.627Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\appsettings.json",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\appsettings.json",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\appsettings.json",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-21T22:13:03.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:10:13.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GestaoPortfolioInvestimento",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-21T22:08:21.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Transacao.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Transacao.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Transacao.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Transacao.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Transacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T21:01:04.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TipoTransacao.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\TipoTransacao.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\TipoTransacao.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\TipoTransacao.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\TipoTransacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:02:00.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TransacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\TransacaoService.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Services\\TransacaoService.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\TransacaoService.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Services\\TransacaoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T21:04:15.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProdutoFinanceiroService.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\ProdutoFinanceiroService.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Services\\ProdutoFinanceiroService.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\ProdutoFinanceiroService.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Services\\ProdutoFinanceiroService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:52:57.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ClienteService.cs",
               "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\ClienteService.cs",
               "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Services\\ClienteService.cs",
               "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\ClienteService.cs",
               "RelativeToolTip": "GestaoPortfolioInvestimento\\Services\\ClienteService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T16:28:34.752Z",
+              "WhenOpened": "2024-06-21T20:15:42.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Cliente.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:00:14.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ITransacao.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\ITransacao.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Interfaces\\ITransacao.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\ITransacao.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Interfaces\\ITransacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:09:09.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IProdutoFinanceiro.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IProdutoFinanceiro.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Interfaces\\IProdutoFinanceiro.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IProdutoFinanceiro.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Interfaces\\IProdutoFinanceiro.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:08:24.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IInvestimento.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IInvestimento.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Interfaces\\IInvestimento.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\IInvestimento.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Interfaces\\IInvestimento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:08:01.596Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 15,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Investimento.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Investimento.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Models\\Investimento.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Models\\Investimento.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Models\\Investimento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:09:24.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InvestimentoService.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Services\\InvestimentoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:14:25.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ICliente.cs",
+              "DocumentMoniker": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\ICliente.cs",
+              "RelativeDocumentMoniker": "GestaoPortfolioInvestimento\\Interfaces\\ICliente.cs",
+              "ToolTip": "C:\\Users\\Lais\\Desktop\\case_xp\\gestao_portfolio_investimento\\GestaoPortfolioInvestimento\\GestaoPortfolioInvestimento\\Interfaces\\ICliente.cs",
+              "RelativeToolTip": "GestaoPortfolioInvestimento\\Interfaces\\ICliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:07:26.758Z",
               "EditorCaption": ""
             }
           ]
@@ -164,10 +300,6 @@
           "DockedWidth": 282,
           "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"

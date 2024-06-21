@@ -4,7 +4,7 @@ using GestaoPortfolioInvestimento.Interfaces;
 namespace GestaoPortfolioInvestimento.Services
 
 {
-    public class ClienteService 
+    public class ClienteService : ICliente
     {
 
         private List<Cliente> clientes = new List<Cliente>();
@@ -20,7 +20,13 @@ namespace GestaoPortfolioInvestimento.Services
 
         public Cliente ObterClientePorID(int id)
         {
-            return clientes.FirstOrDefault(c => c.ID == id);
+            var cliente = clientes.FirstOrDefault(c => c.ID == id);
+
+            if (cliente == null)
+            {
+                throw new KeyNotFoundException($"Cliente com ID {id} não encontrado.");
+            }
+            return cliente;
         }
 
         public List<Cliente> ObterTodosClientes()
@@ -31,15 +37,23 @@ namespace GestaoPortfolioInvestimento.Services
         public void AtualizarCliente(Cliente cliente)
         {
             var index = clientes.FindIndex(c => c.ID == cliente.ID);
-            if (index != -1)
+            if (index == -1)
             {
-                clientes[index] = cliente;
+                throw new KeyNotFoundException($"Cliente com ID {cliente.ID} não encontrado.");
             }
+
+            clientes[index] = cliente;
         }
 
         public void RemoverCliente(int id)
         {
-            clientes.RemoveAll(c => c.ID == id);
+            var cliente = ObterClientePorID(id);
+            if (cliente == null)
+            {
+                throw new KeyNotFoundException($"Cliente com ID {id} não encontrado.");
+            }
+
+            clientes.Remove(cliente);
         }
     }
 }
