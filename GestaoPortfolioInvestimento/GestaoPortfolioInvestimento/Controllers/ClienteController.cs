@@ -26,7 +26,6 @@ namespace GestaoPortfolioInvestimento.Controllers
         public IActionResult ObterTodosClientes()
         {
             var clientes = _cliente.ObterTodosClientes();
-            clientes.Add(new Cliente() {  ID = 1,Nome = "xaxa" });
             return Ok(clientes);
         }
 
@@ -35,8 +34,7 @@ namespace GestaoPortfolioInvestimento.Controllers
         {      
             try
             {
-                var cliente = _cliente.ObterClientePorId(id);
-                
+                var cliente = _cliente.ObterClientePorId(id);                
                 return Ok(cliente);
             }
             catch (KeyNotFoundException ex)

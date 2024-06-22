@@ -4,7 +4,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
 {
     public interface IProdutoFinanceiro
     {
-        public void AdicionarProdutoFinanceiro(Investimento produtoFinanceiro);
+        public void AdicionarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro);
 
         public ProdutoFinanceiro ObterProdutoFinanceiroPorId(int id);
 
