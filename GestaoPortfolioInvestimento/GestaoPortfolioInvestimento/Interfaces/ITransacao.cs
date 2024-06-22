@@ -9,6 +9,6 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public Transacao ObterTransacaoPorId(int id);
 
-        public List<Transacao> ObterTodasTransacoes();
+        public List<Transacao> ObterTodasTransacoes(int skip, int take);
     }
 }

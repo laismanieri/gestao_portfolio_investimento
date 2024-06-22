@@ -8,7 +8,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public Investimento ObterInvestimentoPorId(int id);
 
-        public List<Investimento> ObterTodosInvestimentos();
+        public List<Investimento> ObterTodosInvestimentos(int skip, int take);
 
         public void AtualizarInvestimento(Investimento investimento);
 

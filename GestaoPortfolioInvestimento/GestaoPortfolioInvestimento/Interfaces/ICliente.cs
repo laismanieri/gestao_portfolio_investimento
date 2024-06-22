@@ -9,7 +9,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public Cliente ObterClientePorId(int id);
 
-        public List<Cliente> ObterTodosClientes();
+        public List<Cliente> ObterTodosClientes(int skip, int take);
 
         public void AtualizarCliente(Cliente cliente);
 

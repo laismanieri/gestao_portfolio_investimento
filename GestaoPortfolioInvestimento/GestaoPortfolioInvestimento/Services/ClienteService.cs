@@ -29,9 +29,9 @@ namespace GestaoPortfolioInvestimento.Services
             return cliente;
         }
 
-        public List<Cliente> ObterTodosClientes()
+        public List<Cliente> ObterTodosClientes(int skip, int take)
         {
-            return clientes;
+            return clientes.Skip(skip).Take(take).ToList();
         }
 
         public void AtualizarCliente(Cliente cliente)

@@ -45,9 +45,9 @@ namespace GestaoPortfolioInvestimento.Services
             return produtoFinanceiro;
         }
 
-        public List<ProdutoFinanceiro> ObterTodosProdutosFinanceiros()
+        public List<ProdutoFinanceiro> ObterTodosProdutosFinanceiros(int skip, int take)
         {
-            return produtosFinanceiros;
+            return produtosFinanceiros.Skip(skip).Take(take).ToList();
         }
 
         public void RemoverProdutoFinanceiro(int id)

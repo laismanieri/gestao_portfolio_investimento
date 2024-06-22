@@ -23,9 +23,9 @@ namespace GestaoPortfolioInvestimento.Controllers
 
 
         [HttpGet]
-        public IActionResult ObterTodosClientes()
+        public IActionResult ObterTodosClientes([FromQuery] int skip = 0, [FromQuery] int take = 50)
         {
-            var clientes = _cliente.ObterTodosClientes();
+            var clientes = _cliente.ObterTodosClientes(skip, take);
             return Ok(clientes);
         }
 

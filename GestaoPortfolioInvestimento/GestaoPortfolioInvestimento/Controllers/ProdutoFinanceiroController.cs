@@ -22,9 +22,9 @@ namespace GestaoPortfolioInvestimento.Controllers
 
 
         [HttpGet]
-        public IActionResult ObterTodosProdutosFinanceiros()
+        public IActionResult ObterTodosProdutosFinanceiros([FromQuery] int skip = 0, [FromQuery] int take = 50)
         {
-            var produtosFinanceiros = _produtoFinanceiro.ObterTodosProdutosFinanceiros();
+            var produtosFinanceiros = _produtoFinanceiro.ObterTodosProdutosFinanceiros(skip, take);
             return Ok(produtosFinanceiros);
         }
 
@@ -57,7 +57,7 @@ namespace GestaoPortfolioInvestimento.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizarprodutoFinanceiro(int id, [FromBody] ProdutoFinanceiro produtoFinanceiro)
+        public IActionResult AtualizarProdutoFinanceiro(int id, [FromBody] ProdutoFinanceiro produtoFinanceiro)
         {
             if (id != produtoFinanceiro.ID)
             {

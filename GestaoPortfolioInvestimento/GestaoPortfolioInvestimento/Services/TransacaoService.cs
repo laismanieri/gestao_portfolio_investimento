@@ -17,9 +17,9 @@ namespace GestaoPortfolioInvestimento.Services
             transacoes.Add(transacao);
         }
 
-        public List<Transacao> ObterTodasTransacoes()
+        public List<Transacao> ObterTodasTransacoes(int skip, int take)
         {
-            return transacoes;
+            return transacoes.Skip(skip).Take(take).ToList();
         }
 
         public Transacao ObterTransacaoPorId(int id)

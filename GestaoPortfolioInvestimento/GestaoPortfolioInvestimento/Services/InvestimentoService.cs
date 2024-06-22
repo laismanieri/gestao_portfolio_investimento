@@ -40,9 +40,9 @@ namespace GestaoPortfolioInvestimento.Services
             return investimento;
         }
 
-        public List<Investimento> ObterTodosInvestimentos()
+        public List<Investimento> ObterTodosInvestimentos(int skip, int take)
         {
-            return investimentos;
+            return investimentos.Skip(skip).Take(take).ToList();
         }
 
         public void RemoverInvestimento(int id)

@@ -22,9 +22,9 @@ namespace GestaoPortfolioInvestimento.Controllers
 
 
         [HttpGet]
-        public IActionResult ObterTodosinvestimentos()
+        public IActionResult ObterTodosInvestimentos([FromQuery] int skip = 0, [FromQuery] int take = 50)
         {
-            var investimentos = _investimento.ObterTodosInvestimentos();
+            var investimentos = _investimento.ObterTodosInvestimentos(skip, take);
             return Ok(investimentos);
         }
 
