@@ -8,5 +8,67 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "AdicionarCliente",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cliente",
+        "Type": "GestaoPortfolioInvestimento.Models.Cliente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "ObterClientePorId",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterTodosClientes",
+    "RelativePath": "api/Investimento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "ObterTodosClientes",
+    "RelativePath": "api/ProdutoFinanceiro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.TransacaoController",
+    "Method": "ObterTodosClientes",
+    "RelativePath": "api/Transacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

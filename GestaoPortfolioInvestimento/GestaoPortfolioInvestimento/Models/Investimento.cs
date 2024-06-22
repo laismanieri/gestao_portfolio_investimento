@@ -23,5 +23,6 @@ namespace GestaoPortfolioInvestimento.Models
         public Cliente Cliente { get; set; }
         public ProdutoFinanceiro ProdutoFinanceiro { get; set; }
         public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
+
     }
 }

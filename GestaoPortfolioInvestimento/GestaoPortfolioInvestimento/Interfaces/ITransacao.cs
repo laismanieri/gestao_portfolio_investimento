@@ -7,8 +7,8 @@ namespace GestaoPortfolioInvestimento.Interfaces
     {
         public void AdicionarTransacao(Transacao transacao);
 
-        public Transacao ObterTransacaoPorID(int id);
+        public Transacao ObterTransacaoPorId(int id);
 
-        public List<Transacao> ObterTodosTransacao();
+        public List<Transacao> ObterTodasTransacoes();
     }
 }

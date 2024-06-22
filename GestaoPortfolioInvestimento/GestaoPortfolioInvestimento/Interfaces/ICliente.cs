@@ -7,7 +7,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
     {
         public void AdicionarCliente(Cliente cliente);
 
-        public Cliente ObterClientePorID(int id);
+        public Cliente ObterClientePorId(int id);
 
         public List<Cliente> ObterTodosClientes();
 

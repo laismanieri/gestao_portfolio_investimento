@@ -45,7 +45,7 @@ namespace GestaoPortfolioInvestimento.Services
             return produtoFinanceiro;
         }
 
-        public List<ProdutoFinanceiro> ObterTodosProdutoFinanceiro()
+        public List<ProdutoFinanceiro> ObterTodosProdutosFinanceiros()
         {
             return produtosFinanceiros;
         }

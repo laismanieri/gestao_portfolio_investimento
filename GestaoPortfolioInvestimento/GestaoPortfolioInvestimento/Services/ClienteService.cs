@@ -18,7 +18,7 @@ namespace GestaoPortfolioInvestimento.Services
             clientes.Add(cliente);
         }
 
-        public Cliente ObterClientePorID(int id)
+        public Cliente ObterClientePorId(int id)
         {
             var cliente = clientes.FirstOrDefault(c => c.ID == id);
 
@@ -47,7 +47,7 @@ namespace GestaoPortfolioInvestimento.Services
 
         public void RemoverCliente(int id)
         {
-            var cliente = ObterClientePorID(id);
+            var cliente = ObterClientePorId(id);
             if (cliente == null)
             {
                 throw new KeyNotFoundException($"Cliente com ID {id} não encontrado.");

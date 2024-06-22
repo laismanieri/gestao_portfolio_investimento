@@ -14,7 +14,7 @@ namespace GestaoPortfolioInvestimento.Models
         [EmailAddress(ErrorMessage = "O email não é válido.")]
         public string Email { get; set; }
 
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
         public string Endereco { get; set; }
 
         // Relacionamento 1:N

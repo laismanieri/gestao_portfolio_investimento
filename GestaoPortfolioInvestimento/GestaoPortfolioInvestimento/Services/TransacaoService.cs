@@ -17,12 +17,12 @@ namespace GestaoPortfolioInvestimento.Services
             transacoes.Add(transacao);
         }
 
-        public List<Transacao> ObterTodosTransacao()
+        public List<Transacao> ObterTodasTransacoes()
         {
             return transacoes;
         }
 
-        public Transacao ObterTransacaoPorID(int id)
+        public Transacao ObterTransacaoPorId(int id)
         {
             var transacao = transacoes.FirstOrDefault(i => i.ID == id);
 
