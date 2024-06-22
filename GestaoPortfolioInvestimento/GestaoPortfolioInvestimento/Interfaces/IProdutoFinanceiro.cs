@@ -1,10 +1,11 @@
-﻿using GestaoPortfolioInvestimento.Models;
+﻿using GestaoPortfolioInvestimento.DTO;
+using GestaoPortfolioInvestimento.Models;
 
 namespace GestaoPortfolioInvestimento.Interfaces
 {
     public interface IProdutoFinanceiro
     {
-        public void AdicionarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro);
+        public void AdicionarProdutoFinanceiro(ProdutoFinanceiroDTO produtoFinanceiroDto);
 
         public ProdutoFinanceiro ObterProdutoFinanceiroPorId(int id);
 

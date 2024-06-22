@@ -209,8 +209,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "produtoFinanceiro",
-        "Type": "GestaoPortfolioInvestimento.Models.ProdutoFinanceiro",
+        "Name": "produtoFinanceiroDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ProdutoFinanceiroDTO",
         "IsRequired": true
       }
     ],

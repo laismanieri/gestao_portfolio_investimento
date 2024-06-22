@@ -1,42 +1,48 @@
-﻿using GestaoPortfolioInvestimento.Interfaces;
+﻿using GestaoPortfolioInvestimento.Data;
+using GestaoPortfolioInvestimento.DTO;
+using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPortfolioInvestimento.Services
 {
     public class ProdutoFinanceiroService : IProdutoFinanceiro
     {
-        private List<ProdutoFinanceiro> produtosFinanceiros = new List<ProdutoFinanceiro>();
+        private readonly DataContext _context;
 
-        public void AdicionarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro)
+        public ProdutoFinanceiroService(DataContext context)
         {
-            if (produtoFinanceiro == null)
-            {
-
-                throw new ArgumentNullException(nameof(produtoFinanceiro), "O produto financeiro não pode ser nulo");
-            }
-
-            produtosFinanceiros.Add(produtoFinanceiro);
+            _context = context;
         }
 
-        public void AdicionarProdutoFinanceiro(Investimento produtoFinanceiro)
+        public void AdicionarProdutoFinanceiro(ProdutoFinanceiroDTO produtoFinanceiroDto)
         {
-            throw new NotImplementedException();
+            if (produtoFinanceiroDto == null)
+            {
+
+                throw new ArgumentNullException(nameof(produtoFinanceiroDto), "O produto financeiro não pode ser nulo");
+            }
+
+            var novoProdutoFinanceiroDto = new ProdutoFinanceiro
+            {
+                Nome = produtoFinanceiroDto.Nome,
+                Tipo = produtoFinanceiroDto.Tipo,   
+                TaxaRetorno = produtoFinanceiroDto.TaxaRetorno
+            };
+
+            _context.ProdutosFinanceiros.Add(novoProdutoFinanceiroDto);
+            _context.SaveChanges();
         }
 
         public void AtualizarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro)
         {
-            var index = produtosFinanceiros.FindIndex(i => i.ID == produtoFinanceiro.ID);
-            if (index == -1)
-            {
-                throw new KeyNotFoundException($"Produto Financeiro com ID {produtoFinanceiro.ID} não encontrado.");
-            }
-
-            produtosFinanceiros[index] = produtoFinanceiro;
+            _context.Entry(produtoFinanceiro).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public ProdutoFinanceiro ObterProdutoFinanceiroPorId(int id)
         {
-            var produtoFinanceiro = produtosFinanceiros.FirstOrDefault(pf => pf.ID == id);
+            var produtoFinanceiro = _context.ProdutosFinanceiros.FirstOrDefault(pf => pf.ID == id);
 
             if (produtoFinanceiro == null)
             {
@@ -47,17 +53,14 @@ namespace GestaoPortfolioInvestimento.Services
 
         public List<ProdutoFinanceiro> ObterTodosProdutosFinanceiros(int skip, int take)
         {
-            return produtosFinanceiros.Skip(skip).Take(take).ToList();
+            return _context.ProdutosFinanceiros.Skip(skip).Take(take).ToList();
         }
 
         public void RemoverProdutoFinanceiro(int id)
         {
             var produtoFinanceiro = ObterProdutoFinanceiroPorId(id);
-            if (produtoFinanceiro != null)
-            {
-                throw new KeyNotFoundException($"Produto Financeiro com ID {produtoFinanceiro.ID} não encontrado.");
-            }
-            produtosFinanceiros.Remove(produtoFinanceiro);
+            _context.ProdutosFinanceiros.Remove(produtoFinanceiro);
+            _context.SaveChanges();
         }
     }
 }
