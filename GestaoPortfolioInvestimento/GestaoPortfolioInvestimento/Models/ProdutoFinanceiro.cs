@@ -4,6 +4,8 @@ namespace GestaoPortfolioInvestimento.Models
 {
     public class ProdutoFinanceiro
     {
+        [Key]
+        [Required]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "O nome do produto financeiro é obrigatório.")]

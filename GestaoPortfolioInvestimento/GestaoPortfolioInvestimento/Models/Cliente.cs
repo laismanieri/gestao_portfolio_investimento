@@ -3,7 +3,9 @@
 namespace GestaoPortfolioInvestimento.Models
 {
     public class Cliente
-    {
+    {   
+        [Key] 
+        [Required]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório.")]

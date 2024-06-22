@@ -24,7 +24,7 @@ namespace GestaoPortfolioInvestimento.Services
 
         public Transacao ObterTransacaoPorId(int id)
         {
-            var transacao = transacoes.FirstOrDefault(i => i.ID == id);
+            var transacao = transacoes.FirstOrDefault(t => t.ID == id);
 
             if (transacao == null)
             {

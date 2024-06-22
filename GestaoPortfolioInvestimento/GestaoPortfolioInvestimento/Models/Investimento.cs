@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoPortfolioInvestimento.Models
 {
     public class Investimento
     {
+        [Key]
+        [Required]
         public int ID { get; set; }
         public int ClienteID { get; set; }
         public int ProdutoFinanceiroID { get; set; }
@@ -20,7 +23,10 @@ namespace GestaoPortfolioInvestimento.Models
         public DateTime Vencimento { get; set; }
 
         // Relacionamentos
+        [ForeignKey("ClienteID")]
         public Cliente Cliente { get; set; }
+
+        [ForeignKey("ProdutoFinanceiroID")]
         public ProdutoFinanceiro ProdutoFinanceiro { get; set; }
         public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
 

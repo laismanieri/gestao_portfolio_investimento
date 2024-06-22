@@ -1,7 +1,15 @@
-﻿using GestaoPortfolioInvestimento.Interfaces;
+﻿using GestaoPortfolioInvestimento.Data;
+using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<DataContext>(options => 
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 // Add services to the container.
 

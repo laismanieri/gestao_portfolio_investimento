@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoPortfolioInvestimento.Models
 {
@@ -13,6 +14,7 @@ namespace GestaoPortfolioInvestimento.Models
         public TipoTransacao TipoTransacao { get; set; }
 
         // Relacionamento
+        [ForeignKey("InvestimentoID")]
         public Investimento Investimento { get; set; }
     }
 }
