@@ -4,6 +4,7 @@ using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Services;
 using GestaoPortfolioInvestimento.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 
 
 namespace GestaoPortfolioInvestimento.Controllers
@@ -25,15 +26,17 @@ namespace GestaoPortfolioInvestimento.Controllers
         public IActionResult ObterTodosClientes()
         {
             var clientes = _cliente.ObterTodosClientes();
+            clientes.Add(new Cliente() {  ID = 1,Nome = "xaxa" });
             return Ok(clientes);
         }
 
         [HttpGet("{id}")]
         public IActionResult ObterClientePorId(int id)
-        {
+        {      
             try
             {
                 var cliente = _cliente.ObterClientePorId(id);
+                
                 return Ok(cliente);
             }
             catch (KeyNotFoundException ex)
@@ -53,6 +56,39 @@ namespace GestaoPortfolioInvestimento.Controllers
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarCliente(int id, [FromBody] Cliente cliente)
+        {
+            if (id != cliente.ID)
+            {
+                return BadRequest("ID do cliente não encontrado");
+            }
+
+            try
+            {
+                _cliente.AtualizarCliente(cliente);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoverCliente(int id)
+        {
+            try
+            {
+                _cliente.RemoverCliente(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
             }
         }
     }
