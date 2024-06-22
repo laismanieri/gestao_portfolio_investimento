@@ -3,6 +3,7 @@ using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,11 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+// Configurar controladores com serialização de enums como strings
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ICliente, ClienteService>();
