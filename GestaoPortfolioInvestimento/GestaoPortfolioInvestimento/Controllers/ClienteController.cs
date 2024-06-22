@@ -5,6 +5,7 @@ using GestaoPortfolioInvestimento.Services;
 using GestaoPortfolioInvestimento.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
+using GestaoPortfolioInvestimento.DTO;
 
 
 namespace GestaoPortfolioInvestimento.Controllers
@@ -44,12 +45,12 @@ namespace GestaoPortfolioInvestimento.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarCliente([FromBody] Cliente cliente)
+        public IActionResult AdicionarCliente([FromBody] ClienteDTO clienteDto)
         {
             try
             {
-                _cliente.AdicionarCliente(cliente);
-                return CreatedAtAction(nameof(ObterClientePorId), new { id = cliente.ID }, cliente);
+                _cliente.AdicionarCliente(clienteDto);
+                return CreatedAtAction(nameof(ObterClientePorId), new { id = clienteDto.ID }, clienteDto);
             }
             catch (ValidationException ex)
             {
@@ -87,6 +88,10 @@ namespace GestaoPortfolioInvestimento.Controllers
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
     }

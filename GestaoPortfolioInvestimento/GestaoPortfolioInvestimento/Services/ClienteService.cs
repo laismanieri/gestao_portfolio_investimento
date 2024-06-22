@@ -1,5 +1,8 @@
 ﻿using GestaoPortfolioInvestimento.Models;
 using GestaoPortfolioInvestimento.Interfaces;
+using GestaoPortfolioInvestimento.DTO;
+using GestaoPortfolioInvestimento.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPortfolioInvestimento.Services
 
@@ -7,20 +10,35 @@ namespace GestaoPortfolioInvestimento.Services
     public class ClienteService : ICliente
     {
 
-        private List<Cliente> clientes = new List<Cliente>();
+        private readonly DataContext _context;
 
-        public void AdicionarCliente(Cliente cliente)
+        public ClienteService(DataContext context)
         {
-            if (cliente == null)
+            _context = context;
+        }
+
+        public void AdicionarCliente(ClienteDTO clienteDto)
+        {
+            if (clienteDto == null)
             {
-                throw new ArgumentNullException(nameof(cliente), "O cliente não pode ser nulo"); 
+                throw new ArgumentNullException(nameof(clienteDto), "O cliente não pode ser nulo");
             }
-            clientes.Add(cliente);
+
+            var novoCliente = new Cliente
+            {
+                Nome = clienteDto.Nome,
+                Email = clienteDto.Email,
+                DataNascimento = clienteDto.DataNascimento,
+                Endereco = clienteDto.Endereco
+            };
+
+            _context.Clientes.Add(novoCliente);
+            _context.SaveChanges();
         }
 
         public Cliente ObterClientePorId(int id)
         {
-            var cliente = clientes.FirstOrDefault(c => c.ID == id);
+            var cliente = _context.Clientes.FirstOrDefault(c => c.ID == id);
 
             if (cliente == null)
             {
@@ -31,29 +49,20 @@ namespace GestaoPortfolioInvestimento.Services
 
         public List<Cliente> ObterTodosClientes(int skip, int take)
         {
-            return clientes.Skip(skip).Take(take).ToList();
+            return _context.Clientes.Skip(skip).Take(take).ToList();
         }
 
         public void AtualizarCliente(Cliente cliente)
         {
-            var index = clientes.FindIndex(c => c.ID == cliente.ID);
-            if (index == -1)
-            {
-                throw new KeyNotFoundException($"Cliente com ID {cliente.ID} não encontrado.");
-            }
-
-            clientes[index] = cliente;
+            _context.Entry(cliente).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void RemoverCliente(int id)
         {
             var cliente = ObterClientePorId(id);
-            if (cliente == null)
-            {
-                throw new KeyNotFoundException($"Cliente com ID {id} não encontrado.");
-            }
-
-            clientes.Remove(cliente);
+            _context.Clientes.Remove(cliente);
+            _context.SaveChanges();
         }
     }
 }

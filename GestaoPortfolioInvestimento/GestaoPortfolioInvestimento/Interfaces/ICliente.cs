@@ -1,11 +1,12 @@
 using System;
+using GestaoPortfolioInvestimento.DTO;
 using GestaoPortfolioInvestimento.Models;
 
 namespace GestaoPortfolioInvestimento.Interfaces
 { 
     public interface ICliente
     {
-        public void AdicionarCliente(Cliente cliente);
+        public void AdicionarCliente(ClienteDTO clienteDto);
 
         public Cliente ObterClientePorId(int id);
 

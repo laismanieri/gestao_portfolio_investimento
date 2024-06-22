@@ -6,7 +6,7 @@ namespace GestaoPortfolioInvestimento.Models
     public class Investimento
     {
         [Key]
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int ClienteID { get; set; }
         public int ProdutoFinanceiroID { get; set; }

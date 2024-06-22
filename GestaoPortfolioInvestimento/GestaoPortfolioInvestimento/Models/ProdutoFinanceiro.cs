@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoPortfolioInvestimento.Models
 {
     public class ProdutoFinanceiro
     {
         [Key]
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "O nome do produto financeiro é obrigatório.")]

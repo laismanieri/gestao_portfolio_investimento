@@ -29,8 +29,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cliente",
-        "Type": "GestaoPortfolioInvestimento.Models.Cliente",
+        "Name": "clienteDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ClienteDTO",
         "IsRequired": true
       }
     ],
