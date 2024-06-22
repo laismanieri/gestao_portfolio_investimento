@@ -8,7 +8,7 @@
       <img alt="GitHub last commit" src="https://img.shields.io/badge/project%20-%20Backend-yellowgreen">
 </p>
 
-<div align="justify">
+
   ## 💻 Sobre o projeto
   
   <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema.
@@ -22,25 +22,31 @@
  ---
 
 
- ## 🛠 Passos para Execução:
+ ## 🛠 Configuração do Ambiente de Desenvolvimento:
   
-  1. Clone o Repositório:      
+  1.Instale o Visual Studio ou Visual Studio Code.
+  
+  2. Clone o Repositório:      
       Clone o repositório para o seu ambiente de desenvolvimento local usando o seguinte comando:
      ```sh
      git clone https://github.com/laismanieri/gestao_portfolio_investimento.git
-  2. Acesse o Diretório do Projeto:    
+    
+  4. Acesse o Diretório do Projeto:    
       Navegue até o diretório do projeto usando o terminal ou o prompt de comando:
      ```sh
      cd gestao_portfolio_investimento
-  3. Restaurar Dependências:
+    
+  6. Restaurar Dependências:
       Use o comando dotnet restore para restaurar as dependências do projeto:
      ```sh
      dotnet restore
-  4. Executar a Aplicação:
+    
+  8. Executar a Aplicação:
       Após a restauração das dependências, execute a aplicação usando o comando dotnet run:
      ```sh
      dotnet run
-  5. Testar as APIs:
+    
+  10. Testar as APIs:
       Se você instalou o Postman, pode usar para testar as APIs. Aqui estão os endpoints disponíveis:
       **Local:**
       Clientes:  
@@ -69,7 +75,7 @@
         GET: https://localhost:7147/api/Transacao  
         GET: https://localhost:7147/api/Transacao/{id}
 
- 6. Documentação Adicional:
+ 11. Documentação Adicional:
       Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
     
 ## 🛠 Tecnologias
@@ -96,9 +102,9 @@
 
   
 ---  
-<div align="justify">
+
   ## ⚙️ Funcionalidades
-  
+<div align="justify">  
 :heavy_check_mark: **Cadastro de Clientes:** Permite adicionar novos clientes ao sistema. Para cada cliente, são fornecidos detalhes como nome, endereço de e-mail, data de nascimento e endereço.
 
 :heavy_check_mark: **Cadastro de Investimentos:** Permite adicionar novos investimentos ao sistema. Cada investimento está associado a um cliente e a um produto financeiro específico. Detalhes como quantidade, valor de compra e data de vencimento são fornecidos durante o cadastro.
