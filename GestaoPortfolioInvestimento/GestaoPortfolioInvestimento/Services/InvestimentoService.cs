@@ -3,6 +3,7 @@ using GestaoPortfolioInvestimento.DTO;
 using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace GestaoPortfolioInvestimento.Services
 {
@@ -133,6 +134,20 @@ namespace GestaoPortfolioInvestimento.Services
             _context.Transacoes.Add(novaTransacao);
             _context.Entry(investimento).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+
+        public List<Investimento> ObterInvestimentoPorClienteId(int clienteId)
+        {
+            var investimentos = _context.Investimentos
+                .Where(i => i.ClienteID == clienteId)
+                .ToList();
+
+            if (investimentos == null || !investimentos.Any())
+            {
+                throw new KeyNotFoundException($"Nenhum investimento encontrado para o cliente com ID {clienteId}.");
+            }
+
+            return investimentos;
         }
 
         public Investimento ObterInvestimentoPorId(int id)

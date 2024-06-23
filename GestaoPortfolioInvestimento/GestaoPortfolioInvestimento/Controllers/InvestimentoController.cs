@@ -43,6 +43,20 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
+        [HttpGet("extrato/{clienteId}")]
+        public IActionResult ObterInvestimentoPorClienteId(int clienteId)
+        {
+            try
+            {
+                var investimentos = _investimento.ObterInvestimentoPorClienteId(clienteId);
+                return Ok(investimentos);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpPost("compra")]
         public IActionResult AdicionarInvestimento([FromBody] InvestimentoDTO investimentoDto)
         {
