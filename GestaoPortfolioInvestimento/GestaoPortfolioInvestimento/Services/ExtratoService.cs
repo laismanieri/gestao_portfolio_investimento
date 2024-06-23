@@ -1,6 +1,7 @@
 ﻿using GestaoPortfolioInvestimento.DTO;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
+using GestaoPortfolioInvestimento.Models;
 
 namespace GestaoPortfolioInvestimento.Services
 {
@@ -54,5 +55,45 @@ namespace GestaoPortfolioInvestimento.Services
                 return ms.ToArray();
             }
         }
+
+        public byte[] GerarExtratoProdutoFinanceiroPDF(Dictionary<int, List<InvestimentoDetalheDTO>> investimentosPorProdutoFinanceiro)
+        {
+
+            Document doc = new Document();
+            MemoryStream stream = new MemoryStream();
+            PdfWriter writer = PdfWriter.GetInstance(doc, stream);
+            doc.Open();
+
+            Paragraph title = new Paragraph("Extrato de Investimentos por Produto Financeiro\n\n");
+            doc.Add(title);
+
+            foreach (var kvp in investimentosPorProdutoFinanceiro)
+            {
+
+                Paragraph produtoFinanceiroTitle = new Paragraph($"Produto Financeiro ID: {kvp.Key}\n\n");
+                doc.Add(produtoFinanceiroTitle);
+
+                foreach (var investimento in kvp.Value)
+                {
+                    Paragraph investimentoInfo = new Paragraph($"Produto Financeiro: {investimento.ProdutoFinanceiroNome}\n" +
+                                                                $"Tipo: {investimento.Tipo}\n" +
+                                                                $"Quantidade: {investimento.Quantidade}\n" +
+                                                                $"Valor Total: {investimento.ValorTotal}\n" +
+                                                                $"Data de Adesão: {investimento.DataAdesao}\n" +
+                                                                $"Data de Venda: {investimento.DataVenda}\n" +
+                                                                $"Vencimento: {investimento.Vencimento}\n" +
+                                                                $"Taxa de Retorno: {investimento.TaxaRetorno}\n" +
+                                                                $"Rendimento: {investimento.Rendimento}\n\n");
+                    doc.Add(investimentoInfo);
+                }
+                doc.Add(new Chunk("\n\n\n\n"));
+            }
+
+            doc.Close();
+            writer.Close();
+
+            return stream.ToArray();
+        }
+
     }
 }

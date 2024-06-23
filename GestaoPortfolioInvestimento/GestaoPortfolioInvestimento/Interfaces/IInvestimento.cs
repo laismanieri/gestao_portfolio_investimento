@@ -15,6 +15,8 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public List<Investimento> ObterTodosInvestimentos(int skip, int take);
 
+        Dictionary<int, List<InvestimentoDetalheDTO>> ListarInvestimentosPorProdutoFinanceiro();
+
         //void AtualizarInvestimentoCompra(int id, CompraInvestimentoDTO compraInvestimentoDto);
 
         public void AtualizarInvestimentoVenda(int id, VendaInvestimentoDTO vendaInvestimentoDto);

@@ -8,6 +8,8 @@ namespace GestaoPortfolioInvestimento.DTO
         public int ClienteID { get; set; }
         public int ProdutoFinanceiroID { get; set; }
 
+        public int ProdutoFinanceiroNome { get; set; }
+
         [Required(ErrorMessage = "A quantidade é obrigatória.")]
         [Range(1, int.MaxValue, ErrorMessage = "A quantidade deve ser maior que zero.")]
         public int Quantidade { get; set; }

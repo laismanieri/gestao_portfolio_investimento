@@ -208,6 +208,26 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ListarInvestimentosPorProdutoFinanceiro",
+    "RelativePath": "api/Investimento/por-produto-financeiro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "GerarExtratoProdutoFinanceiroPDF",
+    "RelativePath": "api/Investimento/produto-financeiro-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "AtualizarInvestimentoVenda",
     "RelativePath": "api/Investimento/venda/{id}",
     "HttpMethod": "PUT",

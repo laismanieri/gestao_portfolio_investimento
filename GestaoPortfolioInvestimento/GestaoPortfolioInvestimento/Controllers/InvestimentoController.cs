@@ -5,6 +5,8 @@ using GestaoPortfolioInvestimento.Services;
 using GestaoPortfolioInvestimento.Models;
 using System.ComponentModel.DataAnnotations;
 using GestaoPortfolioInvestimento.DTO;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 
 namespace GestaoPortfolioInvestimento.Controllers
@@ -95,6 +97,49 @@ namespace GestaoPortfolioInvestimento.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("extrato /{produtoId}")]
+        public IActionResult ListarInvestimentosPorProdutoFinanceiro()
+        {
+            try
+            {
+                var investimentosPorProdutoFinanceiro = _investimento.ListarInvestimentosPorProdutoFinanceiro();
+
+                var options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    // outras opções, se necessário
+                };
+
+                return Ok(JsonSerializer.Serialize(investimentosPorProdutoFinanceiro, options));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao listar os investimentos por produto financeiro: {ex.Message}");
+            }
+        }
+
+        [HttpGet("extrato/produto-financeiro-pdf")]
+        public IActionResult GerarExtratoProdutoFinanceiroPDF()
+        {
+            try
+            {
+                // Obter os investimentos por produto financeiro
+                Dictionary<int, List<InvestimentoDetalheDTO>> investimentosPorProdutoFinanceiro = _investimento.ListarInvestimentosPorProdutoFinanceiro();
+
+                // Gerar o PDF do extrato
+                byte[] pdfBytes = _extratoPdf.GerarExtratoProdutoFinanceiroPDF(investimentosPorProdutoFinanceiro);
+
+                // Retornar o arquivo PDF como resposta HTTP
+                return File(pdfBytes, "application/pdf", "extrato_investimentos.pdf");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao gerar o extrato em PDF: {ex.Message}");
+            }
+        }
+
+
 
         [HttpPost("compra")]
         public IActionResult AdicionarInvestimento([FromBody] InvestimentoDTO investimentoDto)

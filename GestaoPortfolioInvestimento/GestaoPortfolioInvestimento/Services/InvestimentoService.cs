@@ -212,5 +212,33 @@ namespace GestaoPortfolioInvestimento.Services
             _context.Investimentos.Remove(investimento);
             _context.SaveChanges();
         }
+
+        public Dictionary<int, List<InvestimentoDetalheDTO>> ListarInvestimentosPorProdutoFinanceiro()
+        {
+            var investimentos = _context.Investimentos
+                .Include(i => i.ProdutoFinanceiro)
+                .Select(i => new InvestimentoDetalheDTO
+                {
+                    ID = i.ID,
+                    ProdutoFinanceiroID = i.ProdutoFinanceiroID,
+                    ProdutoFinanceiroNome = i.ProdutoFinanceiro.Nome,
+                    Tipo = i.ProdutoFinanceiro.Tipo,
+                    Quantidade = i.Quantidade,
+                    ValorTotal = i.ValorTotal,
+                    DataAdesao = i.DataAdesao,
+                    DataVenda = i.DataVenda,
+                    Vencimento = i.Vencimento,
+                    TaxaRetorno = i.ProdutoFinanceiro.TaxaRetorno,
+                    Rendimento = i.Rendimento
+                })
+                .ToList();
+
+            // Agrupar os investimentos por ID do produto financeiro
+            var investimentosAgrupados = investimentos
+                .GroupBy(i => i.ProdutoFinanceiroID)
+                .ToDictionary(g => g.Key, g => g.ToList());
+
+            return investimentosAgrupados;
+        }
     }
 }
