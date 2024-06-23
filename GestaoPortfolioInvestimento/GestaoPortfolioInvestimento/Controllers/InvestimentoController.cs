@@ -43,7 +43,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("compra")]
         public IActionResult AdicionarInvestimento([FromBody] InvestimentoDTO investimentoDto)
         {
             try
@@ -57,22 +57,49 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult AtualizarInvestimento(int id, [FromBody] Investimento investimento)
+        //[HttpPut("compra/{id}")]
+        //public IActionResult AtualizarInvestimentoCompra(int id, [FromBody] CompraInvestimentoDTO compraDto)
+        //{
+        //    if (compraDto == null || compraDto.Quantidade <= 0)
+        //    {
+        //        return BadRequest("Dados inválidos para compra.");
+        //    }
+
+        //    try
+        //    {
+        //        _investimento.AtualizarInvestimentoCompra(id, compraDto);
+        //        return NoContent();
+        //    }
+        //    catch (KeyNotFoundException ex)
+        //    {
+        //        return NotFound(ex.Message);
+        //    }
+        //    catch (InvalidOperationException ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
+
+        [HttpPut("venda/{id}")]
+        public IActionResult AtualizarInvestimentoVenda(int id, [FromBody] VendaInvestimentoDTO vendaDto)
         {
-            if (id != investimento.ID)
+            if (vendaDto == null || vendaDto.Quantidade <= 0)
             {
-                return BadRequest("ID do investimento não encontrado");
+                return BadRequest("Dados inválidos para venda.");
             }
 
             try
             {
-                _investimento.AtualizarInvestimento(investimento);
+                _investimento.AtualizarInvestimentoVenda(id, vendaDto);
                 return NoContent();
             }
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

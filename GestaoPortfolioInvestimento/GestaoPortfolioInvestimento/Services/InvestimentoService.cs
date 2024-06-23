@@ -70,8 +70,67 @@ namespace GestaoPortfolioInvestimento.Services
             _context.SaveChanges();
         }
 
-        public void AtualizarInvestimento(Investimento investimento)
+        //public void AtualizarInvestimentoCompra(int id, CompraInvestimentoDTO compraInvestimentoDto)
+        //{
+        //    var investimento = _context.Investimentos.Include(i => i.ProdutoFinanceiro).FirstOrDefault(i => i.ID == id);
+        //    if (investimento == null)
+        //    {
+        //        throw new KeyNotFoundException($"Investimento com ID {id} não encontrado.");
+        //    }
+
+
+        //    decimal valorCota = investimento.ProdutoFinanceiro.ValorCota;
+
+        //    investimento.ValorTotal += valorCota * compraInvestimentoDto.Quantidade;
+
+        //    var novaTransacao = new Transacao
+        //    {
+        //        InvestimentoID = investimento.ID,
+        //        Data = DateTime.Now,
+        //        ValorUnitario = investimento.ProdutoFinanceiro.ValorCota,
+        //        Quantidade = compraInvestimentoDto.Quantidade,
+        //        ValorTotal= valorCota * compraInvestimentoDto.Quantidade,
+        //        TipoTransacao = TipoTransacao.COMPRA
+        //    };
+
+        //    _context.Transacoes.Add(novaTransacao);
+
+        //    _context.SaveChanges();
+        //}
+
+        public void AtualizarInvestimentoVenda(int id, VendaInvestimentoDTO vendaInvestimentoDto)
         {
+            var investimento = _context.Investimentos.Include(i => i.ProdutoFinanceiro).FirstOrDefault(i => i.ID == id);
+            if (investimento == null)
+            {
+                throw new KeyNotFoundException($"Investimento com ID {id} não encontrado.");
+            }
+
+            if (vendaInvestimentoDto.Quantidade > investimento.Quantidade)
+            {
+                throw new InvalidOperationException("Quantidade de venda excede a quantidade disponível.");
+            }
+
+            decimal valorCota = investimento.ProdutoFinanceiro.ValorCota;
+            investimento.Quantidade -= vendaInvestimentoDto.Quantidade;
+            investimento.ValorTotal -= valorCota * vendaInvestimentoDto.Quantidade;
+
+            if (investimento.Quantidade == 0)
+            {
+                investimento.DataVenda = DateTime.Now;
+            }
+
+            var novaTransacao = new Transacao
+            {
+                InvestimentoID = investimento.ID,
+                Data = DateTime.Now,
+                Quantidade = vendaInvestimentoDto.Quantidade,
+                ValorUnitario = investimento.ProdutoFinanceiro.ValorCota,
+                ValorTotal = valorCota * vendaInvestimentoDto.Quantidade,
+                TipoTransacao = TipoTransacao.VENDA
+            };
+
+            _context.Transacoes.Add(novaTransacao);
             _context.Entry(investimento).State = EntityState.Modified;
             _context.SaveChanges();
         }
