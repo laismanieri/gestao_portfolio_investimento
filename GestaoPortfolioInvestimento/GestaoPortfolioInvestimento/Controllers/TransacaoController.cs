@@ -41,21 +41,6 @@ namespace GestaoPortfolioInvestimento.Controllers
                 return NotFound(ex.Message);
             }
         }
-
-        [HttpPost]
-        public IActionResult Adicionartransacao([FromBody] Transacao transacao)
-        {
-            try
-            {
-                _transacao.AdicionarTransacao(transacao);
-                return CreatedAtAction(nameof(ObtertransacaoPorId), new { id = transacao.ID }, transacao);
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
     }
 
 }

@@ -9,7 +9,6 @@ namespace GestaoPortfolioInvestimento.Services
 {
     public class ClienteService : ICliente
     {
-
         private readonly DataContext _context;
 
         public ClienteService(DataContext context)

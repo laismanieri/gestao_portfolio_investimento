@@ -292,22 +292,6 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.TransacaoController",
-    "Method": "Adicionartransacao",
-    "RelativePath": "api/Transacao",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "transacao",
-        "Type": "GestaoPortfolioInvestimento.Models.Transacao",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestaoPortfolioInvestimento.Controllers.TransacaoController",
     "Method": "ObtertransacaoPorId",
     "RelativePath": "api/Transacao/{id}",
     "HttpMethod": "GET",
