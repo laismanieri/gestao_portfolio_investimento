@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GestaoPortfolioInvestimento.Models
+namespace GestaoPortfolioInvestimento.DTO
 {
-    public class Investimento
+    public class InvestimentoDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int ClienteID { get; set; }
         public int ProdutoFinanceiroID { get; set; }
@@ -25,14 +22,5 @@ namespace GestaoPortfolioInvestimento.Models
         [Required(ErrorMessage = "O prazo em dias é obrigatório.")]
         [Range(1, int.MaxValue, ErrorMessage = "O prazo em dias deve ser maior que zero.")]
         public int Prazo { get; set; }
-
-        // Relacionamentos
-        [ForeignKey("ClienteID")]
-        public Cliente Cliente { get; set; }
-
-        [ForeignKey("ProdutoFinanceiroID")]
-        public ProdutoFinanceiro ProdutoFinanceiro { get; set; }
-        public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
-
     }
 }

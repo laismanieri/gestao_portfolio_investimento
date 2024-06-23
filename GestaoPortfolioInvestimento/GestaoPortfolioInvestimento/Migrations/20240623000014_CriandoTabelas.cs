@@ -43,6 +43,7 @@ namespace GestaoPortfolioInvestimento.Migrations
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Tipo = table.Column<int>(type: "int", nullable: false),
+                    ValorCota = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     TaxaRetorno = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
                 constraints: table =>
@@ -60,9 +61,12 @@ namespace GestaoPortfolioInvestimento.Migrations
                     ClienteID = table.Column<int>(type: "int", nullable: false),
                     ProdutoFinanceiroID = table.Column<int>(type: "int", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
-                    DataCompra = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    ValorCompra = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
-                    Vencimento = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    DataAdesao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataVenda = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Vencimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ValorTotal = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Rendimento = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Prazo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -92,6 +96,7 @@ namespace GestaoPortfolioInvestimento.Migrations
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     Data = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ValorUnitario = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    ValorTotal = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     TipoTransacao = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

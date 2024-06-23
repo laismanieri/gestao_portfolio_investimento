@@ -1,10 +1,11 @@
-﻿using GestaoPortfolioInvestimento.Models;
+﻿using GestaoPortfolioInvestimento.DTO;
+using GestaoPortfolioInvestimento.Models;
 
 namespace GestaoPortfolioInvestimento.Interfaces
 {
     public interface IInvestimento
     {   
-        public void AdicionarInvestimento(Investimento investimento);
+        public void AdicionarInvestimento(InvestimentoDTO investimentoDto);
 
         public Investimento ObterInvestimentoPorId(int id);
 
@@ -13,5 +14,6 @@ namespace GestaoPortfolioInvestimento.Interfaces
         public void AtualizarInvestimento(Investimento investimento);
 
         public void RemoverInvestimento(int id);
+
     }
 }

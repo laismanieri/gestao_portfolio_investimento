@@ -4,6 +4,7 @@ using GestaoPortfolioInvestimento.Interfaces;
 using GestaoPortfolioInvestimento.Services;
 using GestaoPortfolioInvestimento.Models;
 using System.ComponentModel.DataAnnotations;
+using GestaoPortfolioInvestimento.DTO;
 
 
 namespace GestaoPortfolioInvestimento.Controllers
@@ -43,12 +44,12 @@ namespace GestaoPortfolioInvestimento.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarInvestimento([FromBody] Investimento investimento)
+        public IActionResult AdicionarInvestimento([FromBody] InvestimentoDTO investimentoDto)
         {
             try
             {
-                _investimento.AdicionarInvestimento(investimento);
-                return CreatedAtAction(nameof(ObterInvestimentoPorId), new { id = investimento.ID }, investimento);
+                _investimento.AdicionarInvestimento(investimentoDto);
+                return CreatedAtAction(nameof(ObterInvestimentoPorId), new { id = investimentoDto.ID }, investimentoDto);
             }
             catch (ValidationException ex)
             {

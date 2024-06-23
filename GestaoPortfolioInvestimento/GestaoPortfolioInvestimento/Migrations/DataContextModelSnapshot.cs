@@ -56,8 +56,14 @@ namespace GestaoPortfolioInvestimento.Migrations
                     b.Property<int>("ClienteID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataCompra")
+                    b.Property<DateTime>("DataAdesao")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DataVenda")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Prazo")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProdutoFinanceiroID")
                         .HasColumnType("int");
@@ -65,7 +71,10 @@ namespace GestaoPortfolioInvestimento.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ValorCompra")
+                    b.Property<decimal>("Rendimento")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("ValorTotal")
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<DateTime>("Vencimento")
@@ -97,6 +106,9 @@ namespace GestaoPortfolioInvestimento.Migrations
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("ValorCota")
+                        .HasColumnType("decimal(65,30)");
+
                     b.HasKey("ID");
 
                     b.ToTable("ProdutosFinanceiros");
@@ -119,6 +131,9 @@ namespace GestaoPortfolioInvestimento.Migrations
 
                     b.Property<int>("TipoTransacao")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<decimal>("ValorUnitario")
                         .HasColumnType("decimal(65,30)");

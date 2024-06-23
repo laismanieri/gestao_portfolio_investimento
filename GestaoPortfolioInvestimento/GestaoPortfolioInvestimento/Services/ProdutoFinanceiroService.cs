@@ -27,7 +27,8 @@ namespace GestaoPortfolioInvestimento.Services
             {
                 Nome = produtoFinanceiroDto.Nome,
                 Tipo = produtoFinanceiroDto.Tipo,   
-                TaxaRetorno = produtoFinanceiroDto.TaxaRetorno
+                TaxaRetorno = produtoFinanceiroDto.TaxaRetorno,
+                ValorCota = produtoFinanceiroDto.ValorCota
             };
 
             _context.ProdutosFinanceiros.Add(novoProdutoFinanceiroDto);

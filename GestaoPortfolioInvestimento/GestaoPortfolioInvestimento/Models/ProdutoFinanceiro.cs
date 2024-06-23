@@ -16,6 +16,9 @@ namespace GestaoPortfolioInvestimento.Models
         [Required(ErrorMessage = "O tipo do produto financeiro é obrigatório.")]
         public TipoProdutoFinanceiro Tipo { get; set; }
 
+        [Required(ErrorMessage = "O valor do produto financeiro é obrigatório.")]
+        public decimal ValorCota  { get; set; }
+
         [Required(ErrorMessage = "A taxa de retorno do produto financeiro é obrigatório.")]
         public decimal TaxaRetorno { get; set; }
 

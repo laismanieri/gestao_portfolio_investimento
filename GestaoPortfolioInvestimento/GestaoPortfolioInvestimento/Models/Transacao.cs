@@ -14,6 +14,8 @@ namespace GestaoPortfolioInvestimento.Models
         public DateTime Data { get; set; }
         public decimal ValorUnitario { get; set; }
 
+        public decimal ValorTotal { get; set; }
+
         public TipoTransacao TipoTransacao { get; set; }
 
         // Relacionamento
