@@ -192,6 +192,22 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterExtratoPorClienteIdPdf",
+    "RelativePath": "api/Investimento/extrato/{clienteId}/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "AtualizarInvestimentoVenda",
     "RelativePath": "api/Investimento/venda/{id}",
     "HttpMethod": "PUT",

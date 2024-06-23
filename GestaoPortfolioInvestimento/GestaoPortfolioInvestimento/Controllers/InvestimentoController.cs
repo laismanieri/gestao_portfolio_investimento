@@ -15,10 +15,12 @@ namespace GestaoPortfolioInvestimento.Controllers
     {
 
         private readonly IInvestimento _investimento;
+        private readonly ExtratoService _extratoPdf;
 
-        public InvestimentoController(IInvestimento investimento)
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
         {
             _investimento = investimento;
+            _extratoPdf = extratoPdf;
         }
 
 
@@ -64,6 +66,25 @@ namespace GestaoPortfolioInvestimento.Controllers
             {
                 var extrato = _investimento.ObterExtratoPorClienteId(clienteId);
                 return Ok(extrato);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("extrato/{clienteId}/pdf")]
+        public IActionResult ObterExtratoPorClienteIdPdf(int clienteId)
+        {
+            try
+            {
+                var extrato = _investimento.ObterExtratoPorClienteId(clienteId);
+                var pdfBytes = _extratoPdf.GerarExtratoPdf(extrato);
+                return File(pdfBytes, "application/pdf", "extrato.pdf");
             }
             catch (KeyNotFoundException ex)
             {

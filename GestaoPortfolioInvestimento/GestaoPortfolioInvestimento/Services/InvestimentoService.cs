@@ -150,7 +150,7 @@ namespace GestaoPortfolioInvestimento.Services
             return investimentos;
         }
 
-        public ExtratoDTO ObterExtratoPorClienteId(int clienteId)
+        public ExtratoClienteDTO ObterExtratoPorClienteId(int clienteId)
         {
             var cliente = _context.Clientes.Include(c => c.Investimentos)
                                             .ThenInclude(i => i.ProdutoFinanceiro)
@@ -163,17 +163,19 @@ namespace GestaoPortfolioInvestimento.Services
                 throw new KeyNotFoundException("Cliente não encontrado");
             }
 
-            var extrato = new ExtratoDTO
+            var extrato = new ExtratoClienteDTO
             {
                 ClienteID = cliente.ID,
                 ClienteNome = cliente.Nome,
                 Investimentos = cliente.Investimentos.Select(i => new InvestimentoDetalheDTO
                 {
                     ProdutoFinanceiroNome = i.ProdutoFinanceiro.Nome,
+                    Tipo = i.ProdutoFinanceiro.Tipo,
                     Quantidade = i.Quantidade,
                     ValorTotal = i.ValorTotal,
                     DataAdesao = i.DataAdesao,
                     DataVenda = i.DataVenda,
+                    Vencimento = i.Vencimento,
                     Rendimento = i.Rendimento,
                     Transacoes = i.Transacoes.Select(t => new TransacaoDTO
                     {

@@ -11,7 +11,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public List<Investimento> ObterInvestimentoPorClienteId(int id);
 
-        public ExtratoDTO ObterExtratoPorClienteId(int clienteId);
+        public ExtratoClienteDTO ObterExtratoPorClienteId(int clienteId);
 
         public List<Investimento> ObterTodosInvestimentos(int skip, int take);
 
