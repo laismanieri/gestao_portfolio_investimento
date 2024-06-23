@@ -112,6 +112,22 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterInvestimentoPorClienteId",
+    "RelativePath": "api/Investimento/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "ObterInvestimentoPorId",
     "RelativePath": "api/Investimento/{id}",
     "HttpMethod": "GET",
@@ -160,7 +176,7 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "ObterInvestimentoPorClienteId",
+    "Method": "ObterExtratoPorClienteId",
     "RelativePath": "api/Investimento/extrato/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,

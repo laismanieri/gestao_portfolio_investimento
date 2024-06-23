@@ -43,7 +43,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/{clienteId}")]
+        [HttpGet("{clienteId}")]
         public IActionResult ObterInvestimentoPorClienteId(int clienteId)
         {
             try
@@ -54,6 +54,24 @@ namespace GestaoPortfolioInvestimento.Controllers
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpGet("extrato/{clienteId}")]
+        public IActionResult ObterExtratoPorClienteId(int clienteId)
+        {
+            try
+            {
+                var extrato = _investimento.ObterExtratoPorClienteId(clienteId);
+                return Ok(extrato);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
 

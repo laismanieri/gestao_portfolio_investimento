@@ -150,6 +150,44 @@ namespace GestaoPortfolioInvestimento.Services
             return investimentos;
         }
 
+        public ExtratoDTO ObterExtratoPorClienteId(int clienteId)
+        {
+            var cliente = _context.Clientes.Include(c => c.Investimentos)
+                                            .ThenInclude(i => i.ProdutoFinanceiro)
+                                            .Include(c => c.Investimentos)
+                                            .ThenInclude(i => i.Transacoes)
+                                            .FirstOrDefault(c => c.ID == clienteId);
+
+            if (cliente == null)
+            {
+                throw new KeyNotFoundException("Cliente não encontrado");
+            }
+
+            var extrato = new ExtratoDTO
+            {
+                ClienteID = cliente.ID,
+                ClienteNome = cliente.Nome,
+                Investimentos = cliente.Investimentos.Select(i => new InvestimentoDetalheDTO
+                {
+                    ProdutoFinanceiroNome = i.ProdutoFinanceiro.Nome,
+                    Quantidade = i.Quantidade,
+                    ValorTotal = i.ValorTotal,
+                    DataAdesao = i.DataAdesao,
+                    DataVenda = i.DataVenda,
+                    Rendimento = i.Rendimento,
+                    Transacoes = i.Transacoes.Select(t => new TransacaoDTO
+                    {
+                        Data = t.Data,
+                        TipoTransacao = t.TipoTransacao,
+                        Quantidade = t.Quantidade,
+                        ValorTotal = t.ValorTotal
+                    }).ToList()
+                }).ToList()
+            };
+
+            return extrato;
+        }
+
         public Investimento ObterInvestimentoPorId(int id)
         {
             var investimento = _context.Investimentos.FirstOrDefault(i => i.ID == id);
