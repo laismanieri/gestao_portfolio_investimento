@@ -254,6 +254,7 @@ namespace GestaoPortfolioInvestimento.Services
                     ID = i.ID,
                     ClienteID = i.ClienteID,
                     ClienteNome = i.Cliente.Nome,
+                    ClienteEmail = i.Cliente.Email,
                     ProdutoFinanceiroID = i.ProdutoFinanceiroID,
                     ProdutoFinanceiroNome = i.ProdutoFinanceiro.Nome,
                     Tipo = i.ProdutoFinanceiro.Tipo,

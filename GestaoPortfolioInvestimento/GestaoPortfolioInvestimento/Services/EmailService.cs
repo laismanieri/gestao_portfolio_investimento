@@ -27,14 +27,23 @@ namespace GestaoPortfolioInvestimento.Services
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Investimentos com Vencimento Próximo:");
+            sb.AppendLine("");
 
             foreach (var investimentos in investimentosPorCliente.Values)
             {
                 foreach (var investimento in investimentos)
                 {
                     sb.AppendLine($"Cliente: {investimento.ClienteNome}");
+                    sb.AppendLine($"Email: {investimento.ClienteEmail}");
                     sb.AppendLine($"Produto Financeiro: {investimento.ProdutoFinanceiroNome}");
-                    // Adicione outras informações do investimento conforme necessário
+                    sb.AppendLine($"Tipo do Produto Financeiro: {investimento.Tipo}");
+                    sb.AppendLine($"Quantidade: {investimento.Quantidade}");
+                    sb.AppendLine($"Valor Total: {investimento.ValorTotal}");
+                    sb.AppendLine($"Data de Adesão: {investimento.DataAdesao}");
+                    sb.AppendLine($"Data de Vencimento: {investimento.Vencimento}");
+                    sb.AppendLine($"Taxa de Retorno: {investimento.TaxaRetorno}");
+                    sb.AppendLine($"Rendimento: {investimento.Rendimento}");
+
                     sb.AppendLine();
                 }
             }
