@@ -18,11 +18,13 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         private readonly IInvestimento _investimento;
         private readonly ExtratoService _extratoPdf;
+        private readonly EmailService _email;
 
-        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf, EmailService email)
         {
             _investimento = investimento;
             _extratoPdf = extratoPdf;
+            _email = email;
         }
 
 
@@ -138,7 +140,6 @@ namespace GestaoPortfolioInvestimento.Controllers
                 return StatusCode(500, $"Erro ao gerar o extrato em PDF: {ex.Message}");
             }
         }
-
 
 
         [HttpPost("compra")]
