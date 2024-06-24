@@ -1,0 +1,377 @@
+[
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "ObterTodosClientes",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "AdicionarCliente",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ClienteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "ObterClientePorId",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "AtualizarCliente",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cliente",
+        "Type": "GestaoPortfolioInvestimento.Models.Cliente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ClienteController",
+    "Method": "RemoverCliente",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterTodosInvestimentos",
+    "RelativePath": "api/Investimento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterInvestimentoPorClienteId",
+    "RelativePath": "api/Investimento/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterInvestimentoPorId",
+    "RelativePath": "api/Investimento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "RemoverInvestimento",
+    "RelativePath": "api/Investimento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "AdicionarInvestimento",
+    "RelativePath": "api/Investimento/compra",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "investimentoDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.InvestimentoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterExtratoPorClienteId",
+    "RelativePath": "api/Investimento/extrato/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterExtratoPorClienteIdPdf",
+    "RelativePath": "api/Investimento/extrato/{clienteId}/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ListarInvestimentosPorProdutoFinanceiro",
+    "RelativePath": "api/Investimento/por-produto-financeiro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "GerarExtratoProdutoFinanceiroPDF",
+    "RelativePath": "api/Investimento/produto-financeiro-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "AtualizarInvestimentoVenda",
+    "RelativePath": "api/Investimento/venda/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "vendaDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.VendaInvestimentoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "ObterTodosProdutosFinanceiros",
+    "RelativePath": "api/ProdutoFinanceiro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "AdicionarProdutoFinanceiro",
+    "RelativePath": "api/ProdutoFinanceiro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produtoFinanceiroDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ProdutoFinanceiroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "ObterProdutoFinanceiroPorId",
+    "RelativePath": "api/ProdutoFinanceiro/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "AtualizarProdutoFinanceiro",
+    "RelativePath": "api/ProdutoFinanceiro/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "produtoFinanceiro",
+        "Type": "GestaoPortfolioInvestimento.Models.ProdutoFinanceiro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.ProdutoFinanceiroController",
+    "Method": "RemoverProdutoFinanceiro",
+    "RelativePath": "api/ProdutoFinanceiro/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.TransacaoController",
+    "Method": "ObterTodosTransacaos",
+    "RelativePath": "api/Transacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.TransacaoController",
+    "Method": "ObtertransacaoPorId",
+    "RelativePath": "api/Transacao/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
