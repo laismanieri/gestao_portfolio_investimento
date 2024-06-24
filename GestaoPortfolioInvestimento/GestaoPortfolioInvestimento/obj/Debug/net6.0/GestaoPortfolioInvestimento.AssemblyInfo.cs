@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestaoPortfolioInvestimento")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7539f77ef85aad829afd5b75f487cc07739a6cb6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38758d5f84e4038aba04a99329c4adbf9b6fead6")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestaoPortfolioInvestimento")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestaoPortfolioInvestimento")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
