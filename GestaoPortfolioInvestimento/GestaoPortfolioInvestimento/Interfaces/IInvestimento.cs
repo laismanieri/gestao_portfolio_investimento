@@ -1,5 +1,6 @@
 ﻿using GestaoPortfolioInvestimento.DTO;
 using GestaoPortfolioInvestimento.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoPortfolioInvestimento.Interfaces
 {
