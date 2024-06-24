@@ -234,6 +234,22 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ListarInvestimentosVencimentoProximo",
+    "RelativePath": "api/Investimento/vencimento-proximo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dias",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "AtualizarInvestimentoVenda",
     "RelativePath": "api/Investimento/venda/{id}",
     "HttpMethod": "PUT",

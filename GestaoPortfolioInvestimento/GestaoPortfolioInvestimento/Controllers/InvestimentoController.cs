@@ -18,13 +18,11 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         private readonly IInvestimento _investimento;
         private readonly ExtratoService _extratoPdf;
-        private readonly EmailService _email;
 
-        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf, EmailService email)
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
         {
             _investimento = investimento;
             _extratoPdf = extratoPdf;
-            _email = email;
         }
 
 
@@ -138,6 +136,27 @@ namespace GestaoPortfolioInvestimento.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"Erro ao gerar o extrato em PDF: {ex.Message}");
+            }
+        }
+
+        [HttpGet("vencimento-proximo")]
+        public IActionResult ListarInvestimentosVencimentoProximo([FromQuery] int dias = 10)
+        {
+            try
+            {
+                var investimentosAgrupados = _investimento.ListarInvestimentosVencimentoProximo(dias);
+
+                var options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    // outras opções, se necessário
+                };
+
+                return Ok(JsonSerializer.Serialize(investimentosAgrupados, options));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao listar os investimentos com vencimento próximo: {ex.Message}");
             }
         }
 
