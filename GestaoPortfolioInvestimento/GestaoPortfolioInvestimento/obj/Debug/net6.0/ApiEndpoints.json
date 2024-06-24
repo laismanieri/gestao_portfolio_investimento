@@ -235,7 +235,7 @@
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "ListarInvestimentosVencimentoProximo",
-    "RelativePath": "api/Investimento/vencimento-proximo",
+    "RelativePath": "api/Investimento/investimentos-vencimento-proximo/{dias}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -243,7 +243,7 @@
       {
         "Name": "dias",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

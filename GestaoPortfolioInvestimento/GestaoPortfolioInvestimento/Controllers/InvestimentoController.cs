@@ -18,11 +18,13 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         private readonly IInvestimento _investimento;
         private readonly ExtratoService _extratoPdf;
+        private readonly EmailService _email;
 
-        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf, EmailService email)
         {
             _investimento = investimento;
             _extratoPdf = extratoPdf;
+            _email = email;
         }
 
 
@@ -139,26 +141,44 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("vencimento-proximo")]
-        public IActionResult ListarInvestimentosVencimentoProximo([FromQuery] int dias = 10)
+        //[HttpGet("vencimento-proximo")]
+        //public IActionResult ListarInvestimentosVencimentoProximo([FromQuery] int dias = 10)
+        //{
+        //    try
+        //    {
+        //        var investimentosAgrupados = _investimento.ListarInvestimentosVencimentoProximo(dias);
+
+        //        var options = new JsonSerializerOptions
+        //        {
+        //            ReferenceHandler = ReferenceHandler.Preserve,
+        //            // outras opções, se necessário
+        //        };
+
+        //        return Ok(JsonSerializer.Serialize(investimentosAgrupados, options));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Erro ao listar os investimentos com vencimento próximo: {ex.Message}");
+        //    }
+
+
+        //}
+
+        [HttpGet("investimentos-vencimento-proximo/{dias}")]
+        public async Task<IActionResult> ListarInvestimentosVencimentoProximo(int dias)
         {
             try
             {
-                var investimentosAgrupados = _investimento.ListarInvestimentosVencimentoProximo(dias);
-
-                var options = new JsonSerializerOptions
-                {
-                    ReferenceHandler = ReferenceHandler.Preserve,
-                    // outras opções, se necessário
-                };
-
-                return Ok(JsonSerializer.Serialize(investimentosAgrupados, options));
+                var investimentosPorCliente = _investimento.ListarInvestimentosVencimentoProximo(dias);
+                await _email.EnviarEmailInvestimentosVencimentoProximoAsync(investimentosPorCliente, "laismanieri@alunos.utfpr.edu.br");
+                return Ok("E-mail enviado com sucesso.");
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Erro ao listar os investimentos com vencimento próximo: {ex.Message}");
+                return StatusCode(500, $"Erro ao enviar e-mail: {ex.Message}");
             }
         }
+
 
 
         [HttpPost("compra")]

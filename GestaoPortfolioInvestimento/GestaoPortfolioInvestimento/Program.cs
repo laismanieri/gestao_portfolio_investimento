@@ -26,6 +26,7 @@ builder.Services.AddScoped<IInvestimento, InvestimentoService>();
 builder.Services.AddScoped<IProdutoFinanceiro, ProdutoFinanceiroService>();
 builder.Services.AddScoped<ITransacao, TransacaoService>();
 builder.Services.AddTransient<ExtratoService>();
+builder.Services.AddTransient<EmailService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
