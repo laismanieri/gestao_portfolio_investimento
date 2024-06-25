@@ -30,7 +30,7 @@ namespace GestaoPortfolioInvestimento.Jobs
             var trigger = TriggerBuilder.Create()
                 .WithIdentity("EnviarEmailTrigger", "group1")
                 .StartNow()
-                .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(9, 0)) // Executa diariamente às 9:00 AM
+                .WithCronSchedule("0 02 19 * * ?") // Executa diariamente às 9:00 AM
                 .Build();
 
             await _scheduler.ScheduleJob(job, trigger, cancellationToken);
