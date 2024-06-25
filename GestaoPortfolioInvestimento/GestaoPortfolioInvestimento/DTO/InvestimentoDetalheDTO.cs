@@ -5,9 +5,12 @@ namespace GestaoPortfolioInvestimento.DTO
     public class InvestimentoDetalheDTO
     {
         public int ID { get; set; }
-        public string ProdutoFinanceiroNome { get; set; }
+        public int ClienteID { get; set; }
+        public string ClienteNome { get; set; }
 
+        public string ClienteEmail { get; set; }
         public int ProdutoFinanceiroID { get; set; }
+        public string ProdutoFinanceiroNome { get; set; }
         public TipoProdutoFinanceiro Tipo { get; set; }
         public int Quantidade { get; set; }
         public decimal ValorTotal { get; set; }

@@ -59,21 +59,20 @@ namespace GestaoPortfolioInvestimento.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizarCliente(int id, [FromBody] Cliente cliente)
+        public IActionResult AtualizarCliente(int id, [FromBody] ClienteDTO clienteDto)
         {
-            if (id != cliente.ID)
-            {
-                return BadRequest("ID do cliente não encontrado");
-            }
-
             try
             {
-                _cliente.AtualizarCliente(cliente);
+                _cliente.AtualizarCliente(id, clienteDto);
                 return NoContent();
             }
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
 

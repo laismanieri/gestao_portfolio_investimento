@@ -24,7 +24,7 @@ namespace GestaoPortfolioInvestimento.Services
 
             if (transacao == null)
             {
-                throw new KeyNotFoundException($"Transação com ID {transacao.ID} não encontrado.");
+                throw new KeyNotFoundException($"Transação com ID {id} não encontrado.");
             }
             return transacao;
         }

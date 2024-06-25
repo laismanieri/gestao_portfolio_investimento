@@ -2118,6 +2118,23 @@
           }
         }
       },
+      "Quartz/3.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
+          "System.Configuration.ConfigurationManager": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/Quartz.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Quartz.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -2632,7 +2649,7 @@
           "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
         }
       },
-      "System.Configuration.ConfigurationManager/6.0.0": {
+      "System.Configuration.ConfigurationManager/6.0.1": {
         "type": "package",
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -7210,6 +7227,27 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
+    "Quartz/3.9.0": {
+      "sha512": "vfdug3lRbLYagkrOkeSKqmfT8pBLPY7c/qUsbif+qAJXVkmRQvDbF83fRAK4vzrfz07uDuPJQD+HbIWuliGKiQ==",
+      "type": "package",
+      "path": "quartz/3.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Quartz.dll",
+        "lib/net462/Quartz.xml",
+        "lib/net472/Quartz.dll",
+        "lib/net472/Quartz.xml",
+        "lib/net6.0/Quartz.dll",
+        "lib/net6.0/Quartz.xml",
+        "lib/netstandard2.0/Quartz.dll",
+        "lib/netstandard2.0/Quartz.xml",
+        "quartz-logo-small.png",
+        "quartz.3.9.0.nupkg.sha512",
+        "quartz.nuspec",
+        "quick-start.md"
+      ]
+    },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "sha512": "HdSSp5MnJSsg08KMfZThpuLPJpPwE5hBXvHwoKWosyHHfe8Mh5WKT0ylEOf6yNzX6Ngjxe4Whkafh5q7Ymac4Q==",
       "type": "package",
@@ -8002,10 +8040,10 @@
         "system.composition.typedparts.nuspec"
       ]
     },
-    "System.Configuration.ConfigurationManager/6.0.0": {
-      "sha512": "7T+m0kDSlIPTHIkPMIu6m6tV6qsMqJpvQWW2jIc2qi7sn40qxFo0q+7mEQAhMPXZHMKnWrnv47ntGlM/ejvw3g==",
+    "System.Configuration.ConfigurationManager/6.0.1": {
+      "sha512": "jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
       "type": "package",
-      "path": "system.configuration.configurationmanager/6.0.0",
+      "path": "system.configuration.configurationmanager/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8022,7 +8060,7 @@
         "lib/netstandard2.0/System.Configuration.ConfigurationManager.xml",
         "runtimes/win/lib/net461/System.Configuration.ConfigurationManager.dll",
         "runtimes/win/lib/net461/System.Configuration.ConfigurationManager.xml",
-        "system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+        "system.configuration.configurationmanager.6.0.1.nupkg.sha512",
         "system.configuration.configurationmanager.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -11497,6 +11535,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.29",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "Pomelo.EntityFrameworkCore.MySql >= 6.0.2",
+      "Quartz >= 3.9.0",
       "SendGrid >= 9.29.3",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "iTextSharp.LGPLv2.Core >= 3.4.20"
@@ -11574,6 +11613,10 @@
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[6.0.2, )"
+          },
+          "Quartz": {
+            "target": "Package",
+            "version": "[3.9.0, )"
           },
           "SendGrid": {
             "target": "Package",

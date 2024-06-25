@@ -18,13 +18,13 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         private readonly IInvestimento _investimento;
         private readonly ExtratoService _extratoPdf;
-        private readonly EmailService _email;
 
-        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf, EmailService email)
+
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
         {
             _investimento = investimento;
             _extratoPdf = extratoPdf;
-            _email = email;
+
         }
 
 
@@ -49,7 +49,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("{clienteId}")]
+        [HttpGet("cliente/{clienteId}")]
         public IActionResult ObterInvestimentoPorClienteId(int clienteId)
         {
             try
@@ -81,7 +81,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/{clienteId}/pdf")]
+        [HttpGet("extrato-pdf/{clienteId}")]
         public IActionResult ObterExtratoPorClienteIdPdf(int clienteId)
         {
             try
@@ -100,7 +100,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato /{produtoId}")]
+        [HttpGet("extrato-produto")]
         public IActionResult ListarInvestimentosPorProdutoFinanceiro()
         {
             try
@@ -121,7 +121,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/produto-financeiro-pdf")]
+        [HttpGet("extrato-produto-pdf")]
         public IActionResult GerarExtratoProdutoFinanceiroPDF()
         {
             try
@@ -140,6 +140,45 @@ namespace GestaoPortfolioInvestimento.Controllers
                 return StatusCode(500, $"Erro ao gerar o extrato em PDF: {ex.Message}");
             }
         }
+
+        //[HttpGet("vencimento-proximo")]
+        //public IActionResult ListarInvestimentosVencimentoProximo([FromQuery] int dias = 10)
+        //{
+        //    try
+        //    {
+        //        var investimentosAgrupados = _investimento.ListarInvestimentosVencimentoProximo(dias);
+
+        //        var options = new JsonSerializerOptions
+        //        {
+        //            ReferenceHandler = ReferenceHandler.Preserve,
+        //            // outras opções, se necessário
+        //        };
+
+        //        return Ok(JsonSerializer.Serialize(investimentosAgrupados, options));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Erro ao listar os investimentos com vencimento próximo: {ex.Message}");
+        //    }
+
+
+        //}
+
+        //[HttpGet("investimentos-vencimento-proximo/{dias}")]
+        //public async Task<IActionResult> ListarInvestimentosVencimentoProximo(int dias)
+        //{
+        //    try
+        //    {
+        //        var investimentosPorCliente = _investimento.ListarInvestimentosVencimentoProximo(dias);
+        //        await _email.EnviarEmailInvestimentosVencimentoProximoAsync(investimentosPorCliente, "laismanieri@alunos.utfpr.edu.br");
+        //        return Ok("E-mail enviado com sucesso.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Erro ao enviar e-mail: {ex.Message}");
+        //    }
+        //}
+
 
 
         [HttpPost("compra")]

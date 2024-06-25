@@ -42,7 +42,6 @@ namespace GestaoPortfolioInvestimento.Services
                 Prazo = investimentoDto.Prazo,
                 Quantidade = investimentoDto.Quantidade,
                 DataAdesao = investimentoDto.DataAdesao,
-                DataVenda = DateTime.Now, // Deixe a data de venda como nula
                 Vencimento = investimentoDto.DataAdesao.AddDays(investimentoDto.Prazo % 365), // Usar o resto da divisão por 365 para evitar estouro do limite de datas
                 ValorTotal = 0, // Deixe o valor total como zero
                 Rendimento = 0
@@ -196,7 +195,7 @@ namespace GestaoPortfolioInvestimento.Services
 
             if (investimento == null)
             {
-                throw new KeyNotFoundException($"Investimento com ID {investimento.ID} não encontrado.");
+                throw new KeyNotFoundException($"Investimento com ID {id} não encontrado.");
             }
             return investimento;
         }
@@ -240,5 +239,41 @@ namespace GestaoPortfolioInvestimento.Services
 
             return investimentosAgrupados;
         }
+
+        public Dictionary<int, List<InvestimentoDetalheDTO>> ListarInvestimentosVencimentoProximo(int dias)
+        {
+            DateTime dataLimite = DateTime.Now.AddDays(dias);
+
+            var investimentos = _context.Investimentos
+                .Include(i => i.ProdutoFinanceiro)
+                .Include(i => i.Cliente)
+                .Where(i => i.Vencimento <= dataLimite)
+                .Select(i => new InvestimentoDetalheDTO
+                {
+                    ID = i.ID,
+                    ClienteID = i.ClienteID,
+                    ClienteNome = i.Cliente.Nome,
+                    ClienteEmail = i.Cliente.Email,
+                    ProdutoFinanceiroID = i.ProdutoFinanceiroID,
+                    ProdutoFinanceiroNome = i.ProdutoFinanceiro.Nome,
+                    Tipo = i.ProdutoFinanceiro.Tipo,
+                    Quantidade = i.Quantidade,
+                    ValorTotal = i.ValorTotal,
+                    DataAdesao = i.DataAdesao,
+                    DataVenda = i.DataVenda,
+                    Vencimento = i.Vencimento,
+                    TaxaRetorno = i.ProdutoFinanceiro.TaxaRetorno,
+                    Rendimento = i.Rendimento
+                })
+                .ToList();
+
+            // Agrupar os investimentos por ID do cliente
+            var investimentosAgrupados = investimentos
+                .GroupBy(i => i.ClienteID)
+                .ToDictionary(g => g.Key, g => g.ToList());
+
+            return investimentosAgrupados;
+        }
+
     }
 }

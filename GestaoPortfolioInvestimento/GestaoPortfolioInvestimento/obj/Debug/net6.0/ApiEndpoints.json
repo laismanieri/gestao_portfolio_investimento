@@ -66,8 +66,8 @@
         "IsRequired": true
       },
       {
-        "Name": "cliente",
-        "Type": "GestaoPortfolioInvestimento.Models.Cliente",
+        "Name": "clienteDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ClienteDTO",
         "IsRequired": true
       }
     ],
@@ -112,22 +112,6 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "ObterInvestimentoPorClienteId",
-    "RelativePath": "api/Investimento/{clienteId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "clienteId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "ObterInvestimentoPorId",
     "RelativePath": "api/Investimento/{id}",
     "HttpMethod": "GET",
@@ -160,6 +144,22 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterInvestimentoPorClienteId",
+    "RelativePath": "api/Investimento/cliente/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "AdicionarInvestimento",
     "RelativePath": "api/Investimento/compra",
     "HttpMethod": "POST",
@@ -176,18 +176,38 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "ListarInvestimentosPorProdutoFinanceiro",
-    "RelativePath": "api/Investimento/extrato /{produtoId}",
+    "Method": "ObterExtratoPorClienteIdPdf",
+    "RelativePath": "api/Investimento/extrato-pdf/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "produtoId",
-        "Type": "",
+        "Name": "clienteId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ListarInvestimentosPorProdutoFinanceiro",
+    "RelativePath": "api/Investimento/extrato-produto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "GerarExtratoProdutoFinanceiroPDF",
+    "RelativePath": "api/Investimento/extrato-produto-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -204,32 +224,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "ObterExtratoPorClienteIdPdf",
-    "RelativePath": "api/Investimento/extrato/{clienteId}/pdf",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "clienteId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "GerarExtratoProdutoFinanceiroPDF",
-    "RelativePath": "api/Investimento/extrato/produto-financeiro-pdf",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -320,8 +314,8 @@
         "IsRequired": true
       },
       {
-        "Name": "produtoFinanceiro",
-        "Type": "GestaoPortfolioInvestimento.Models.ProdutoFinanceiro",
+        "Name": "produtoFinanceiroDto",
+        "Type": "GestaoPortfolioInvestimento.DTO.ProdutoFinanceiroDTO",
         "IsRequired": true
       }
     ],

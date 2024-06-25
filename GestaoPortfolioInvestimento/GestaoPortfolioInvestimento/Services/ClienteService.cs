@@ -51,10 +51,21 @@ namespace GestaoPortfolioInvestimento.Services
             return _context.Clientes.Skip(skip).Take(take).ToList();
         }
 
-        public void AtualizarCliente(Cliente cliente)
+        public void AtualizarCliente(int id, ClienteDTO clienteDto)
         {
-            _context.Entry(cliente).State = EntityState.Modified;
+            var cliente = _context.Clientes.Find(id);
+            if (cliente == null)
+            {
+                throw new KeyNotFoundException("Cliente não encontrado");
+            }
+
+            cliente.Nome = clienteDto.Nome;
+            cliente.Email = clienteDto.Email;
+            cliente.DataNascimento = clienteDto.DataNascimento;
+            cliente.Endereco = clienteDto.Endereco;
+
             _context.SaveChanges();
+
         }
 
         public void RemoverCliente(int id)
