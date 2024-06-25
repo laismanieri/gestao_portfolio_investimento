@@ -105,7 +105,7 @@
 ---  
 
 
-# Documentação de Dependências do Projeto
+## Documentação de Dependências do Projeto
 É dependência é um componente externo ou biblioteca que um projeto de software precisa para funcionar corretamente. Essas dependências fornecem funcionalidades adicionais que não estão incluídas no código principal do projeto.
 Este documento explica cada dependência utilizada no projeto e como instalá-las através do NuGet no Visual Studio Code.
 
@@ -186,6 +186,28 @@ Passo a Passo
 5. Aceite os termos de licença, se solicitado:
             Repita os passos de 3 a 4 para cada dependência listada abaixo.
 
+---
+
+  ## ⚙️ Configuração das Variáveis de Ambiente para o SendGrid
+
+Passo a Passo
+1. Crie uma Conta no SendGrid:
+            Acesse o site do SendGrid e crie uma conta se você ainda não tiver uma.
+2. Obtenha sua Chave de API do SendGrid:
+            Faça login na sua conta do SendGrid.
+            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
+            Crie uma nova chave de API ou copie uma chave existente.
+3. Procurar Pacotes:
+            Faça login na sua conta do SendGrid.
+            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
+            Crie uma nova chave de API ou copie uma chave existente.
+4. Defina a Variável de Ambiente no seu Sistema:     
+            No código da sua aplicação, você pode acessar essa variável de ambiente para obter a chave de API do SendGrid.
+            Dependendo da linguagem de programação e do framework que você está utilizando, pode haver diferentes maneiras de acessar variáveis de ambiente. No entanto, a maioria das linguagens oferece uma maneira de fazer isso de forma simples e direta.
+5. Teste a Configuração:
+            Depois de configurar a variável de ambiente, teste sua aplicação para garantir que ela esteja usando a chave de API do SendGrid corretamente.
+            Você pode enviar e-mails de teste para verificar se o envio está funcionando conforme esperado.
+   
 ---
 
   ## ⚙️ Funcionalidades
