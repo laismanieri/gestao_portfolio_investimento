@@ -21,7 +21,6 @@
   -   **Postman (Opcional):** Para testar as APIs, você pode usar o Postman. Ele pode ser baixado **[aqui](https://www.postman.com/downloads/)**
  ---
 
-
  ## 🛠 Configuração do Ambiente de Desenvolvimento:
   
   1. Instale o Visual Studio ou Visual Studio Code.
@@ -69,7 +68,10 @@
 
   9. Documentação Adicional:
       Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
-    
+
+---
+
+<div align="justify"> 
 ## 🛠 Tecnologias
   
   -   Linguagem de Programação C#: A aplicação é desenvolvida principalmente em C#, que é uma linguagem de programação moderna, orientada a objetos e fortemente tipada, amplamente utilizada para desenvolvimento de aplicativos na plataforma .NET.
@@ -101,7 +103,7 @@
 </div>
   
 ---  
-<div align="justify"> 
+
 
 # Documentação de Dependências do Projeto
 É dependência é um componente externo ou biblioteca que um projeto de software precisa para funcionar corretamente. Essas dependências fornecem funcionalidades adicionais que não estão incluídas no código principal do projeto.
