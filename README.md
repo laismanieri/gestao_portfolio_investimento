@@ -1,7 +1,7 @@
 # Documentação do Sistema de Gestão de Portfólio de Investimentos
 
 <p align="center">
-      <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellowgreen"/>
+      <img src="https://img.shields.io/badge/Status-%20Concuído-green"/>
       <a href="https://github.com/laismanieri">
         <img alt="Feito por Lais Manieri" src="https://img.shields.io/badge/feito%20por-laismanieri-yellow">
       </a>
