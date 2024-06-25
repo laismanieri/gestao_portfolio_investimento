@@ -11,9 +11,17 @@
 
   ## 💻 Sobre o projeto
   
-  <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema.
+  <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema. </p>
+
+---
+
+  ## Gerenciamento de Projeto no Trello
   
-  ---
+  <p align="justify"> O Trello é uma ferramenta de gerenciamento de projetos baseada em quadros, que permite organizar tarefas e colaborar de forma eficiente. Utilizando o conceito de quadros, listas e cartões, o Trello permite que os usuários visualizem o progresso do projeto de forma intuitiva, movendo cartões entre listas para indicar o status das tarefas. Ele oferece recursos como atribuição de tarefas, prazos, checklists, comentários e integrações com outras ferramentas, tornando-o uma escolha popular para equipes de desenvolvimento de software, negócios, educação e muito mais. </p>
+
+**[Aqui está o quadro no Trello](https://trello.com/b/QqUd7HxG/sistema-de-gestao-de-portfolio-de-investimentos)**
+
+---
  ### Pré-requisitos 
   Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
   -   **SDK .NET Core:** Certifique-se de ter o SDK .NET Core instalado em sua máquina. Você pode baixá-lo **[aqui](https://dotnet.microsoft.com/pt-br/download)** 
@@ -21,63 +29,57 @@
   -   **Postman (Opcional):** Para testar as APIs, você pode usar o Postman. Ele pode ser baixado **[aqui](https://www.postman.com/downloads/)**
  ---
 
-
  ## 🛠 Configuração do Ambiente de Desenvolvimento:
   
-  1.Instale o Visual Studio ou Visual Studio Code.
+  1. Instale o Visual Studio ou Visual Studio Code.
   
   2. Clone o Repositório:      
       Clone o repositório para o seu ambiente de desenvolvimento local usando o seguinte comando:
      ```sh
      git clone https://github.com/laismanieri/gestao_portfolio_investimento.git
     
-  4. Acesse o Diretório do Projeto:    
+  3. Acesse o Diretório do Projeto:    
       Navegue até o diretório do projeto usando o terminal ou o prompt de comando:
      ```sh
      cd gestao_portfolio_investimento
     
-  6. Restaurar Dependências:
+  4. Restaurar Dependências:
       Use o comando dotnet restore para restaurar as dependências do projeto:
      ```sh
      dotnet restore
     
-  8. Executar a Aplicação:
-      Após a restauração das dependências, execute a aplicação usando o comando dotnet run:
+  5. Executar a Aplicação:
+      SQL Server: Configure a string de conexão no arquivo appsettings.json:
      ```sh
-     dotnet run
-    
-  10. Testar as APIs:
-      Se você instalou o Postman, pode usar para testar as APIs. Aqui estão os endpoints disponíveis:
-      **Local:**
-      Clientes:  
-        POST: https://localhost:7147/api/Cliente  
-        GET: https://localhost:7147/api/Cliente  
-        GET: https://localhost:7147/api/Cliente/{id}  
-        PUT: https://localhost:7147/api/Cliente/{id}  
-        DELETE: https://localhost:7147/api/Cliente/{id}  
-      
-      Investimentos:  
-        POST: https://localhost:7147/api/Investimento  
-        GET: https://localhost:7147/api/Investimento  
-        GET: https://localhost:7147/api/Investimento/{id}  
-        PUT: https://localhost:7147/api/Investimento/{id}  
-        DELETE: https://localhost:7147/api/Investimento/{id}  
-      
-      Produtos Financeiros:  
-        POST: https://localhost:7147/api/ProdutoFinanceiro  
-        GET: https://localhost:7147/api/ProdutoFinanceiro  
-        GET: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-        PUT: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-        DELETE: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-      
-      Transações:  
-        POST: https://localhost:7147/api/Transacao  
-        GET: https://localhost:7147/api/Transacao  
-        GET: https://localhost:7147/api/Transacao/{id}
+     "ConnectionStrings": {
+          "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+      }
+      ```
+     MySQL: Configure a string de conexão no arquivo appsettings.json para MySQL se estiver usando Pomelo.EntityFrameworkCore.MySql:
+     ```sh
+     "ConnectionStrings": {
+          "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+      }
+     
+ 6. Executar a Aplicação:
+      Aplique as migrações para configurar o banco de dados:
+     ```sh
+     dotnet ef database update
 
- 11. Documentação Adicional:
-      Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
+ 7. Executar a Aplicação:
+      Aplique as migrações para configurar o banco de dados:
+     ```sh
+     dotnet ef database update    
     
+  8. Testar as APIs:
+      Para testar as APIS acesse [aqui](https://github.com/laismanieri/gestao_portfolio_investimento/blob/main/GETTING_STARTED.md) a documentação de utilização.
+
+  9. Documentação Adicional:
+      Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
+
+---
+
+<div align="justify"> 
 ## 🛠 Tecnologias
   
   -   Linguagem de Programação C#: A aplicação é desenvolvida principalmente em C#, que é uma linguagem de programação moderna, orientada a objetos e fortemente tipada, amplamente utilizada para desenvolvimento de aplicativos na plataforma .NET.
@@ -97,14 +99,128 @@
   -   Visual Studio / Visual Studio Code: IDEs (Integrated Development Environments) populares utilizadas para desenvolvimento em C#, oferecendo recursos avançados de edição, depuração e compilação.
     
   -   Swagger: Uma ferramenta para documentar, testar e visualizar APIs REST de forma amigável para os desenvolvedores. Integra-se facilmente a aplicativos ASP.NET Core, gerando automaticamente uma documentação interativa para a API. O Swagger simplifica o desenvolvimento, teste e integração de APIs, tornando o processo mais eficiente e colaborativo.
+    
+  -   MySQL: Um sistema de gerenciamento de banco de dados relacional open-source amplamente utilizado para armazenar e gerenciar dados. O MySQL é conhecido por sua confiabilidade, escalabilidade e desempenho, sendo uma escolha popular para aplicativos web e empresariais.
 
   -   Git: Um sistema de controle de versão distribuído amplamente utilizado para gerenciamento de código-fonte. Permite que os desenvolvedores trabalhem colaborativamente em projetos de software, acompanhem alterações no código, revertam para versões anteriores e integrem alterações de forma eficiente. Comumente utilizado em conjunto com plataformas de hospedagem de código, como GitHub, GitLab e Bitbucket, para facilitar a colaboração e o compartilhamento de código entre equipes.
 
+---
+  ## Modelagem de banco de dados
+<div align="center">  
+      <img alt="Modelo de banco de dados" src=https://github.com/laismanieri/gestao_portfolio_investimento/assets/82177551/f6f6dfaf-1044-44a6-b956-94f91e5e4cde">
+</div>
   
 ---  
 
+
+## Documentação de Dependências do Projeto
+É dependência é um componente externo ou biblioteca que um projeto de software precisa para funcionar corretamente. Essas dependências fornecem funcionalidades adicionais que não estão incluídas no código principal do projeto.
+Este documento explica cada dependência utilizada no projeto e como instalá-las através do NuGet no Visual Studio Code.
+
+## Dependências
+### iTextSharp.LGPLv2.Core
+- **Descrição:** Biblioteca para manipulação de documentos PDF.
+- **Instalação:**
+  ```bash
+  dotnet add package iTextSharp.LGPLv2.Core --version 3.4.20
+
+### Microsoft.EntityFrameworkCore
+- **Descrição:** Provedor de acesso a dados ORM (Object-Relational Mapping) para o Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.Design
+- **Descrição:** Ferramentas de design para Entity Framework Core, incluindo scaffolding de migrações.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.SqlServer
+- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.Tools
+- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0.29
+
+### Microsoft.VisualStudio.Web.CodeGeneration.Design
+- **Descrição:** Ferramentas de geração de código para ASP.NET Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
+
+### Pomelo.EntityFrameworkCore.MySql
+- **Descrição:** Provedor de banco de dados MySQL para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
+
+### Quartz
+- **Descrição:** Biblioteca de agendamento de tarefas (job scheduling).
+- **Instalação:**
+  ```bash
+  dotnet add package Quartz --version 3.9.0
+
+### SendGrid
+- **Descrição:** Cliente para a API do SendGrid, utilizado para envio de e-mails.
+- **Instalação:**
+  ```bash
+  dotnet add package SendGrid --version 9.29.3
+
+### Swashbuckle.AspNetCore
+- **Descrição:** Gera documentação Swagger para APIs ASP.NET Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+
+## Instruções de Instalação pelo NuGet no Visual Studio Community
+Passo a Passo
+1. Abra o Visual Studio Community:
+            Inicie o Visual Studio Community e abra seu projeto
+2. Gerenciador de Pacotes NuGet:
+            Clique com o botão direito do mouse na solução ou no projeto em que deseja adicionar as dependências.
+            Selecione Gerenciar Pacotes NuGet... no menu de contexto.
+3. Procurar Pacotes:
+            No Gerenciador de Pacotes NuGet, vá até a aba Procurar.
+            No campo de pesquisa, digite o nome do pacote que deseja instalar (por exemplo, iTextSharp.LGPLv2.Core).
+4. Instalar Pacotes:      
+            Selecione o pacote correto na lista de resultados da pesquisa.
+            Clique no botão Instalar.
+5. Aceite os termos de licença, se solicitado:
+            Repita os passos de 3 a 4 para cada dependência listada abaixo.
+
+---
+
+  ## ⚙️ Configuração das Variáveis de Ambiente para o SendGrid
+
+Passo a Passo
+1. Crie uma Conta no SendGrid:
+            Acesse o site do SendGrid e crie uma conta se você ainda não tiver uma.
+2. Obtenha sua Chave de API do SendGrid:
+            Faça login na sua conta do SendGrid.
+            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
+            Crie uma nova chave de API ou copie uma chave existente.
+3. Procurar Pacotes:
+            Faça login na sua conta do SendGrid.
+            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
+            Crie uma nova chave de API ou copie uma chave existente.
+4. Defina a Variável de Ambiente no seu Sistema:     
+            No código da sua aplicação, você pode acessar essa variável de ambiente para obter a chave de API do SendGrid.
+            Dependendo da linguagem de programação e do framework que você está utilizando, pode haver diferentes maneiras de acessar variáveis de ambiente. No entanto, a maioria das linguagens oferece uma maneira de fazer isso de forma simples e direta.
+5. Teste a Configuração:
+            Depois de configurar a variável de ambiente, teste sua aplicação para garantir que ela esteja usando a chave de API do SendGrid corretamente.
+            Você pode enviar e-mails de teste para verificar se o envio está funcionando conforme esperado.
+   
+---
+
   ## ⚙️ Funcionalidades
-<div align="justify">  
+ 
+      
 :heavy_check_mark: **Cadastro de Clientes:** Permite adicionar novos clientes ao sistema. Para cada cliente, são fornecidos detalhes como nome, endereço de e-mail, data de nascimento e endereço.
 
 :heavy_check_mark: **Cadastro de Investimentos:** Permite adicionar novos investimentos ao sistema. Cada investimento está associado a um cliente e a um produto financeiro específico. Detalhes como quantidade, valor de compra e data de vencimento são fornecidos durante o cadastro.
@@ -136,6 +252,13 @@
 :heavy_check_mark: **Negociar Produto Financeiro (Compra e Venda):** Permite aos clientes comprar ou vender produtos financeiros disponíveis no sistema.
 
 :heavy_check_mark: **Extrato do Produto:** Permite visualizar um extrato detalhado de um produto financeiro específico, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Extrato do Produto (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Extrato dos Investimentos por Cliente (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Disparo de e-mail automatico:** Disparo de e-mail diario com a relação dos investimentos que estão próximos do vencimento.
+
 ## 👨‍💻 Contribuidores 
 </div>
 Backend
