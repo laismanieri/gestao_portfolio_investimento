@@ -81,7 +81,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/{clienteId}/pdf")]
+        [HttpGet("extrato-pdf/{clienteId}")]
         public IActionResult ObterExtratoPorClienteIdPdf(int clienteId)
         {
             try
@@ -100,7 +100,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/{produtoId}")]
+        [HttpGet("extrato-produto")]
         public IActionResult ListarInvestimentosPorProdutoFinanceiro()
         {
             try
@@ -121,7 +121,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato/produto-financeiro-pdf")]
+        [HttpGet("extrato-produto-pdf")]
         public IActionResult GerarExtratoProdutoFinanceiroPDF()
         {
             try

@@ -176,24 +176,8 @@
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
-    "Method": "ObterExtratoPorClienteId",
-    "RelativePath": "api/Investimento/extrato/{clienteId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "clienteId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "ObterExtratoPorClienteIdPdf",
-    "RelativePath": "api/Investimento/extrato/{clienteId}/pdf",
+    "RelativePath": "api/Investimento/extrato-pdf/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -209,27 +193,37 @@
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "ListarInvestimentosPorProdutoFinanceiro",
-    "RelativePath": "api/Investimento/extrato/{produtoId}",
+    "RelativePath": "api/Investimento/extrato-produto",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "produtoId",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
     "Method": "GerarExtratoProdutoFinanceiroPDF",
-    "RelativePath": "api/Investimento/extrato/produto-financeiro-pdf",
+    "RelativePath": "api/Investimento/extrato-produto-pdf",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPortfolioInvestimento.Controllers.InvestimentoController",
+    "Method": "ObterExtratoPorClienteId",
+    "RelativePath": "api/Investimento/extrato/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

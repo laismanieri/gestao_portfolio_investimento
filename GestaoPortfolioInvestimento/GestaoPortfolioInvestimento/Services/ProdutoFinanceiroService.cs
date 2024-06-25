@@ -57,7 +57,7 @@ namespace GestaoPortfolioInvestimento.Services
 
             if (produtoFinanceiro == null)
             {
-                throw new KeyNotFoundException($"Produto Financeiro com ID {produtoFinanceiro.ID} não encontrado.");
+                throw new KeyNotFoundException($"Produto Financeiro com ID {id} não encontrado.");
             }
             return produtoFinanceiro;
         }
