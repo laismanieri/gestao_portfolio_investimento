@@ -47,33 +47,7 @@
      dotnet run
     
   10. Testar as APIs:
-      Se você instalou o Postman, pode usar para testar as APIs. Aqui estão os endpoints disponíveis:
-      **Local:**
-      Clientes:  
-        POST: https://localhost:7147/api/Cliente  
-        GET: https://localhost:7147/api/Cliente  
-        GET: https://localhost:7147/api/Cliente/{id}  
-        PUT: https://localhost:7147/api/Cliente/{id}  
-        DELETE: https://localhost:7147/api/Cliente/{id}  
-      
-      Investimentos:  
-        POST: https://localhost:7147/api/Investimento  
-        GET: https://localhost:7147/api/Investimento  
-        GET: https://localhost:7147/api/Investimento/{id}  
-        PUT: https://localhost:7147/api/Investimento/{id}  
-        DELETE: https://localhost:7147/api/Investimento/{id}  
-      
-      Produtos Financeiros:  
-        POST: https://localhost:7147/api/ProdutoFinanceiro  
-        GET: https://localhost:7147/api/ProdutoFinanceiro  
-        GET: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-        PUT: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-        DELETE: https://localhost:7147/api/ProdutoFinanceiro/{id}  
-      
-      Transações:  
-        POST: https://localhost:7147/api/Transacao  
-        GET: https://localhost:7147/api/Transacao  
-        GET: https://localhost:7147/api/Transacao/{id}
+      Para testar as APIS acesse [aqui](https://github.com/laismanieri/gestao_portfolio_investimento/blob/main/GETTING_STARTED.md) a documentação de utilização.
 
  11. Documentação Adicional:
       Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
@@ -105,6 +79,7 @@
 
   ## ⚙️ Funcionalidades
 <div align="justify">  
+      
 :heavy_check_mark: **Cadastro de Clientes:** Permite adicionar novos clientes ao sistema. Para cada cliente, são fornecidos detalhes como nome, endereço de e-mail, data de nascimento e endereço.
 
 :heavy_check_mark: **Cadastro de Investimentos:** Permite adicionar novos investimentos ao sistema. Cada investimento está associado a um cliente e a um produto financeiro específico. Detalhes como quantidade, valor de compra e data de vencimento são fornecidos durante o cadastro.
@@ -136,6 +111,13 @@
 :heavy_check_mark: **Negociar Produto Financeiro (Compra e Venda):** Permite aos clientes comprar ou vender produtos financeiros disponíveis no sistema.
 
 :heavy_check_mark: **Extrato do Produto:** Permite visualizar um extrato detalhado de um produto financeiro específico, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Extrato do Produto (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Extrato dos Investimentos por Cliente (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+
+:heavy_check_mark: **Disparo de e-mail automatico:** Disparo de e-mail diario com a relação dos investimentos que estão próximos do vencimento.
+
 ## 👨‍💻 Contribuidores 
 </div>
 Backend
