@@ -25,6 +25,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ICliente, ClienteService>();
 builder.Services.AddScoped<IInvestimento, InvestimentoService>();
