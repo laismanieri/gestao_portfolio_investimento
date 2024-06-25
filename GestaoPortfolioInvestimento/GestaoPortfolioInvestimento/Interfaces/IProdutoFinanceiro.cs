@@ -11,7 +11,7 @@ namespace GestaoPortfolioInvestimento.Interfaces
 
         public List<ProdutoFinanceiro> ObterTodosProdutosFinanceiros(int skip, int take);
 
-        public void AtualizarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro);
+        public void AtualizarProdutoFinanceiro(int id, ProdutoFinanceiroDTO produtoFinanceiroDto);
 
         public void RemoverProdutoFinanceiro(int id);
     }

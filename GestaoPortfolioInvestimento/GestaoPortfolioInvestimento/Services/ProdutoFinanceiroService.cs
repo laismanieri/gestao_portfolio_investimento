@@ -35,9 +35,19 @@ namespace GestaoPortfolioInvestimento.Services
             _context.SaveChanges();
         }
 
-        public void AtualizarProdutoFinanceiro(ProdutoFinanceiro produtoFinanceiro)
+        public void AtualizarProdutoFinanceiro(int id, ProdutoFinanceiroDTO produtoFinanceiroDto)
         {
-            _context.Entry(produtoFinanceiro).State = EntityState.Modified;
+            var produtoFinanceiro = _context.ProdutosFinanceiros.Find(id);
+            if (produtoFinanceiro == null)
+            {
+                throw new KeyNotFoundException("produtoFinanceiro não encontrado");
+            }
+
+            produtoFinanceiro.Nome = produtoFinanceiroDto.Nome;
+            produtoFinanceiro.Tipo = produtoFinanceiroDto.Tipo;
+            produtoFinanceiro.ValorCota= produtoFinanceiroDto.ValorCota;
+            produtoFinanceiro.TaxaRetorno = produtoFinanceiroDto.TaxaRetorno;
+
             _context.SaveChanges();
         }
 

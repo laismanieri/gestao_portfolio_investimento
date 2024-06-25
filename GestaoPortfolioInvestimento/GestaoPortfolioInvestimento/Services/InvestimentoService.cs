@@ -42,7 +42,6 @@ namespace GestaoPortfolioInvestimento.Services
                 Prazo = investimentoDto.Prazo,
                 Quantidade = investimentoDto.Quantidade,
                 DataAdesao = investimentoDto.DataAdesao,
-                DataVenda = DateTime.Now, // Deixe a data de venda como nula
                 Vencimento = investimentoDto.DataAdesao.AddDays(investimentoDto.Prazo % 365), // Usar o resto da divisão por 365 para evitar estouro do limite de datas
                 ValorTotal = 0, // Deixe o valor total como zero
                 Rendimento = 0
@@ -196,7 +195,7 @@ namespace GestaoPortfolioInvestimento.Services
 
             if (investimento == null)
             {
-                throw new KeyNotFoundException($"Investimento com ID {investimento.ID} não encontrado.");
+                throw new KeyNotFoundException($"Investimento com ID {id} não encontrado.");
             }
             return investimento;
         }

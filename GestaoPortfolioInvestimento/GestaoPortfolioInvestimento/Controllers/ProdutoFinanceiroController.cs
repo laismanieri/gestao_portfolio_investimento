@@ -58,21 +58,20 @@ namespace GestaoPortfolioInvestimento.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizarProdutoFinanceiro(int id, [FromBody] ProdutoFinanceiro produtoFinanceiro)
+        public IActionResult AtualizarProdutoFinanceiro(int id, [FromBody] ProdutoFinanceiroDTO produtoFinanceiroDto)
         {
-            if (id != produtoFinanceiro.ID)
-            {
-                return BadRequest("ID do produtoFinanceiro não encontrado");
-            }
-
             try
             {
-                _produtoFinanceiro.AtualizarProdutoFinanceiro(produtoFinanceiro);
+                _produtoFinanceiro.AtualizarProdutoFinanceiro(id, produtoFinanceiroDto);
                 return NoContent();
             }
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
 

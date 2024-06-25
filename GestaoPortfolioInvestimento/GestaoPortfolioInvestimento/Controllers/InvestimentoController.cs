@@ -18,13 +18,13 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         private readonly IInvestimento _investimento;
         private readonly ExtratoService _extratoPdf;
-        private readonly EmailService _email;
 
-        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf, EmailService email)
+
+        public InvestimentoController(IInvestimento investimento, ExtratoService extratoPdf)
         {
             _investimento = investimento;
             _extratoPdf = extratoPdf;
-            _email = email;
+
         }
 
 
@@ -49,7 +49,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("{clienteId}")]
+        [HttpGet("cliente/{clienteId}")]
         public IActionResult ObterInvestimentoPorClienteId(int clienteId)
         {
             try
@@ -100,7 +100,7 @@ namespace GestaoPortfolioInvestimento.Controllers
             }
         }
 
-        [HttpGet("extrato /{produtoId}")]
+        [HttpGet("extrato/{produtoId}")]
         public IActionResult ListarInvestimentosPorProdutoFinanceiro()
         {
             try
@@ -164,20 +164,20 @@ namespace GestaoPortfolioInvestimento.Controllers
 
         //}
 
-        [HttpGet("investimentos-vencimento-proximo/{dias}")]
-        public async Task<IActionResult> ListarInvestimentosVencimentoProximo(int dias)
-        {
-            try
-            {
-                var investimentosPorCliente = _investimento.ListarInvestimentosVencimentoProximo(dias);
-                await _email.EnviarEmailInvestimentosVencimentoProximoAsync(investimentosPorCliente, "laismanieri@alunos.utfpr.edu.br");
-                return Ok("E-mail enviado com sucesso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao enviar e-mail: {ex.Message}");
-            }
-        }
+        //[HttpGet("investimentos-vencimento-proximo/{dias}")]
+        //public async Task<IActionResult> ListarInvestimentosVencimentoProximo(int dias)
+        //{
+        //    try
+        //    {
+        //        var investimentosPorCliente = _investimento.ListarInvestimentosVencimentoProximo(dias);
+        //        await _email.EnviarEmailInvestimentosVencimentoProximoAsync(investimentosPorCliente, "laismanieri@alunos.utfpr.edu.br");
+        //        return Ok("E-mail enviado com sucesso.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Erro ao enviar e-mail: {ex.Message}");
+        //    }
+        //}
 
 
 
