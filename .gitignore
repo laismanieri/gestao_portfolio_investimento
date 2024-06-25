@@ -1,0 +1,41 @@
+# Arquivos de compilação
+bin/
+obj/
+
+# Arquivos temporários
+[Tt]emp/
+[Oo]ut/
+
+# Arquivos de configuração do Visual Studio
+.vscode/
+.vs/
+
+# Arquivos de dependência do NuGet
+*/packages/
+
+# Arquivos de log e cache do Visual Studio
+*.user
+*.vspscc
+*.vssscc
+*.ncb
+*.suo
+*.cache
+*.log
+*.vspscc
+
+# Arquivos gerados pelo MSBuild
+*.psess
+*.vsp
+
+# Arquivos de saída da análise de código
+SonarQube.Analysis.xml
+
+# Arquivos de configuração do Rider
+.idea/
+
+# Arquivos de histórico de testes
+TestResults/
+
+# Arquivos de saída da publicação
+_PublishedWebsites/
+*.publishproj

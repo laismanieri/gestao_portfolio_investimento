@@ -14,6 +14,8 @@ namespace GestaoPortfolioInvestimento.Data
         public DbSet<ProdutoFinanceiro> ProdutosFinanceiros { get; set; }
         public DbSet<Transacao> Transacoes { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configuração do relacionamento Cliente -> Investimentos
@@ -33,6 +35,30 @@ namespace GestaoPortfolioInvestimento.Data
                 .HasMany(i => i.Transacoes)
                 .WithOne(t => t.Investimento)
                 .HasForeignKey(t => t.InvestimentoID);
+
+            modelBuilder.Entity<Investimento>()
+                 .Property(i => i.ValorTotal)
+                 .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Investimento>()
+                .Property(i => i.Rendimento)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<ProdutoFinanceiro>()
+                .Property(p => p.TaxaRetorno)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<ProdutoFinanceiro>()
+                .Property(p => p.ValorCota)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Transacao>()
+                .Property(p => p.ValorUnitario)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Transacao>()
+                .Property(p => p.ValorTotal)
+                .HasColumnType("decimal(18,2)");
         }
 
     }
