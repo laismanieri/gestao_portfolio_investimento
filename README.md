@@ -31,25 +31,43 @@
      ```sh
      git clone https://github.com/laismanieri/gestao_portfolio_investimento.git
     
-  4. Acesse o Diretório do Projeto:    
+  3. Acesse o Diretório do Projeto:    
       Navegue até o diretório do projeto usando o terminal ou o prompt de comando:
      ```sh
      cd gestao_portfolio_investimento
     
-  6. Restaurar Dependências:
+  4. Restaurar Dependências:
       Use o comando dotnet restore para restaurar as dependências do projeto:
      ```sh
      dotnet restore
     
-  8. Executar a Aplicação:
-      Após a restauração das dependências, execute a aplicação usando o comando dotnet run:
+  5. Executar a Aplicação:
+      SQL Server: Configure a string de conexão no arquivo appsettings.json:
      ```sh
-     dotnet run
+     "ConnectionStrings": {
+          "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+      }
+      ```
+     MySQL: Configure a string de conexão no arquivo appsettings.json para MySQL se estiver usando Pomelo.EntityFrameworkCore.MySql:
+     ```sh
+     "ConnectionStrings": {
+          "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+      }
+     
+ 6. Executar a Aplicação:
+      Aplique as migrações para configurar o banco de dados:
+     ```sh
+     dotnet ef database update
+
+ 7. Executar a Aplicação:
+      Aplique as migrações para configurar o banco de dados:
+     ```sh
+     dotnet ef database update    
     
-  10. Testar as APIs:
+  8. Testar as APIs:
       Para testar as APIS acesse [aqui](https://github.com/laismanieri/gestao_portfolio_investimento/blob/main/GETTING_STARTED.md) a documentação de utilização.
 
- 11. Documentação Adicional:
+  9. Documentação Adicional:
       Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
     
 ## 🛠 Tecnologias
@@ -71,6 +89,8 @@
   -   Visual Studio / Visual Studio Code: IDEs (Integrated Development Environments) populares utilizadas para desenvolvimento em C#, oferecendo recursos avançados de edição, depuração e compilação.
     
   -   Swagger: Uma ferramenta para documentar, testar e visualizar APIs REST de forma amigável para os desenvolvedores. Integra-se facilmente a aplicativos ASP.NET Core, gerando automaticamente uma documentação interativa para a API. O Swagger simplifica o desenvolvimento, teste e integração de APIs, tornando o processo mais eficiente e colaborativo.
+    
+  -   MySQL: Um sistema de gerenciamento de banco de dados relacional open-source amplamente utilizado para armazenar e gerenciar dados. O MySQL é conhecido por sua confiabilidade, escalabilidade e desempenho, sendo uma escolha popular para aplicativos web e empresariais.
 
   -   Git: Um sistema de controle de versão distribuído amplamente utilizado para gerenciamento de código-fonte. Permite que os desenvolvedores trabalhem colaborativamente em projetos de software, acompanhem alterações no código, revertam para versões anteriores e integrem alterações de forma eficiente. Comumente utilizado em conjunto com plataformas de hospedagem de código, como GitHub, GitLab e Bitbucket, para facilitar a colaboração e o compartilhamento de código entre equipes.
 
