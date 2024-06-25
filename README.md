@@ -11,9 +11,17 @@
 
   ## 💻 Sobre o projeto
   
-  <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema.
+  <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema. </p>
+
+---
+
+  ## Gerenciamento de Projeto no Trello
   
-  ---
+  <p align="justify"> O Trello é uma ferramenta de gerenciamento de projetos baseada em quadros, que permite organizar tarefas e colaborar de forma eficiente. Utilizando o conceito de quadros, listas e cartões, o Trello permite que os usuários visualizem o progresso do projeto de forma intuitiva, movendo cartões entre listas para indicar o status das tarefas. Ele oferece recursos como atribuição de tarefas, prazos, checklists, comentários e integrações com outras ferramentas, tornando-o uma escolha popular para equipes de desenvolvimento de software, negócios, educação e muito mais. </p>
+
+**[Aqui está o quadro no Trello](https://trello.com/b/QqUd7HxG/sistema-de-gestao-de-portfolio-de-investimentos)**
+
+---
  ### Pré-requisitos 
   Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
   -   **SDK .NET Core:** Certifique-se de ter o SDK .NET Core instalado em sua máquina. Você pode baixá-lo **[aqui](https://dotnet.microsoft.com/pt-br/download)** 
