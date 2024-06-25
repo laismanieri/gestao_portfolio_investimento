@@ -24,7 +24,7 @@
 
  ## 🛠 Configuração do Ambiente de Desenvolvimento:
   
-  1.Instale o Visual Studio ou Visual Studio Code.
+  1. Instale o Visual Studio ou Visual Studio Code.
   
   2. Clone o Repositório:      
       Clone o repositório para o seu ambiente de desenvolvimento local usando o seguinte comando:
@@ -74,11 +74,100 @@
 
   -   Git: Um sistema de controle de versão distribuído amplamente utilizado para gerenciamento de código-fonte. Permite que os desenvolvedores trabalhem colaborativamente em projetos de software, acompanhem alterações no código, revertam para versões anteriores e integrem alterações de forma eficiente. Comumente utilizado em conjunto com plataformas de hospedagem de código, como GitHub, GitLab e Bitbucket, para facilitar a colaboração e o compartilhamento de código entre equipes.
 
+---
+  ## Modelagem de banco de dados
+<div align="center">  
+      <img alt="Modelo de banco de dados" src=https://github.com/laismanieri/gestao_portfolio_investimento/assets/82177551/f6f6dfaf-1044-44a6-b956-94f91e5e4cde">
+</div>
   
 ---  
+<div align="justify"> 
+
+# Documentação de Dependências do Projeto
+É dependência é um componente externo ou biblioteca que um projeto de software precisa para funcionar corretamente. Essas dependências fornecem funcionalidades adicionais que não estão incluídas no código principal do projeto.
+Este documento explica cada dependência utilizada no projeto e como instalá-las através do NuGet no Visual Studio Code.
+
+## Dependências
+### iTextSharp.LGPLv2.Core
+- **Descrição:** Biblioteca para manipulação de documentos PDF.
+- **Instalação:**
+  ```bash
+  dotnet add package iTextSharp.LGPLv2.Core --version 3.4.20
+
+### Microsoft.EntityFrameworkCore
+- **Descrição:** Provedor de acesso a dados ORM (Object-Relational Mapping) para o Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.Design
+- **Descrição:** Ferramentas de design para Entity Framework Core, incluindo scaffolding de migrações.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.SqlServer
+- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.29
+
+### Microsoft.EntityFrameworkCore.Tools
+- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0.29
+
+### Microsoft.VisualStudio.Web.CodeGeneration.Design
+- **Descrição:** Ferramentas de geração de código para ASP.NET Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
+
+### Pomelo.EntityFrameworkCore.MySql
+- **Descrição:** Provedor de banco de dados MySQL para Entity Framework Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
+
+### Quartz
+- **Descrição:** Biblioteca de agendamento de tarefas (job scheduling).
+- **Instalação:**
+  ```bash
+  dotnet add package Quartz --version 3.9.0
+
+### SendGrid
+- **Descrição:** Cliente para a API do SendGrid, utilizado para envio de e-mails.
+- **Instalação:**
+  ```bash
+  dotnet add package SendGrid --version 9.29.3
+
+### Swashbuckle.AspNetCore
+- **Descrição:** Gera documentação Swagger para APIs ASP.NET Core.
+- **Instalação:**
+  ```bash
+  dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+
+## Instruções de Instalação pelo NuGet no Visual Studio Community
+Passo a Passo
+1. Abra o Visual Studio Community:
+            Inicie o Visual Studio Community e abra seu projeto
+2. Gerenciador de Pacotes NuGet:
+            Clique com o botão direito do mouse na solução ou no projeto em que deseja adicionar as dependências.
+            Selecione Gerenciar Pacotes NuGet... no menu de contexto.
+3. Procurar Pacotes:
+            No Gerenciador de Pacotes NuGet, vá até a aba Procurar.
+            No campo de pesquisa, digite o nome do pacote que deseja instalar (por exemplo, iTextSharp.LGPLv2.Core).
+4. Instalar Pacotes:      
+            Selecione o pacote correto na lista de resultados da pesquisa.
+            Clique no botão Instalar.
+5. Aceite os termos de licença, se solicitado:
+            Repita os passos de 3 a 4 para cada dependência listada abaixo.
+
+---
 
   ## ⚙️ Funcionalidades
-<div align="justify">  
+ 
       
 :heavy_check_mark: **Cadastro de Clientes:** Permite adicionar novos clientes ao sistema. Para cada cliente, são fornecidos detalhes como nome, endereço de e-mail, data de nascimento e endereço.
 
