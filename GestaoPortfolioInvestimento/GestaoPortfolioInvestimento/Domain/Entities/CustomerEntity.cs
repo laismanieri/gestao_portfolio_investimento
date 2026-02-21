@@ -1,14 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace InvestmentPortfolioManagement.Domain.Entities
+﻿namespace InvestmentPortfolioManagement.Domain.Entities
 {
-    public class CustomerEntity
+    public class CustomerEntity : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
