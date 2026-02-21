@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
-    public class TransactionEntity
+    public class TransactionEntity : BaseEntity
     {
         public int InvestmentId { get; set; }
 

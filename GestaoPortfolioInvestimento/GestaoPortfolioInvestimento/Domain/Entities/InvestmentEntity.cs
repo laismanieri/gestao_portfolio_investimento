@@ -2,7 +2,7 @@
 
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
-    public class InvestmentEntity
+    public class InvestmentEntity : BaseEntity
     {
         public int CustomerId { get; set; }
         public int FinancialProductId { get; set; }

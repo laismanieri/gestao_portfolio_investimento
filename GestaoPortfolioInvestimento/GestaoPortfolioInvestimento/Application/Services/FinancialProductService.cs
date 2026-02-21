@@ -62,7 +62,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         public FinancialProductEntity GetFinancialProductById(int id)
         {
-            var product = _context.FinancialProducts.FirstOrDefault(p => p.ID == id);
+            var product = _context.FinancialProducts.FirstOrDefault(p => p.Id == id);
 
             if (product == null)
             {

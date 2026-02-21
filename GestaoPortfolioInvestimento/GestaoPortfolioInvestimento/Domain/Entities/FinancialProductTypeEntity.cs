@@ -1,6 +1,6 @@
 ﻿namespace InvestmentPortfolioManagement.Domain.Entities
 {
-    public class FinancialProductTypeEntity
+    public class FinancialProductTypeEntity : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
 

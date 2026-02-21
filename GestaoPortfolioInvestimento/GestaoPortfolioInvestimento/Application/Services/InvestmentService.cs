@@ -21,7 +21,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             if (investmentDto == null)
                 throw new ArgumentNullException(nameof(investmentDto), "Investment cannot be null");
 
-            var financialProduct = _context.FinancialProducts.FirstOrDefault(p => p.ID == investmentDto.FinancialProductId);
+            var financialProduct = _context.FinancialProducts.FirstOrDefault(p => p.Id == investmentDto.FinancialProductId);
 
             if (financialProduct == null)
                 throw new KeyNotFoundException($"Financial product with ID {investmentDto.FinancialProductId} not found.");

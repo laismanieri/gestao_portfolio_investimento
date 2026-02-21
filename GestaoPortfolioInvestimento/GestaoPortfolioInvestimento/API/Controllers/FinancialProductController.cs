@@ -34,7 +34,7 @@ namespace InvestmentPortfolioManagement.API.Controllers
             var created = _service.AddFinancialProduct(dto);
 
             return CreatedAtAction(nameof(GetById),
-                new { id = created.ID },
+                new { id = created.Id },
                 created);
         }
 

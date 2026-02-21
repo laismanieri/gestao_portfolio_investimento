@@ -35,4 +35,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\DTOs\Responses\" />
+    <Folder Include="Application\DTOs\Requests\" />
+  </ItemGroup>
+
 </Project>
