@@ -1,7 +1,8 @@
-﻿using InvestmentPortfolioManagement.Data;
-using InvestmentPortfolioManagement.Interfaces;
-using InvestmentPortfolioManagement.Jobs;
-using InvestmentPortfolioManagement.Services;
+﻿using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Application.Services;
+using InvestmentPortfolioManagement.Infrastructure;
+using InvestmentPortfolioManagement.Infrastructure.Jobs;
+using InvestmentPortfolioManagement.Infrastructure.Services;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Quartz;

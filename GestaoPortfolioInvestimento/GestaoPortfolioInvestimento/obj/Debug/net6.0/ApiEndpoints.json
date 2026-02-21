@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.CustomerController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "GetAllCustomers",
     "RelativePath": "api/Customer",
     "HttpMethod": "GET",
@@ -21,7 +21,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.CustomerController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "AddCustomer",
     "RelativePath": "api/Customer",
     "HttpMethod": "POST",
@@ -30,14 +30,14 @@
     "Parameters": [
       {
         "Name": "customerDto",
-        "Type": "InvestmentPortfolioManagement.DTO.CustomerDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.CustomerDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.CustomerController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "GetCustomerById",
     "RelativePath": "api/Customer/{id}",
     "HttpMethod": "GET",
@@ -53,7 +53,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.CustomerController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "UpdateCustomer",
     "RelativePath": "api/Customer/{id}",
     "HttpMethod": "PUT",
@@ -67,14 +67,14 @@
       },
       {
         "Name": "customerDto",
-        "Type": "InvestmentPortfolioManagement.DTO.CustomerDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.CustomerDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.CustomerController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "DeleteCustomer",
     "RelativePath": "api/Customer/{id}",
     "HttpMethod": "DELETE",
@@ -90,7 +90,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.FinancialProductController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
     "Method": "GetAll",
     "RelativePath": "api/FinancialProduct",
     "HttpMethod": "GET",
@@ -111,7 +111,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.FinancialProductController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
     "Method": "Create",
     "RelativePath": "api/FinancialProduct",
     "HttpMethod": "POST",
@@ -120,14 +120,14 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "InvestmentPortfolioManagement.DTO.FinancialProductDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.FinancialProductController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
     "Method": "GetById",
     "RelativePath": "api/FinancialProduct/{id}",
     "HttpMethod": "GET",
@@ -143,7 +143,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.FinancialProductController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
     "Method": "Update",
     "RelativePath": "api/FinancialProduct/{id}",
     "HttpMethod": "PUT",
@@ -157,14 +157,14 @@
       },
       {
         "Name": "dto",
-        "Type": "InvestmentPortfolioManagement.DTO.FinancialProductDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.FinancialProductController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
     "Method": "Delete",
     "RelativePath": "api/FinancialProduct/{id}",
     "HttpMethod": "DELETE",
@@ -180,7 +180,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GetAllInvestments",
     "RelativePath": "api/Investment",
     "HttpMethod": "GET",
@@ -201,7 +201,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GetInvestmentById",
     "RelativePath": "api/Investment/{id}",
     "HttpMethod": "GET",
@@ -217,7 +217,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "DeleteInvestment",
     "RelativePath": "api/Investment/{id}",
     "HttpMethod": "DELETE",
@@ -233,7 +233,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "AddInvestment",
     "RelativePath": "api/Investment/buy",
     "HttpMethod": "POST",
@@ -242,14 +242,14 @@
     "Parameters": [
       {
         "Name": "investmentDto",
-        "Type": "InvestmentPortfolioManagement.DTO.InvestmentDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.InvestmentDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "ListInvestmentsByProduct",
     "RelativePath": "api/Investment/by-product",
     "HttpMethod": "GET",
@@ -259,7 +259,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GenerateInvestmentsByProductPdf",
     "RelativePath": "api/Investment/by-product-pdf",
     "HttpMethod": "GET",
@@ -269,7 +269,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GetInvestmentsByCustomerId",
     "RelativePath": "api/Investment/customer/{customerId}",
     "HttpMethod": "GET",
@@ -285,7 +285,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "UpdateInvestmentSale",
     "RelativePath": "api/Investment/sell/{id}",
     "HttpMethod": "PUT",
@@ -299,14 +299,14 @@
       },
       {
         "Name": "sellDto",
-        "Type": "InvestmentPortfolioManagement.DTO.SaleInvestmentDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.SaleInvestmentDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GetCustomerStatementPdf",
     "RelativePath": "api/Investment/statement-pdf/{customerId}",
     "HttpMethod": "GET",
@@ -322,7 +322,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.InvestmentController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.InvestmentController",
     "Method": "GetCustomerStatement",
     "RelativePath": "api/Investment/statement/{customerId}",
     "HttpMethod": "GET",
@@ -338,7 +338,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.TransactionController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.TransactionController",
     "Method": "GetAllTransactions",
     "RelativePath": "api/Transaction",
     "HttpMethod": "GET",
@@ -359,7 +359,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InvestmentPortfolioManagement.Controllers.TransactionController",
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.TransactionController",
     "Method": "GetTransactionById",
     "RelativePath": "api/Transaction/{id}",
     "HttpMethod": "GET",
