@@ -1,65 +1,72 @@
-﻿using GestaoPortfolioInvestimento.Models;
+﻿using InvestmentPortfolioManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GestaoPortfolioInvestimento.Data
+namespace InvestmentPortfolioManagement.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        {
-        }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Investimento> Investimentos { get; set; }
-        public DbSet<ProdutoFinanceiro> ProdutosFinanceiros { get; set; }
-        public DbSet<Transacao> Transacoes { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Investment> Investments { get; set; }
+        public DbSet<FinancialProduct> FinancialProducts { get; set; }
 
-
+        public DbSet<FinancialProductType> FinancialProductTypes { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuração do relacionamento Cliente -> Investimentos
-            modelBuilder.Entity<Cliente>()
-                .HasMany(c => c.Investimentos)
-                .WithOne(i => i.Cliente)
-                .HasForeignKey(i => i.ClienteID);
+            // Customer -> Investments (1:N)
+            modelBuilder.Entity<Customer>()
+                .HasMany(c => c.Investments)
+                .WithOne(i => i.Customer)
+                .HasForeignKey(i => i.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Configuração do relacionamento ProdutoFinanceiro -> Investimentos
-            modelBuilder.Entity<ProdutoFinanceiro>()
-                .HasMany(p => p.Investimentos)
-                .WithOne(i => i.ProdutoFinanceiro)
-                .HasForeignKey(i => i.ProdutoFinanceiroID);
+            // FinancialProduct -> Investments (1:N)
+            modelBuilder.Entity<FinancialProduct>()
+                .HasMany(p => p.Investments)
+                .WithOne(i => i.FinancialProduct)
+                .HasForeignKey(i => i.FinancialProductId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuração do relacionamento Investimento -> Transacoes
-            modelBuilder.Entity<Investimento>()
-                .HasMany(i => i.Transacoes)
-                .WithOne(t => t.Investimento)
-                .HasForeignKey(t => t.InvestimentoID);
+            // FinancialProductType -> FinancialProducts (1:N)
+            modelBuilder.Entity<FinancialProductType>()
+                .HasMany(t => t.FinancialProducts)
+                .WithOne(p => p.Type)
+                .HasForeignKey(p => p.FinancialProductTypeId);
 
-            modelBuilder.Entity<Investimento>()
-                 .Property(i => i.ValorTotal)
-                 .HasColumnType("decimal(18,2)");
+            // Investment -> Transactions (1:N)
+            modelBuilder.Entity<Investment>()
+                .HasMany(i => i.Transactions)
+                .WithOne(t => t.Investment)
+                .HasForeignKey(t => t.InvestmentId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Investimento>()
-                .Property(i => i.Rendimento)
+            // Configure decimals
+            modelBuilder.Entity<Investment>()
+                .Property(i => i.TotalValue)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<ProdutoFinanceiro>()
-                .Property(p => p.TaxaRetorno)
+            modelBuilder.Entity<Investment>()
+                .Property(i => i.Earning)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<ProdutoFinanceiro>()
-                .Property(p => p.ValorCota)
+            modelBuilder.Entity<FinancialProduct>()
+                .Property(p => p.UnitValue)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Transacao>()
-                .Property(p => p.ValorUnitario)
+            modelBuilder.Entity<FinancialProduct>()
+                .Property(p => p.ReturnRate)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Transacao>()
-                .Property(p => p.ValorTotal)
+            modelBuilder.Entity<Transaction>()
+                .Property(t => t.UnitValue)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Transaction>()
+                .Property(t => t.TotalValue)
                 .HasColumnType("decimal(18,2)");
         }
-
     }
 }

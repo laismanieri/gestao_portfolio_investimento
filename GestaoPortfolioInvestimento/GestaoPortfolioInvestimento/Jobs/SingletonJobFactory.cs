@@ -1,7 +1,7 @@
 ﻿using Quartz.Spi;
 using Quartz;
 
-namespace GestaoPortfolioInvestimento.Jobs
+namespace InvestmentPortfolioManagement.Jobs
 {
     public class SingletonJobFactory : IJobFactory
     {

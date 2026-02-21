@@ -1,7 +1,7 @@
 ﻿using Quartz.Spi;
 using Quartz;
 
-namespace GestaoPortfolioInvestimento.Jobs
+namespace InvestmentPortfolioManagement.Jobs
 {
     public class QuartzHostedService : IHostedService
     {
@@ -21,16 +21,15 @@ namespace GestaoPortfolioInvestimento.Jobs
             _scheduler.JobFactory = _jobFactory;
             await _scheduler.Start(cancellationToken);
 
-            var job = JobBuilder.Create<EnviarEmailJob>()
-                .WithIdentity("EnviarEmailJob", "group1")
+            var job = JobBuilder.Create<SendUpcomingInvestmentsEmailJob>()
+                .WithIdentity("SendUpcomingInvestmentsEmailJob", "group1")
                 .Build();
 
-            // .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(9, 0)) // Executa diariamente às 9:00 AM
-            //  .WithCronSchedule("0 05 19 * * ?")
+            // Example Cron: executes daily at 7:02 PM
             var trigger = TriggerBuilder.Create()
-                .WithIdentity("EnviarEmailTrigger", "group1")
+                .WithIdentity("SendUpcomingInvestmentsEmailTrigger", "group1")
                 .StartNow()
-                .WithCronSchedule("0 02 19 * * ?") // Executa diariamente às 9:00 AM
+                .WithCronSchedule("0 02 19 * * ?") // executes daily at 19:02
                 .Build();
 
             await _scheduler.ScheduleJob(job, trigger, cancellationToken);

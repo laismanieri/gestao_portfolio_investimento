@@ -1,13 +1,13 @@
-﻿using GestaoPortfolioInvestimento.DTO;
-using GestaoPortfolioInvestimento.Interfaces;
+﻿using InvestmentPortfolioManagement.DTO;
+using InvestmentPortfolioManagement.Interfaces;
 using SendGrid.Helpers.Mail;
 using SendGrid;
 using System.Net;
 using System.Text;
 
-namespace GestaoPortfolioInvestimento.Services
+namespace InvestmentPortfolioManagement.Services
 {
-    public class EmailService : IEmailService
+    public class EmailService : IEmailNotificationService
     {
         private readonly SendGridClient _sendGridClient;
         private readonly IConfiguration _configuration;
@@ -19,36 +19,35 @@ namespace GestaoPortfolioInvestimento.Services
             _sendGridClient = new SendGridClient(apiKey);
         }
 
-        public async Task EnviarEmailInvestimentosVencimentoProximoAsync(Dictionary<int, List<InvestimentoDetalheDTO>> investimentosPorCliente, string toEmail)
+        public async Task SendUpcomingInvestmentsEmailAsync(Dictionary<int, List<InvestmentDetailDTO>> investmentsByCustomer, string toEmail)
         {
             var message = new SendGridMessage();
             message.SetFrom(new EmailAddress(_configuration["FromEmail"], _configuration["FromName"]));
             message.AddTo(toEmail);
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Investimentos com Vencimento Próximo:");
-            sb.AppendLine("");
+            sb.AppendLine("Upcoming Investments:");
+            sb.AppendLine();
 
-            foreach (var investimentos in investimentosPorCliente.Values)
+            foreach (var investments in investmentsByCustomer.Values)
             {
-                foreach (var investimento in investimentos)
+                foreach (var investment in investments)
                 {
-                    sb.AppendLine($"Cliente: {investimento.ClienteNome}");
-                    sb.AppendLine($"Email: {investimento.ClienteEmail}");
-                    sb.AppendLine($"Produto Financeiro: {investimento.ProdutoFinanceiroNome}");
-                    sb.AppendLine($"Tipo do Produto Financeiro: {investimento.Tipo}");
-                    sb.AppendLine($"Quantidade: {investimento.Quantidade}");
-                    sb.AppendLine($"Valor Total: {investimento.ValorTotal}");
-                    sb.AppendLine($"Data de Adesão: {investimento.DataAdesao}");
-                    sb.AppendLine($"Data de Vencimento: {investimento.Vencimento}");
-                    sb.AppendLine($"Taxa de Retorno: {investimento.TaxaRetorno}");
-                    sb.AppendLine($"Rendimento: {investimento.Rendimento}");
-
+                    sb.AppendLine($"Customer: {investment.CustomerName}");
+                    sb.AppendLine($"Email: {investment.CustomerEmail}");
+                    sb.AppendLine($"Financial Product: {investment.FinancialProductName}");
+                    sb.AppendLine($"Product Type: {investment.FinancialProductType}");
+                    sb.AppendLine($"Quantity: {investment.Quantity}");
+                    sb.AppendLine($"Total Value: {investment.TotalValue:C}");
+                    sb.AppendLine($"Subscription Date: {investment.SubscriptionDate:dd/MM/yyyy}");
+                    sb.AppendLine($"Maturity Date: {investment.MaturityDate:dd/MM/yyyy}");
+                    sb.AppendLine($"Return Rate: {investment.ReturnRate:P2}");
+                    sb.AppendLine($"Earning: {investment.Earning:C}");
                     sb.AppendLine();
                 }
             }
 
-            message.Subject = "Investimentos com Vencimento Próximo";
+            message.Subject = "Upcoming Investment Maturities";
             message.PlainTextContent = sb.ToString();
 
             var response = await _sendGridClient.SendEmailAsync(message);
@@ -59,5 +58,4 @@ namespace GestaoPortfolioInvestimento.Services
             }
         }
     }
-
 }
