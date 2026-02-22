@@ -1,19 +1,21 @@
-using InvestmentPortfolioManagement.Application.DTOs;
+using InvestmentPortfolioManagement.Application.DTOs.Customer;
+using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Domain.Entities;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 { 
     public interface ICustomerService
     {
-        void AddCustomer(CustomerDTO customerDto);
+        Task<CustomerResponse> CreateAsync(CustomerCreateRequest request);
 
-        CustomerEntity GetCustomerById(int id);
+        Task<CustomerResponse> GetCustomerByGuidAsync(Guid guid);
 
-        List<CustomerEntity> GetAllCustomers(int skip, int take);
+        Task UpdateAsync(Guid guid, CustomerUpdateRequest request);
 
-        void UpdateCustomer(int id, CustomerDTO customerDto);
+        Task DeleteAsync(Guid guid);
 
-        void DeleteCustomer(int id);
+        Task<List<CustomerResponse>> GetAllCustomersAsync(PaginationQuery query);
     }
 }
 

@@ -1,7 +1,9 @@
 ﻿using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Application.Mappers;
 using InvestmentPortfolioManagement.Application.Services;
 using InvestmentPortfolioManagement.Infrastructure;
 using InvestmentPortfolioManagement.Infrastructure.Jobs;
+using InvestmentPortfolioManagement.Infrastructure.Middlewares;
 using InvestmentPortfolioManagement.Infrastructure.Services;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -70,6 +72,8 @@ builder.Services.AddTransient<SendUpcomingInvestmentsEmailJob>();
 // Register QuartzHostedService as Hosted Service
 builder.Services.AddHostedService<QuartzHostedService>();
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -87,6 +91,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

@@ -1,7 +1,10 @@
+using InvestmentPortfolioManagement.Application.DTOs.Customer;
+using InvestmentPortfolioManagement.Application.DTOs.Shared;
+using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Domain.Entities;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using InvestmentPortfolioManagement.Application.DTOs;
-using InvestmentPortfolioManagement.Application.Interfaces;
 
 namespace InvestmentPortfolioManagement.API.Controllers
 {
@@ -17,74 +20,38 @@ namespace InvestmentPortfolioManagement.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllCustomers([FromQuery] int skip = 0, [FromQuery] int take = 50)
+        public async Task<ActionResult<List<CustomerResponse>>> GetAllCustomers([FromQuery] PaginationQuery query)
         {
-            var customers = _customerService.GetAllCustomers(skip, take);
+            var customers = await _customerService.GetAllCustomersAsync(query);
             return Ok(customers);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetCustomerById(int id)
+        [HttpGet("{guid:guid}")]
+        public async Task<IActionResult> GetCustomerByGuid(Guid guid)
         {
-            try
-            {
-                var customer = _customerService.GetCustomerById(id);
-                return Ok(customer);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
+           var customer = await _customerService.GetCustomerByGuidAsync(guid);
+            return Ok(customer);
         }
 
         [HttpPost]
-        public IActionResult AddCustomer([FromBody] CustomerDTO customerDto)
+        public async Task<IActionResult> CreateCustomer([FromBody] CustomerCreateRequest request)
         {
-            try
-            {
-                _customerService.AddCustomer(customerDto);
-                return CreatedAtAction(nameof(GetCustomerById), new { id = customerDto.Id }, customerDto);
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var createdCustomer = await _customerService.CreateAsync(request);
+            return CreatedAtAction(nameof(GetCustomerByGuid), new { guid = createdCustomer.Guid }, createdCustomer); ;
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateCustomer(int id, [FromBody] CustomerDTO customerDto)
+        [HttpPut("{guid:guid}")]
+        public async Task<IActionResult> UpdateCustomer(Guid guid, [FromBody] CustomerUpdateRequest request)
         {
-            try
-            {
-                _customerService.UpdateCustomer(id, customerDto);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            await _customerService.UpdateAsync(guid, request);
+            return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCustomer(int id)
+        [HttpDelete("{guid:guid}")]
+        public async Task<IActionResult> DeleteCustomer(Guid guid)
         {
-            try
-            {
-                _customerService.DeleteCustomer(id);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            await _customerService.DeleteAsync(guid);
+            return NoContent();
         }
     }
 }

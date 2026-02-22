@@ -8,29 +8,39 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "skip",
+        "Name": "Skip",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "take",
+        "Name": "Take",
         "Type": "System.Int32",
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[InvestmentPortfolioManagement.Application.DTOs.Customer.CustomerResponse, InvestmentPortfolioManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
-    "Method": "AddCustomer",
+    "Method": "CreateCustomer",
     "RelativePath": "api/Customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customerDto",
-        "Type": "InvestmentPortfolioManagement.Application.DTOs.CustomerDTO",
+        "Name": "request",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.Customer.CustomerCreateRequest",
         "IsRequired": true
       }
     ],
@@ -38,15 +48,15 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
-    "Method": "GetCustomerById",
-    "RelativePath": "api/Customer/{id}",
+    "Method": "GetCustomerByGuid",
+    "RelativePath": "api/Customer/{guid}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -55,19 +65,19 @@
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "UpdateCustomer",
-    "RelativePath": "api/Customer/{id}",
+    "RelativePath": "api/Customer/{guid}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       },
       {
-        "Name": "customerDto",
-        "Type": "InvestmentPortfolioManagement.Application.DTOs.CustomerDTO",
+        "Name": "request",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.Customer.CustomerUpdateRequest",
         "IsRequired": true
       }
     ],
@@ -76,14 +86,14 @@
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.CustomerController",
     "Method": "DeleteCustomer",
-    "RelativePath": "api/Customer/{id}",
+    "RelativePath": "api/Customer/{guid}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

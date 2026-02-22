@@ -1,0 +1,16 @@
+﻿namespace InvestmentPortfolioManagement.Application.DTOs.Customer
+{
+    public class CustomerResponse
+    {
+        public int Id { get; set; }
+        public Guid Guid { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string DateOfBirth { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+    }
+}

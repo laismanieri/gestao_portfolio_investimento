@@ -6,7 +6,7 @@
 
         public string Email { get; set; } = string.Empty;
 
-        public DateOnly DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
 
         public List<InvestmentEntity> Investments { get; set; } = new List<InvestmentEntity>();
