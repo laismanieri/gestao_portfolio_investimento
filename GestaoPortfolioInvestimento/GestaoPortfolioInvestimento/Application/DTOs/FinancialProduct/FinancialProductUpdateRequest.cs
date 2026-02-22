@@ -1,9 +1,9 @@
 ﻿using InvestmentPortfolioManagement.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace InvestmentPortfolioManagement.Application.DTOs
+namespace InvestmentPortfolioManagement.Application.DTOs.FinancialProduct
 {
-    public class FinancialProductDTO
+    public class FinancialProductUpdateRequest
     {
         public int ID { get; set; }
 

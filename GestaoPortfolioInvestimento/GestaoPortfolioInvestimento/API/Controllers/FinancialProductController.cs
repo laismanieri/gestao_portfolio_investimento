@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using InvestmentPortfolioManagement.Application.DTOs;
 using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 
 
 namespace InvestmentPortfolioManagement.API.Controllers
@@ -29,7 +29,7 @@ namespace InvestmentPortfolioManagement.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] FinancialProductDTO dto)
+        public IActionResult Create([FromBody] FinancialProductUpdateRequest dto)
         {
             var created = _service.AddFinancialProduct(dto);
 
@@ -39,7 +39,7 @@ namespace InvestmentPortfolioManagement.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] FinancialProductDTO dto)
+        public IActionResult Update(int id, [FromBody] FinancialProductUpdateRequest dto)
         {
             _service.UpdateFinancialProduct(id, dto);
             return NoContent();

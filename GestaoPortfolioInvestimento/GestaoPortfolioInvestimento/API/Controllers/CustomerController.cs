@@ -37,7 +37,7 @@ namespace InvestmentPortfolioManagement.API.Controllers
         public async Task<IActionResult> CreateCustomer([FromBody] CustomerCreateRequest request)
         {
             var createdCustomer = await _customerService.CreateAsync(request);
-            return CreatedAtAction(nameof(GetCustomerByGuid), new { guid = createdCustomer.Guid }, createdCustomer); ;
+            return CreatedAtAction(nameof(GetCustomerByGuid), new { guid = createdCustomer.Guid }, createdCustomer);
         }
 
         [HttpPut("{guid:guid}")]

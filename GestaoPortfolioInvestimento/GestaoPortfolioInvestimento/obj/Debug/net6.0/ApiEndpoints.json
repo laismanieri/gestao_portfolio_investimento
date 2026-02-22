@@ -130,7 +130,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProduct.FinancialProductUpdateRequest",
         "IsRequired": true
       }
     ],
@@ -167,7 +167,7 @@
       },
       {
         "Name": "dto",
-        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductDTO",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProduct.FinancialProductUpdateRequest",
         "IsRequired": true
       }
     ],
@@ -185,6 +185,80 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "GetAllFinancialProductType",
+    "RelativePath": "api/FinancialProductType",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "CreateFinancialProductType",
+    "RelativePath": "api/FinancialProductType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductType.FinancialProductTypeCreateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "GetFinancialProductTypeByGuid",
+    "RelativePath": "api/FinancialProductType/{guid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "GetAllFinancialProductTypeAndFinancialProduct",
+    "RelativePath": "api/FinancialProductType/with-products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Take",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -26,7 +26,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         public async Task<CustomerResponse> CreateAsync(CustomerCreateRequest request)
         {
-            ArgumentNullException.ThrowIfNull(request);
+            ArgumentNullException.ThrowIfNull(request, nameof(request));
 
             _logger.LogInformation("Creating customer {Name}", request.Name);
 
@@ -48,7 +48,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         public async Task<List<CustomerResponse>> GetAllCustomersAsync(PaginationQuery query)
         {
-            ArgumentNullException.ThrowIfNull(query);
+            ArgumentNullException.ThrowIfNull(query, nameof(query));
 
             var customers = await _context.Customers
                 .AsNoTracking()
@@ -64,7 +64,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         public async Task UpdateAsync(Guid guid, CustomerUpdateRequest request)
         {
-            ArgumentNullException.ThrowIfNull(request);
+            ArgumentNullException.ThrowIfNull(request, nameof(request));
 
             var customer = await GetCustomerEntityByGuidAsync(guid);
             _logger.LogInformation("Updating customer {Guid}", guid);

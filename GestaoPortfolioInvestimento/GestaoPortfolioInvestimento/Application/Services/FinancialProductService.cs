@@ -1,4 +1,4 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs;
+﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 using InvestmentPortfolioManagement.Application.Interfaces;
 using InvestmentPortfolioManagement.Domain.Entities;
 using InvestmentPortfolioManagement.Infrastructure;
@@ -14,7 +14,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             _context = context;
         }
 
-        public FinancialProductEntity AddFinancialProduct(FinancialProductDTO productDto)
+        public FinancialProductEntity AddFinancialProduct(FinancialProductUpdateRequest productDto)
         {
             if (productDto == null)
             {
@@ -44,7 +44,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         }
 
-        public void UpdateFinancialProduct(int id, FinancialProductDTO productDto)
+        public void UpdateFinancialProduct(int id, FinancialProductUpdateRequest productDto)
         {
             var product = _context.FinancialProducts.Find(id);
             if (product == null)
