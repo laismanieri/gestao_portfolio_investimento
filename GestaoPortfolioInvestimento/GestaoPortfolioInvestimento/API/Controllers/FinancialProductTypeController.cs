@@ -2,6 +2,7 @@
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolioManagement.API.Controllers
@@ -46,5 +47,20 @@ namespace InvestmentPortfolioManagement.API.Controllers
             return CreatedAtAction(nameof(GetFinancialProductTypeByGuid), new { guid = createdFinancialProductType.Guid }, createdFinancialProductType);
 
         }
+
+        [HttpPut("{guid:guid}")]
+        public async Task<IActionResult> UpdateCustomer(Guid guid, [FromBody] FinancialProductTypeUpdateRequest request)
+        {
+            await _financialProductTypeService.UpdateAsync(guid, request);
+            return NoContent();
+        }
+
+        [HttpDelete("{guid:guid}")]
+        public async Task<IActionResult> DeleteCustomer(Guid guid)
+        {
+            await _financialProductTypeService.DeleteAsync(guid);
+            return NoContent();
+        }
+
     }
 }

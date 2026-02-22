@@ -23,11 +23,17 @@ namespace InvestmentPortfolioManagement.Application.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<FinancialProductTypeResponse> CreateAsync(FinancialProductTypeCreateRequest request)
+        public async Task<FinancialProductTypeDetailsResponse> CreateAsync(FinancialProductTypeCreateRequest request)
         {
             ArgumentNullException.ThrowIfNull(request, nameof(request));
 
             _logger.LogInformation("Creating Financial Product Type {Name}", request.Name);
+
+            var exists = await _context.FinancialProductTypes
+                .AnyAsync(t => t.Name == request.Name);
+
+            if (exists)
+                throw new InvalidOperationException("Type already exists");
 
             var financialProductType = _mapper.Map<FinancialProductTypeEntity>(request);
             await _context.AddAsync(financialProductType);
@@ -35,13 +41,13 @@ namespace InvestmentPortfolioManagement.Application.Services
 
             _logger.LogInformation("Financial Product Type {Guid} created successfully", financialProductType.Guid);
 
-            return _mapper.Map<FinancialProductTypeResponse>(financialProductType);
+            return _mapper.Map<FinancialProductTypeDetailsResponse>(financialProductType);
         }
-        public async Task<FinancialProductTypeResponse> GetFinancialProductTypeByGuidAsync(Guid guid)
+        public async Task<FinancialProductTypeDetailsResponse> GetFinancialProductTypeByGuidAsync(Guid guid)
         {
             var financialProductType = await GetFinancialProductTypeEntityByIdAsync(guid);
             _logger.LogDebug("Fetched Financial Product {Guid}", guid);
-            return _mapper.Map<FinancialProductTypeResponse>(financialProductType);
+            return _mapper.Map<FinancialProductTypeDetailsResponse>(financialProductType);
         }
 
         public async Task<List<FinancialProductTypeResponse>> GetAllFinancialProductTypeAsync(PaginationQuery query)
@@ -60,7 +66,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             return _mapper.Map<List<FinancialProductTypeResponse>>(financialProductTypes);
         }
 
-        public async Task<List<FinancialProductTypeResponse>> GetAllFinancialProductTypeAndFinancialProductAsync(PaginationQuery query)
+        public async Task<List<FinancialProductTypeDetailsResponse>> GetAllFinancialProductTypeAndFinancialProductAsync(PaginationQuery query)
         {
             ArgumentNullException.ThrowIfNull(query);
 
@@ -75,7 +81,7 @@ namespace InvestmentPortfolioManagement.Application.Services
                 "Fetched {Count} Financial Product Types with products",
                 types.Count);
 
-            return _mapper.Map<List<FinancialProductTypeResponse>>(types);
+            return _mapper.Map<List<FinancialProductTypeDetailsResponse>>(types);
         }
 
         public async Task UpdateAsync(Guid guid, FinancialProductTypeUpdateRequest request)

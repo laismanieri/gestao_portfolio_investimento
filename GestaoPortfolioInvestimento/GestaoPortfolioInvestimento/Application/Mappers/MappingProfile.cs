@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using InvestmentPortfolioManagement.Application.DTOs;
 using InvestmentPortfolioManagement.Application.DTOs.Customer;
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
@@ -14,10 +15,14 @@ namespace InvestmentPortfolioManagement.Application.Mappers
             CreateMap<CustomerCreateRequest, CustomerEntity>();
             CreateMap<CustomerUpdateRequest, CustomerEntity>();
 
+            CreateMap<FinancialProductTypeEntity, FinancialProductTypeDetailsResponse>();
             CreateMap<FinancialProductTypeEntity, FinancialProductTypeResponse>();
             CreateMap<FinancialProductTypeCreateRequest, FinancialProductTypeEntity>();
             CreateMap<FinancialProductTypeUpdateRequest, FinancialProductTypeEntity>();
 
+            CreateMap<FinancialProductEntity, FinancialProductResponse>();
+            CreateMap<FinancialProductCreateRequest, FinancialProductEntity>();
+            CreateMap<FinancialProductTypeUpdateRequest, FinancialProductEntity>();
         }
     }
 }

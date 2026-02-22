@@ -10,7 +10,6 @@ namespace InvestmentPortfolioManagement.Infrastructure
         public DbSet<CustomerEntity> Customers { get; set; }
         public DbSet<InvestmentEntity> Investments { get; set; }
         public DbSet<FinancialProductEntity> FinancialProducts { get; set; }
-
         public DbSet<FinancialProductTypeEntity> FinancialProductTypes { get; set; }
         public DbSet<TransactionEntity> Transactions { get; set; }
 
@@ -67,6 +66,9 @@ namespace InvestmentPortfolioManagement.Infrastructure
             modelBuilder.Entity<TransactionEntity>()
                 .Property(t => t.TotalValue)
                 .HasColumnType("decimal(18,2)");
+
+            modelBuilder.ApplyConfigurationsFromAssembly(
+                typeof(DataContext).Assembly);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using InvestmentPortfolioManagement.Domain.Entities;
+﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
+using InvestmentPortfolioManagement.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortfolioManagement.Application.DTOs
@@ -10,12 +11,12 @@ namespace InvestmentPortfolioManagement.Application.DTOs
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Type is required.")]
-        public FinancialProductTypeEntity Type { get; set; }
+        public Guid FinancialProductTypeGuid { get; set; }
 
-        public int FinancialProductTypeId { get; set; }
-
+        [Range(0.01, double.MaxValue)]
         public decimal UnitValue { get; set; }
 
+        [Range(0, 100)]
         public decimal ReturnRate { get; set; }
     }
 }

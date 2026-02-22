@@ -8,9 +8,9 @@ namespace InvestmentPortfolioManagement.Application.Interfaces
     public interface IFinancialProductTypeService
     {
 
-        Task<FinancialProductTypeResponse> CreateAsync(FinancialProductTypeCreateRequest request);
+        Task<FinancialProductTypeDetailsResponse> CreateAsync(FinancialProductTypeCreateRequest request);
 
-        Task<FinancialProductTypeResponse> GetFinancialProductTypeByGuidAsync(Guid guid);    
+        Task<FinancialProductTypeDetailsResponse> GetFinancialProductTypeByGuidAsync(Guid guid);    
 
         Task UpdateAsync(Guid guid, FinancialProductTypeUpdateRequest request);
 
@@ -18,6 +18,6 @@ namespace InvestmentPortfolioManagement.Application.Interfaces
 
         Task<List<FinancialProductTypeResponse>> GetAllFinancialProductTypeAsync(PaginationQuery query);
 
-        Task<List<FinancialProductTypeResponse>> GetAllFinancialProductTypeAndFinancialProductAsync(PaginationQuery query);
+        Task<List<FinancialProductTypeDetailsResponse>> GetAllFinancialProductTypeAndFinancialProductAsync(PaginationQuery query);
     }
 }

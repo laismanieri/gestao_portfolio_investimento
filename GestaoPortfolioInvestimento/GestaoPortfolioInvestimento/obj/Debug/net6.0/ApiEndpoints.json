@@ -244,6 +244,43 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/FinancialProductType/{guid}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductType.FinancialProductTypeUpdateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
+    "Method": "DeleteCustomer",
+    "RelativePath": "api/FinancialProductType/{guid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductTypeController",
     "Method": "GetAllFinancialProductTypeAndFinancialProduct",
     "RelativePath": "api/FinancialProductType/with-products",
     "HttpMethod": "GET",
