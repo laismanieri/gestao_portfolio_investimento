@@ -96,7 +96,5 @@ namespace InvestmentPortfolioManagement.Application.Services
 
             return customer ?? throw new KeyNotFoundException($"Customer with Guid {guid} not found");
         }
-
-
     }
 }

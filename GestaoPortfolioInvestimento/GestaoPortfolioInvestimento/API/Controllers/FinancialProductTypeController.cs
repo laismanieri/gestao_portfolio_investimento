@@ -21,6 +21,9 @@ namespace InvestmentPortfolioManagement.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllFinancialProductType([FromQuery] PaginationQuery query)
         {
+            if (query.Skip < 0 || query.Take <= 0)
+                return BadRequest("Invalid pagination parameters.");
+
             var financialProductTypes = await _financialProductTypeService.GetAllFinancialProductTypeAsync(query);
             return Ok(financialProductTypes);
         }

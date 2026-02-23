@@ -5,16 +5,16 @@ namespace InvestmentPortfolioManagement.Application.DTOs.FinancialProduct
 {
     public class FinancialProductUpdateRequest
     {
-        public int ID { get; set; }
 
-        public string Name { get; set; }
+        [StringLength(100, ErrorMessage = "Name cannot be longer than 100 characters.")]
+        public string Name { get; set; } = string.Empty;
 
-        public FinancialProductTypeEntity Type { get; set; }
+        public Guid FinancialProductTypeGuid { get; set; }
 
-        public int FinancialProductTypeId { get; set; }
-
+        [Range(0.01, double.MaxValue)]
         public decimal UnitValue { get; set; }
 
+        [Range(0, 100)]
         public decimal ReturnRate { get; set; }
     }
 }

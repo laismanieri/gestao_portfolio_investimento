@@ -1,18 +1,20 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
+﻿using InvestmentPortfolioManagement.Application.DTOs;
+using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
+using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Domain.Entities;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 {
     public interface IFinancialProductService
     {
-        FinancialProductEntity AddFinancialProduct(FinancialProductUpdateRequest financialProductDto);
+        Task<FinancialProductResponse> CreateAsync(FinancialProductCreateRequest request);
 
-        FinancialProductEntity GetFinancialProductById(int id);
+        Task<FinancialProductResponse> GetFinancialProductByGuidAsync(Guid guid);
 
-        List<FinancialProductEntity> GetAllFinancialProducts(int skip, int take);
+        Task UpdateAsync(Guid guid, FinancialProductUpdateRequest request);
 
-        void UpdateFinancialProduct(int id, FinancialProductUpdateRequest financialProductDto);
+        Task DeleteAsync(Guid guid);
 
-        void RemoveFinancialProduct(int id);
+        Task<List<FinancialProductResponse>> GetAllFinancialProductsAsync(PaginationQuery query);
     }
 }

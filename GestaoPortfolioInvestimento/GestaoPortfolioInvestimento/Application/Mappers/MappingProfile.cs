@@ -15,14 +15,16 @@ namespace InvestmentPortfolioManagement.Application.Mappers
             CreateMap<CustomerCreateRequest, CustomerEntity>();
             CreateMap<CustomerUpdateRequest, CustomerEntity>();
 
-            CreateMap<FinancialProductTypeEntity, FinancialProductTypeDetailsResponse>();
+            CreateMap<FinancialProductTypeEntity, FinancialProductTypeDetailsResponse>()
+                .ForMember(dest => dest.FinancialProductEntity, opt => opt.MapFrom(src => src.FinancialProducts));
             CreateMap<FinancialProductTypeEntity, FinancialProductTypeResponse>();
             CreateMap<FinancialProductTypeCreateRequest, FinancialProductTypeEntity>();
             CreateMap<FinancialProductTypeUpdateRequest, FinancialProductTypeEntity>();
 
             CreateMap<FinancialProductEntity, FinancialProductResponse>();
             CreateMap<FinancialProductCreateRequest, FinancialProductEntity>();
-            CreateMap<FinancialProductTypeUpdateRequest, FinancialProductEntity>();
+            CreateMap<FinancialProductUpdateRequest, FinancialProductEntity>();
+            CreateMap<FinancialProductEntity, FinancialProductSummary>();
         }
     }
 }

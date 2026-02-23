@@ -8,7 +8,7 @@ namespace InvestmentPortfolioManagement.Application.DTOs
     {
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(100, ErrorMessage = "Name cannot be longer than 100 characters.")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Type is required.")]
         public Guid FinancialProductTypeGuid { get; set; }

@@ -101,36 +101,46 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
-    "Method": "GetAll",
+    "Method": "GetAllFinancialProducts",
     "RelativePath": "api/FinancialProduct",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "skip",
+        "Name": "Skip",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "take",
+        "Name": "Take",
         "Type": "System.Int32",
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[InvestmentPortfolioManagement.Application.DTOs.FinancialProduct.FinancialProductResponse, InvestmentPortfolioManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
-    "Method": "Create",
+    "Method": "CreateFinancialProduct",
     "RelativePath": "api/FinancialProduct",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProduct.FinancialProductUpdateRequest",
+        "Name": "request",
+        "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProductCreateRequest",
         "IsRequired": true
       }
     ],
@@ -138,15 +148,15 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
-    "Method": "GetById",
-    "RelativePath": "api/FinancialProduct/{id}",
+    "Method": "GetFinancialProductByGuid",
+    "RelativePath": "api/FinancialProduct/{guid}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -154,19 +164,19 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
-    "Method": "Update",
-    "RelativePath": "api/FinancialProduct/{id}",
+    "Method": "UpdateFinancialProduct",
+    "RelativePath": "api/FinancialProduct/{guid}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       },
       {
-        "Name": "dto",
+        "Name": "request",
         "Type": "InvestmentPortfolioManagement.Application.DTOs.FinancialProduct.FinancialProductUpdateRequest",
         "IsRequired": true
       }
@@ -175,15 +185,15 @@
   },
   {
     "ContainingType": "InvestmentPortfolioManagement.API.Controllers.FinancialProductController",
-    "Method": "Delete",
-    "RelativePath": "api/FinancialProduct/{id}",
+    "Method": "DeleteFinancialProduct",
+    "RelativePath": "api/FinancialProduct/{guid}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "guid",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
