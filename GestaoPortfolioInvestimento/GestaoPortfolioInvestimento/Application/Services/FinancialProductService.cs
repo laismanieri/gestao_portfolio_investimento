@@ -124,16 +124,35 @@ namespace InvestmentPortfolioManagement.Application.Services
             }).ToList();
         }
 
+        public async Task<List<FinancialProductResponse>> GetInactiveProductsAsync()
+        {
+            var inactiveProducts = await _context.FinancialProducts
+                .IgnoreQueryFilters()
+                .Where(p => !p.IsActive)
+                .Include(p => p.Type)
+                .AsNoTracking()
+                .ToListAsync();
+
+            return _mapper.Map<List<FinancialProductResponse>>(inactiveProducts);
+        }
+
         public async Task DeleteAsync(Guid guid)
         {
             var product = await GetFinancialProductEntityByGuidAsync(guid);
 
-            _logger.LogInformation("Deleting financial product {Guid}", guid);
+            _logger.LogInformation("Deactivating financial product {Guid}", guid);
 
-            _context.FinancialProducts.Remove(product);
+            var hasActiveInvestments = await _context.CustomerSubscriptions
+                .AnyAsync(s => s.FinancialProductId == product.Id && s.SaleDate == null);
+
+            if (hasActiveInvestments)
+                throw new InvalidOperationException("Cannot deactivate product with active investments");
+
+            product.IsActive = false;
+
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("Financial product {Guid} deleted successfully", guid);
+            _logger.LogInformation("Financial product {Guid} deactivated successfully", guid);
         }
 
         private async Task<FinancialProductEntity> GetFinancialProductEntityByGuidAsync(Guid guid)

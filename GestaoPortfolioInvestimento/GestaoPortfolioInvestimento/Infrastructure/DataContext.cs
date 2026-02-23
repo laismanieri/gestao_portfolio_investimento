@@ -67,6 +67,9 @@ namespace InvestmentPortfolioManagement.Infrastructure
                 .Property(t => t.TotalValue)
                 .HasColumnType("decimal(18,2)");
 
+            modelBuilder.Entity<FinancialProductEntity>()
+                .HasQueryFilter(p => p.IsActive);
+
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(DataContext).Assembly);
         }

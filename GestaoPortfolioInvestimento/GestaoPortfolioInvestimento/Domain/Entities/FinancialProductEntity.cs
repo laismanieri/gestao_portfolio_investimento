@@ -22,5 +22,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
 
         public List<CustomerSubscriptionEntity> Investments { get; set; } = new List<CustomerSubscriptionEntity>();
 
+        public bool IsActive { get; set; } = true;
     }
 }

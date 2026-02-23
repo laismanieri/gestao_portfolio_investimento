@@ -35,6 +35,13 @@ namespace InvestmentPortfolioManagement.API.Controllers
             return Ok(product);
         }
 
+        [HttpGet("inactive-products")]
+        public async Task<ActionResult<List<FinancialProductResponse>>> GetInactiveProducts()
+        {
+            var products = await _financialProductService.GetInactiveProductsAsync();
+            return Ok(products);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateFinancialProduct([FromBody] FinancialProductCreateRequest request)
         {

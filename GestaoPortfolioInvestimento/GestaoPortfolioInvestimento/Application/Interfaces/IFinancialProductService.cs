@@ -19,5 +19,7 @@ namespace InvestmentPortfolioManagement.Application.Interfaces
         Task<List<FinancialProductResponse>> GetAllFinancialProductsAsync(PaginationQuery query);
 
         Task<List<UpcomingFinancialProductNotification>> GetProductsNearMaturityAsync(int days);
+
+        Task<List<FinancialProductResponse>> GetInactiveProductsAsync();
     }
 }

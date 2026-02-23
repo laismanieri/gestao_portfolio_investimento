@@ -16,7 +16,7 @@ namespace InvestmentPortfolioManagement.Application.DTOs
         [Range(1, 14600, ErrorMessage = "Term must be between 1 day and 40 years.")]
         public int Term { get; set; }
 
-        [Range(0, 100)]
+        [Required(ErrorMessage = "Unit Value is required.")]
         public decimal UnitValue { get; set; }
 
         [Required(ErrorMessage = "Quantity is required.")]
