@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
+    [Index(nameof(Guid), IsUnique = true)]
     public class FinancialProductEntity : BaseEntity
     {
         public string Name { get; set; } = string.Empty;

@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
+    [Index(nameof(Guid), IsUnique = true)]
     public class CustomerSubscriptionEntity : BaseEntity
     {
         public int CustomerId { get; set; }

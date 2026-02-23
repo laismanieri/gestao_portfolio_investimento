@@ -66,6 +66,26 @@ namespace InvestmentPortfolioManagement.Infrastructure
             modelBuilder.Entity<TransactionEntity>()
                 .Property(t => t.TotalValue)
                 .HasColumnType("decimal(18,2)");
+            // Configure indixes
+            modelBuilder.Entity<CustomerEntity>()
+                .HasIndex(t => t.Guid)
+                .IsUnique();
+
+            modelBuilder.Entity<FinancialProductEntity>()
+                .HasIndex(t => t.Guid)
+                .IsUnique();
+
+            modelBuilder.Entity<FinancialProductTypeEntity>()
+                .HasIndex(t => t.Guid)
+                .IsUnique();
+
+            modelBuilder.Entity<CustomerSubscriptionEntity>()
+                .HasIndex(t => t.Guid)
+                .IsUnique();
+
+            modelBuilder.Entity<TransactionEntity>()
+                .HasIndex(t => t.Guid)
+                .IsUnique();
 
             modelBuilder.Entity<FinancialProductEntity>()
                 .HasQueryFilter(p => p.IsActive);
