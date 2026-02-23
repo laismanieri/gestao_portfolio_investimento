@@ -1,9 +1,10 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs;
+﻿using InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription;
+using InvestmentPortfolioManagement.Application.DTOs.Notifications;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 {
     public interface IEmailNotificationService
     {
-        Task SendUpcomingInvestmentsEmailAsync(Dictionary<int, List<InvestmentDetailDTO>> investmentsByClient, string toEmail);
+        Task SendUpcomingProductsEmailAsync(List<UpcomingFinancialProductNotification> products,string toEmail);
     }
 }

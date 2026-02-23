@@ -1,37 +1,60 @@
-﻿using InvestmentPortfolioManagement.Application.Interfaces;
+﻿using AutoMapper;
+using InvestmentPortfolioManagement.Application.DTOs.Customer;
+using InvestmentPortfolioManagement.Application.DTOs.Shared;
+using InvestmentPortfolioManagement.Application.DTOs.Transaction;
+using InvestmentPortfolioManagement.Application.Interfaces;
 using InvestmentPortfolioManagement.Domain.Entities;
 using InvestmentPortfolioManagement.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace InvestmentPortfolioManagement.Application.Services
 {
     public class TransactionService : ITransactionService
     {
         private readonly DataContext _context;
+        private readonly IMapper _mapper;
+        private readonly ILogger<TransactionService> _logger;
 
-        public TransactionService(DataContext context)
+        public TransactionService(DataContext context, IMapper mapper, ILogger<TransactionService> logger)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public List<TransactionEntity> GetAllTransactions(int skip, int take)
+        public async Task<List<TransactionResponse>> GetAllTransactionsAsync(PaginationQuery query)
         {
-            return _context.Transactions
-                .Skip(skip)
-                .Take(take)
-                .ToList();
+            ArgumentNullException.ThrowIfNull(query, nameof(query));
+
+            var transactions = await _context.Transactions
+                .AsNoTracking()
+                .Skip(query.Skip)
+                .Take(query.Take)
+                .ToListAsync();
+
+            _logger.LogInformation("Fetched {Count} Ttansactions from skip {Skip} take {Take}",
+                transactions.Count, query.Skip, query.Take);
+
+            return _mapper.Map<List<TransactionResponse>>(transactions);
+
         }
 
-        public TransactionEntity GetTransactionById(int id)
+        public async Task<TransactionResponse> GetTransactionByGuidAsync(Guid guid)
         {
-            var transaction = _context.Transactions
-                .FirstOrDefault(t => t.Id == id);
+            var transaction = await GetTransactionEntityByGuidAsync(guid);
+            _logger.LogDebug("Fetched Transaction {Guid}", guid);
+            return _mapper.Map<TransactionResponse>(transaction);
+        }
 
-            if (transaction == null)
-            {
-                throw new KeyNotFoundException($"Transaction with ID {id} was not found.");
-            }
+        private async Task<TransactionEntity> GetTransactionEntityByGuidAsync(Guid guid)
+        {
+            if (guid == Guid.Empty)
+                throw new ArgumentException("Guid cannot be empty", nameof(guid));
 
-            return transaction;
+            var transaction = await _context.Transactions
+                .FirstOrDefaultAsync(c => c.Guid == guid);
+
+            return transaction ?? throw new KeyNotFoundException($"Transaction with Guid {guid} not found");
         }
     }
 }

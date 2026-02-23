@@ -22,7 +22,7 @@ namespace InvestmentPortfolioManagement.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<CustomerResponse>>> GetAllCustomers([FromQuery] PaginationQuery query)
         {
-                        if (query.Skip < 0 || query.Take <= 0)
+            if (query.Skip < 0 || query.Take <= 0)
                 return BadRequest("Invalid pagination parameters.");
             var customers = await _customerService.GetAllCustomersAsync(query);
             return Ok(customers);
@@ -55,5 +55,6 @@ namespace InvestmentPortfolioManagement.API.Controllers
             await _customerService.DeleteAsync(guid);
             return NoContent();
         }
+
     }
 }

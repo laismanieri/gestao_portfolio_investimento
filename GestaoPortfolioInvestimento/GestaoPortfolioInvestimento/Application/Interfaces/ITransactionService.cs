@@ -1,11 +1,13 @@
-﻿using InvestmentPortfolioManagement.Domain.Entities;
+﻿using InvestmentPortfolioManagement.Application.DTOs.Shared;
+using InvestmentPortfolioManagement.Application.DTOs.Transaction;
+using InvestmentPortfolioManagement.Domain.Entities;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 {
     public interface ITransactionService
     {
-        TransactionEntity GetTransactionById(int id);
+        Task<TransactionResponse> GetTransactionByGuidAsync(Guid guid);
 
-        List<TransactionEntity> GetAllTransactions(int skip, int take);
+        Task<List<TransactionResponse>> GetAllTransactionsAsync(PaginationQuery query);
     }
 }

@@ -8,7 +8,6 @@
 
         public string DateOfBirth { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-
-        public List<InvestmentEntity> Investments { get; set; } = new List<InvestmentEntity>();
+        public List<CustomerSubscriptionEntity> Investments { get; set; } = new List<CustomerSubscriptionEntity>();
     }
 }

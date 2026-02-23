@@ -51,7 +51,7 @@ builder.Services.AddControllers();
 builder.Services.AddMemoryCache();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<IInvestmentService, InvestmentService>();
+builder.Services.AddScoped<ICustomerSubscriptionService, CustomerSubscriptionService>();
 builder.Services.AddScoped<IFinancialProductService, FinancialProductService>();
 builder.Services.AddScoped<IFinancialProductTypeService, FinancialProductTypeService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();

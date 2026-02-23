@@ -8,7 +8,7 @@ namespace InvestmentPortfolioManagement.Infrastructure
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<CustomerEntity> Customers { get; set; }
-        public DbSet<InvestmentEntity> Investments { get; set; }
+        public DbSet<CustomerSubscriptionEntity> CustomerSubscriptions { get; set; }
         public DbSet<FinancialProductEntity> FinancialProducts { get; set; }
         public DbSet<FinancialProductTypeEntity> FinancialProductTypes { get; set; }
         public DbSet<TransactionEntity> Transactions { get; set; }
@@ -36,18 +36,18 @@ namespace InvestmentPortfolioManagement.Infrastructure
                 .HasForeignKey(p => p.FinancialProductTypeId);
 
             // Investment -> Transactions (1:N)
-            modelBuilder.Entity<InvestmentEntity>()
+            modelBuilder.Entity<CustomerSubscriptionEntity>()
                 .HasMany(i => i.Transactions)
                 .WithOne(t => t.Investment)
                 .HasForeignKey(t => t.InvestmentId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Configure decimals
-            modelBuilder.Entity<InvestmentEntity>()
+            modelBuilder.Entity<CustomerSubscriptionEntity>()
                 .Property(i => i.TotalValue)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<InvestmentEntity>()
+            modelBuilder.Entity<CustomerSubscriptionEntity>()
                 .Property(i => i.Yield)
                 .HasColumnType("decimal(18,2)");
 

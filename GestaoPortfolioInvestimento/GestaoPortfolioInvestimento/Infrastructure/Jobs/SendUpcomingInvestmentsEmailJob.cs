@@ -17,14 +17,18 @@ namespace InvestmentPortfolioManagement.Infrastructure.Jobs
         {
             using (var scope = _serviceScopeFactory.CreateScope())
             {
-                var investmentService = scope.ServiceProvider.GetRequiredService<IInvestmentService>();
-                var emailService = scope.ServiceProvider.GetRequiredService<EmailService>();
+                var investmentService = scope.ServiceProvider.GetRequiredService<IFinancialProductService>();
+                var emailService = scope.ServiceProvider.GetRequiredService<IEmailNotificationService>();
 
                 // Define how many days before maturity to consider as "upcoming"
                 int daysBeforeMaturity = 7;
 
-                var investmentsByCustomer = investmentService.ListInvestmentsNearMaturity(daysBeforeMaturity);
-                await emailService.SendUpcomingInvestmentsEmailAsync(investmentsByCustomer, "laismanieri@alunos.utfpr.edu.br");
+                var upcomingProducts = await investmentService.GetProductsNearMaturityAsync(daysBeforeMaturity);
+                if (!upcomingProducts.Any())
+                    return;
+
+                await emailService.SendUpcomingProductsEmailAsync(upcomingProducts, "laismanieri@alunos.utfpr.edu.br");
+                //await emailService.SendUpcomingInvestmentsEmailAsync(investmentsByCustomer, "laismanieri@alunos.utfpr.edu.br");
             }
         }
     }

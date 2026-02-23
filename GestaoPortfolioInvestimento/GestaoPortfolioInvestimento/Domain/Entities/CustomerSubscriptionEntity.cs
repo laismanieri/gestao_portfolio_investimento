@@ -2,21 +2,15 @@
 
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
-    public class InvestmentEntity : BaseEntity
+    public class CustomerSubscriptionEntity : BaseEntity
     {
         public int CustomerId { get; set; }
         public int FinancialProductId { get; set; }
 
         public int Quantity { get; set; }
-
-        public DateTime SubscriptionDate { get; set; }
         public DateTime? SaleDate { get; set; }
-        public DateTime MaturityDate { get; set; }
-
-        public decimal TotalValue { get; set; }
-        public decimal Yield { get; set; }
-
-        public int Term { get; set; }
+        public Double TotalValue { get; set; }
+        public Double Yield { get; set; }
 
         [ForeignKey("CustomerId")]
         public CustomerEntity Customer { get; set; } = null!;

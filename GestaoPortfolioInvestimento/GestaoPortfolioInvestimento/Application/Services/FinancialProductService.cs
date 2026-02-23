@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using InvestmentPortfolioManagement.Application.DTOs;
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
+using InvestmentPortfolioManagement.Application.DTOs.Notifications;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;
 using InvestmentPortfolioManagement.Domain.Entities;
@@ -38,9 +39,13 @@ namespace InvestmentPortfolioManagement.Application.Services
                 throw new InvalidOperationException($"Financial product {request.Name} already exists for type {type.Name}");
 
             var financialProduct = _mapper.Map<FinancialProductEntity>(request);
-            financialProduct.FinancialProductTypeId = type.Id; 
+            financialProduct.FinancialProductTypeId = type.Id;
+
+            financialProduct.MaturityDate = DateTime.UtcNow.AddDays(request.Term);
 
             await _context.FinancialProducts.AddAsync(financialProduct);
+
+
             await _context.SaveChangesAsync();
 
             _logger.LogInformation("Financial product {Guid} created successfully", financialProduct.Guid);
@@ -97,6 +102,26 @@ namespace InvestmentPortfolioManagement.Application.Services
             await _context.SaveChangesAsync();
 
             _logger.LogInformation("Financial product {Guid} updated successfully", guid);
+        }
+
+        public async Task<List<UpcomingFinancialProductNotification>> GetProductsNearMaturityAsync(int days)
+        {
+            var limitDate = DateTime.UtcNow.AddDays(days);
+
+            var products = await _context.FinancialProducts
+                .Include(p => p.Type)
+                .Where(p => p.MaturityDate <= limitDate)
+                .AsNoTracking()
+                .ToListAsync();
+
+            return products.Select(p => new UpcomingFinancialProductNotification
+            {
+                ProductGuid = p.Guid,
+                Name = p.Name,
+                Type = p.Type.Name,
+                MaturityDate = p.MaturityDate,
+                ReturnRate = p.ReturnRate
+            }).ToList();
         }
 
         public async Task DeleteAsync(Guid guid)

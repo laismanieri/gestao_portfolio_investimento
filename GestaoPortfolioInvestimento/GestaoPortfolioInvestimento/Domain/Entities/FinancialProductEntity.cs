@@ -1,4 +1,6 @@
-﻿namespace InvestmentPortfolioManagement.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace InvestmentPortfolioManagement.Domain.Entities
 {
     public class FinancialProductEntity : BaseEntity
     {
@@ -9,8 +11,16 @@
         public FinancialProductTypeEntity Type { get; set; } = null!;
 
         public decimal UnitValue { get; set; }
+
+        public int Quantity { get; set; }
+
+        public DateTime MaturityDate { get; set; }
+
+        public int Term { get; set; }
+
         public decimal ReturnRate { get; set; }
 
-        public List<InvestmentEntity> Investments { get; set; } = new List<InvestmentEntity>();
+        public List<CustomerSubscriptionEntity> Investments { get; set; } = new List<CustomerSubscriptionEntity>();
+
     }
 }

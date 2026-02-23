@@ -1,5 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
+using InvestmentPortfolioManagement.Application.DTOs.Customer;
+using InvestmentPortfolioManagement.Application.DTOs.Shared;
+using InvestmentPortfolioManagement.Application.DTOs.Transaction;
 using InvestmentPortfolioManagement.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolioManagement.API.Controllers
 {
@@ -15,24 +18,19 @@ namespace InvestmentPortfolioManagement.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllTransactions([FromQuery] int skip = 0, [FromQuery] int take = 50)
+        public async Task<ActionResult<List<TransactionResponse>>> GetAllTransactions([FromQuery] PaginationQuery query)
         {
-            var transactions = _transaction.GetAllTransactions(skip, take);
+            if (query.Skip < 0 || query.Take <= 0)
+                return BadRequest("Invalid pagination parameters.");
+            var transactions = await _transaction.GetAllTransactionsAsync(query);
             return Ok(transactions);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetTransactionById(int id)
+        [HttpGet("{guid:guid}")]
+        public async Task<IActionResult> GetTransactionByGuid(Guid guid)
         {
-            try
-            {
-                var transaction = _transaction.GetTransactionById(id);
-                return Ok(transaction);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            var transaction = await _transaction.GetTransactionByGuidAsync(guid);
+            return Ok(transaction);
         }
     }
 }

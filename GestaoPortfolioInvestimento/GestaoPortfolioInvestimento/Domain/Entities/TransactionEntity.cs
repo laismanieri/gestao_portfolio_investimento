@@ -9,8 +9,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
 
         public int Quantity { get; set; }
 
-        public DateTime Date { get; set; }
-
         public decimal UnitValue { get; set; }
 
         public decimal TotalValue { get; set; }
@@ -18,6 +16,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
         public TransactionType TransactionType { get; set; }
 
         [ForeignKey("InvestmentId")]
-        public InvestmentEntity Investment { get; set; } = null!;
+        public CustomerSubscriptionEntity Investment { get; set; } = null!;
     }
 }

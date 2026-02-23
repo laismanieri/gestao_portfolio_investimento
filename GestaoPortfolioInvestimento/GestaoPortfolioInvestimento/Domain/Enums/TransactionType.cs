@@ -2,8 +2,8 @@
 {
     public enum TransactionType
     {
-        BUY,
-        SELL,
-        CANCELLATION
+        Buy,
+        Sell,
+        Cancellation
     }
 }
