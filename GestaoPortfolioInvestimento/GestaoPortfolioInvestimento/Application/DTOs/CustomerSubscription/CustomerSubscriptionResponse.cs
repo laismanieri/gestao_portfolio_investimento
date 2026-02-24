@@ -29,8 +29,6 @@ namespace InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription
     {
         public Guid Guid { get; set; }
         public string Name { get; set; } = string.Empty;
-        public int Quantity { get; set; }
-        public decimal UnitValue { get; set; }
         public decimal ReturnRate { get; set; }
 
         public FinancialProductTypeResponse Type { get; set; } = new();

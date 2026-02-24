@@ -90,6 +90,9 @@ namespace InvestmentPortfolioManagement.Application.Services
                 var type = await _context.FinancialProductTypes
                     .FirstOrDefaultAsync(t => t.Guid == request.FinancialProductTypeGuid);
 
+                if (await _context.FinancialProducts.AnyAsync(p => p.Name == request.Name && p.FinancialProductTypeId == type.Id))
+                    throw new InvalidOperationException($"Financial product {request.Name} already exists for type {type.Name}");
+
                 if (type == null)
                     throw new KeyNotFoundException($"Financial product type {request.FinancialProductTypeGuid} not found");
 

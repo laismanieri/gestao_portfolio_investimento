@@ -11,8 +11,8 @@ namespace InvestmentPortfolioManagement.Domain.Entities
 
         public int Quantity { get; set; }
         public DateTime? SaleDate { get; set; }
-        public Double TotalValue { get; set; }
-        public Double Yield { get; set; }
+        public decimal TotalValue { get; set; }
+        public decimal Yield { get; set; }
 
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; } = null!;

@@ -26,7 +26,7 @@ namespace InvestmentPortfolioManagement.Application.DTOs
         [Required(ErrorMessage = "Maturity date is required.")]
         public DateTime MaturityDate { get; set; }
 
-        [Range(0, 100)]
+        [Range(0.1, 100)]
         public decimal ReturnRate { get; set; }
     }
 }

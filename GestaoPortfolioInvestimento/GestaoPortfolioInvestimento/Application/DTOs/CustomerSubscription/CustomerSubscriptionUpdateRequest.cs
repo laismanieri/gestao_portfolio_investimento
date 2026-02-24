@@ -8,11 +8,9 @@ namespace InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription
         [Range(1, int.MaxValue, ErrorMessage = "Quantity must be greater than 0.")]
         public int? Quantity { get; set; }
 
-        [Range(0, Double.MaxValue, ErrorMessage = "Total value cannot be negative.")]
-        public Double? TotalValue { get; set; }
+        public decimal? TotalValue { get; set; }
 
-        [Range(0, Double.MaxValue, ErrorMessage = "Yield cannot be negative.")]
-        public Double? Yield { get; set; }
+        public decimal? Yield { get; set; }
 
         public DateTime? SaleDate { get; set; }
 

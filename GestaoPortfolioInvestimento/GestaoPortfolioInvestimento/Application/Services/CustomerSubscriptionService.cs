@@ -29,6 +29,9 @@ namespace InvestmentPortfolioManagement.Application.Services
         {
             ArgumentNullException.ThrowIfNull(request);
 
+            if (request.Quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero");
+
             using var dbTransaction = await _context.Database.BeginTransactionAsync();
 
             try
@@ -41,29 +44,38 @@ namespace InvestmentPortfolioManagement.Application.Services
                     .FirstOrDefaultAsync(p => p.Guid == request.FinancialProductGuid)
                     ?? throw new KeyNotFoundException("Financial product not found");
 
-                if (product.Quantity < request.Quantity)
-                    throw new InvalidOperationException("Insufficient product quantity available");
+                if (!product.IsActive)
+                    throw new InvalidOperationException("Product is inactive");
+
+                if (product.Quantity <= 0)
+                    throw new InvalidOperationException("Product is out of stock");
+
+                if (request.Quantity > product.Quantity)
+                    throw new InvalidOperationException("Insufficient stock available");
 
                 var totalValue = request.Quantity * product.UnitValue;
 
-                var entity = new CustomerSubscription
+                var subscription = new CustomerSubscription
                 {
                     CustomerId = customer.Id,
                     FinancialProductId = product.Id,
                     Quantity = request.Quantity,
-                    TotalValue = (double)totalValue,
+                    TotalValue = totalValue,
                     SaleDate = null,
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow
                 };
 
-                await _context.CustomerSubscriptions.AddAsync(entity);
+                await _context.CustomerSubscriptions.AddAsync(subscription);
 
                 product.Quantity -= request.Quantity;
 
+                if (product.Quantity < 0)
+                    throw new InvalidOperationException("Stock cannot be negative");
+
                 var transaction = new Transaction
                 {
-                    Investment = entity,
+                    Investment = subscription,
                     Quantity = request.Quantity,
                     UnitValue = product.UnitValue,
                     TotalValue = totalValue,
@@ -74,17 +86,9 @@ namespace InvestmentPortfolioManagement.Application.Services
                 await _context.Transactions.AddAsync(transaction);
 
                 await _context.SaveChangesAsync();
-
                 await dbTransaction.CommitAsync();
 
-                return _mapper.Map<CustomerSubscriptionResponse>(entity);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                await dbTransaction.RollbackAsync();
-
-                throw new InvalidOperationException(
-                    "The product stock was modified by another operation. Please try again.");
+                return _mapper.Map<CustomerSubscriptionResponse>(subscription);
             }
             catch
             {
@@ -196,10 +200,20 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         public async Task UpdateAsync(Guid guid, CustomerSubscriptionUpdateRequest request)
         {
-            var subscription = await GetCustomerSubscriptionEntityByIdAsync(guid);
+            if (request.Quantity == null || request.Quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero");
 
-            if (request.Quantity.HasValue)
+            using var dbTransaction = await _context.Database.BeginTransactionAsync();
+
+            try
             {
+                var subscription = await _context.CustomerSubscriptions
+                    .FirstOrDefaultAsync(s => s.Guid == guid)
+                    ?? throw new KeyNotFoundException("Subscription not found");
+
+                if (subscription.Quantity <= 0)
+                    throw new InvalidOperationException("No quantity available to sell");
+
                 int quantityToSell = request.Quantity.Value;
 
                 if (quantityToSell > subscription.Quantity)
@@ -210,9 +224,9 @@ namespace InvestmentPortfolioManagement.Application.Services
                     ?? throw new KeyNotFoundException("Financial product not found");
 
                 subscription.Quantity -= quantityToSell;
-                subscription.TotalValue = (double)(subscription.Quantity * product.UnitValue);
+                subscription.TotalValue = subscription.Quantity * product.UnitValue;
+                subscription.UpdatedAt = DateTime.UtcNow;
 
-                // Atualiza estoque do produto
                 product.Quantity += quantityToSell;
 
                 var transaction = new Transaction
@@ -224,11 +238,17 @@ namespace InvestmentPortfolioManagement.Application.Services
                     TransactionType = TransactionType.Sell,
                     CreatedAt = DateTime.UtcNow
                 };
-                await _context.Transactions.AddAsync(transaction);
-            }
 
-            subscription.UpdatedAt = DateTime.UtcNow;
-            await _context.SaveChangesAsync();
+                await _context.Transactions.AddAsync(transaction);
+
+                await _context.SaveChangesAsync();
+                await dbTransaction.CommitAsync();
+            }
+            catch
+            {
+                await dbTransaction.RollbackAsync();
+                throw;
+            }
         }
 
         public async Task DeleteAsync(Guid guid)
