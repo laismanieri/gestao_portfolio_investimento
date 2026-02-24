@@ -35,7 +35,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     else
     {
         var cs = builder.Configuration.GetConnectionString("DefaultConnection");
-        options.UseSqlServer(cs);
+        options.UseMySql(cs, ServerVersion.AutoDetect(cs));
     }
 });
 
