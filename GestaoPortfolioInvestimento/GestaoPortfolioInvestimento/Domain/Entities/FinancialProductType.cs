@@ -3,7 +3,7 @@
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
     [Index(nameof(Guid), IsUnique = true)]
-    public class FinancialProductTypeEntity : BaseEntity
+    public class FinancialProductType : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
 

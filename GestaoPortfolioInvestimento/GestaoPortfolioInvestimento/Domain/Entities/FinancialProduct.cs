@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
     [Index(nameof(Guid), IsUnique = true)]
-    public class FinancialProductEntity : BaseEntity
+    public class FinancialProduct : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
 
         public int FinancialProductTypeId { get; set; }
 
-        public FinancialProductTypeEntity Type { get; set; } = null!;
+        public FinancialProductType Type { get; set; } = null!;
 
         public decimal UnitValue { get; set; }
 

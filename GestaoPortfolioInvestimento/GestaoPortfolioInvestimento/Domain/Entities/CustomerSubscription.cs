@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
     [Index(nameof(Guid), IsUnique = true)]
-    public class CustomerSubscriptionEntity : BaseEntity
+    public class CustomerSubscription : BaseEntity
     {
         public int CustomerId { get; set; }
         public int FinancialProductId { get; set; }
@@ -18,8 +18,8 @@ namespace InvestmentPortfolioManagement.Domain.Entities
         public Customer Customer { get; set; } = null!;
 
         [ForeignKey("FinancialProductId")]
-        public FinancialProductEntity FinancialProduct { get; set; } = null!;
+        public FinancialProduct FinancialProduct { get; set; } = null!;
 
-        public List<TransactionEntity> Transactions { get; set; } = new List<TransactionEntity>();
+        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }

@@ -3,7 +3,7 @@
 namespace InvestmentPortfolioManagement.Domain.Entities
 {
     [Index(nameof(Guid), IsUnique = true)]
-    public class CustomerEntity : BaseEntity
+    public class Customer : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
 
@@ -11,6 +11,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
 
         public string DateOfBirth { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-        public List<CustomerSubscriptionEntity> Investments { get; set; } = new List<CustomerSubscriptionEntity>();
+        public List<CustomerSubscription> Investments { get; set; } = new List<CustomerSubscription>();
     }
 }
