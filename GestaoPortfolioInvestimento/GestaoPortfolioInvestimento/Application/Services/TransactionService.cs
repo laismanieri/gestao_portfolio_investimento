@@ -46,7 +46,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             return _mapper.Map<TransactionResponse>(transaction);
         }
 
-        private async Task<TransactionEntity> GetTransactionEntityByGuidAsync(Guid guid)
+        private async Task<Transaction> GetTransactionEntityByGuidAsync(Guid guid)
         {
             if (guid == Guid.Empty)
                 throw new ArgumentException("Guid cannot be empty", nameof(guid));

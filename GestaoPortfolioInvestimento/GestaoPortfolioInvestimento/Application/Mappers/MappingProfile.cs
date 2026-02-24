@@ -13,32 +13,32 @@ namespace InvestmentPortfolioManagement.Application.Mappers
     {
         public MappingProfile()
         {
-            CreateMap<CustomerEntity, CustomerResponse>();
-            CreateMap<CustomerEntity, CustomerSummaryResponse>();
-            CreateMap<CustomerCreateRequest, CustomerEntity>();
-            CreateMap<CustomerUpdateRequest, CustomerEntity>();
+            CreateMap<Customer, CustomerResponse>();
+            CreateMap<Customer, CustomerSummaryResponse>();
+            CreateMap<CustomerCreateRequest, Customer>();
+            CreateMap<CustomerUpdateRequest, Customer>();
 
-            CreateMap<FinancialProductTypeEntity, FinancialProductTypeDetailsResponse>()
+            CreateMap<FinancialProductType, FinancialProductTypeDetailsResponse>()
                 .ForMember(dest => dest.FinancialProductEntity, opt => opt.MapFrom(src => src.FinancialProducts));
-            CreateMap<FinancialProductTypeEntity, FinancialProductTypeResponse>();
-            CreateMap<FinancialProductTypeCreateRequest, FinancialProductTypeEntity>();
-            CreateMap<FinancialProductTypeUpdateRequest, FinancialProductTypeEntity>();
+            CreateMap<FinancialProductType, FinancialProductTypeResponse>();
+            CreateMap<FinancialProductTypeCreateRequest, FinancialProductType>();
+            CreateMap<FinancialProductTypeUpdateRequest, FinancialProductType>();
 
-            CreateMap<FinancialProductEntity, FinancialProductResponse>();
-            CreateMap<FinancialProductCreateRequest, FinancialProductEntity>();
-            CreateMap<FinancialProductUpdateRequest, FinancialProductEntity>();
-            CreateMap<FinancialProductEntity, FinancialProductSummary>();
-            CreateMap<FinancialProductEntity, FinancialProductSummaryResponse>();
+            CreateMap<FinancialProduct, FinancialProductResponse>();
+            CreateMap<FinancialProductCreateRequest, FinancialProduct>();
+            CreateMap<FinancialProductUpdateRequest, FinancialProduct>();
+            CreateMap<FinancialProduct, FinancialProductSummary>();
+            CreateMap<FinancialProduct, FinancialProductSummaryResponse>();
 
-            CreateMap<CustomerSubscriptionEntity, CustomerSubscriptionResponse>();
-            CreateMap<CustomerSubscriptionEntity, CustomerSubscriptionDetailResponse>()
+            CreateMap<CustomerSubscription, CustomerSubscriptionResponse>();
+            CreateMap<CustomerSubscription, CustomerSubscriptionDetailResponse>()
                 .ForMember(dest => dest.CustomerSubscription, opt => opt.MapFrom(src => src))
                 .ForMember(dest => dest.Transactions, opt => opt.MapFrom(src => src.Transactions))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Guid, opt => opt.MapFrom(src => src.Guid));
 
-            CreateMap<TransactionEntity, TransationSummaryResponse>();
-            CreateMap<TransactionEntity, TransactionResponse>();
+            CreateMap<Transaction, TransationSummaryResponse>();
+            CreateMap<Transaction, TransactionResponse>();
 
         }
     }

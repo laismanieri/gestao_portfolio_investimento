@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace InvestmentPortfolioManagement.Infrastructure.Persistence.Configurations
 {
-    public class FinancialProductTypeConfiguration : IEntityTypeConfiguration<FinancialProductTypeEntity>
+    public class FinancialProductTypeConfiguration : IEntityTypeConfiguration<FinancialProductType>
     {
-        public void Configure(EntityTypeBuilder<FinancialProductTypeEntity> builder)
+        public void Configure(EntityTypeBuilder<FinancialProductType> builder)
         {
             builder.ToTable("FinancialProductTypes");
 

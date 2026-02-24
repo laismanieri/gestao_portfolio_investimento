@@ -7,6 +7,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
     {
         public string Name { get; set; } = string.Empty;
 
-        public List<FinancialProductEntity> FinancialProducts { get; set; } = new();
+        public List<FinancialProduct> FinancialProducts { get; set; } = new();
     }
 }

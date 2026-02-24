@@ -30,7 +30,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
             _logger.LogInformation("Creating customer {Name}", request.Name);
 
-            var customer = _mapper.Map<CustomerEntity>(request);
+            var customer = _mapper.Map<Customer>(request);
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();
 
@@ -86,7 +86,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             _logger.LogInformation("Customer {Guid} deleted successfully", guid);
         }
 
-        private async Task<CustomerEntity> GetCustomerEntityByGuidAsync(Guid guid)
+        private async Task<Customer> GetCustomerEntityByGuidAsync(Guid guid)
         {
             if (guid == Guid.Empty)
                 throw new ArgumentException("Guid cannot be empty", nameof(guid));

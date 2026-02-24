@@ -38,7 +38,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             if (await _context.FinancialProducts.AnyAsync(p => p.Name == request.Name && p.FinancialProductTypeId == type.Id))
                 throw new InvalidOperationException($"Financial product {request.Name} already exists for type {type.Name}");
 
-            var financialProduct = _mapper.Map<FinancialProductEntity>(request);
+            var financialProduct = _mapper.Map<FinancialProduct>(request);
             financialProduct.FinancialProductTypeId = type.Id;
 
             financialProduct.MaturityDate = DateTime.UtcNow.AddDays(request.Term);
@@ -155,7 +155,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             _logger.LogInformation("Financial product {Guid} deactivated successfully", guid);
         }
 
-        private async Task<FinancialProductEntity> GetFinancialProductEntityByGuidAsync(Guid guid)
+        private async Task<FinancialProduct> GetFinancialProductEntityByGuidAsync(Guid guid)
         {
             if (guid == Guid.Empty)
                 throw new ArgumentException("Guid cannot be empty", nameof(guid));

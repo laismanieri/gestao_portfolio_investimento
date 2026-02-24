@@ -35,7 +35,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             if (exists)
                 throw new InvalidOperationException("Type already exists");
 
-            var financialProductType = _mapper.Map<FinancialProductTypeEntity>(request);
+            var financialProductType = _mapper.Map<FinancialProductType>(request);
             await _context.AddAsync(financialProductType);
             await _context.SaveChangesAsync();
 
@@ -109,7 +109,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
         }
 
-        private async Task<FinancialProductTypeEntity> GetFinancialProductTypeEntityByIdAsync(Guid guid)
+        private async Task<FinancialProductType> GetFinancialProductTypeEntityByIdAsync(Guid guid)
         {
             if (guid == Guid.Empty)
                 throw new ArgumentException("Guid cannot be empty", nameof(guid));

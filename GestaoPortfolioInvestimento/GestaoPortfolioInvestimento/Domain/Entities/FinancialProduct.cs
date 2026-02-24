@@ -22,7 +22,7 @@ namespace InvestmentPortfolioManagement.Domain.Entities
 
         public decimal ReturnRate { get; set; }
 
-        public List<CustomerSubscriptionEntity> Investments { get; set; } = new List<CustomerSubscriptionEntity>();
+        public List<CustomerSubscription> Investments { get; set; } = new List<CustomerSubscription>();
 
         public bool IsActive { get; set; } = true;
     }

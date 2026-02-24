@@ -46,7 +46,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
                 var totalValue = request.Quantity * product.UnitValue;
 
-                var entity = new CustomerSubscriptionEntity
+                var entity = new CustomerSubscription
                 {
                     CustomerId = customer.Id,
                     FinancialProductId = product.Id,
@@ -61,7 +61,7 @@ namespace InvestmentPortfolioManagement.Application.Services
 
                 product.Quantity -= request.Quantity;
 
-                var transaction = new TransactionEntity
+                var transaction = new Transaction
                 {
                     Investment = entity,
                     Quantity = request.Quantity,
@@ -215,7 +215,7 @@ namespace InvestmentPortfolioManagement.Application.Services
                 // Atualiza estoque do produto
                 product.Quantity += quantityToSell;
 
-                var transaction = new TransactionEntity
+                var transaction = new Transaction
                 {
                     Investment = subscription,
                     Quantity = quantityToSell,
@@ -238,7 +238,7 @@ namespace InvestmentPortfolioManagement.Application.Services
             await _context.SaveChangesAsync();
         }
 
-        private async Task<CustomerSubscriptionEntity> GetCustomerSubscriptionEntityByIdAsync(Guid guid)
+        private async Task<CustomerSubscription> GetCustomerSubscriptionEntityByIdAsync(Guid guid)
         {
             return await _context.CustomerSubscriptions
                 .Include(s => s.Customer)

@@ -15,7 +15,7 @@ namespace InvestmentPortfolioManagement.Domain.Entities
         public Double Yield { get; set; }
 
         [ForeignKey("CustomerId")]
-        public CustomerEntity Customer { get; set; } = null!;
+        public Customer Customer { get; set; } = null!;
 
         [ForeignKey("FinancialProductId")]
         public FinancialProductEntity FinancialProduct { get; set; } = null!;

@@ -16,6 +16,6 @@ namespace InvestmentPortfolioManagement.Domain.Entities
         public TransactionType TransactionType { get; set; }
 
         [ForeignKey("InvestmentId")]
-        public CustomerSubscriptionEntity Investment { get; set; } = null!;
+        public CustomerSubscription Investment { get; set; } = null!;
     }
 }
