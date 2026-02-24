@@ -1,265 +1,363 @@
-# Documentação do Sistema de Gestão de Portfólio de Investimentos
+# Investment Portfolio Management System
 
 <p align="center">
-      <img src="https://img.shields.io/badge/Status-%20Concuído-green"/>
-      <a href="https://github.com/laismanieri">
-        <img alt="Feito por Lais Manieri" src="https://img.shields.io/badge/feito%20por-laismanieri-yellow">
-      </a>
-      <img alt="GitHub last commit" src="https://img.shields.io/badge/project%20-%20Backend-yellowgreen">
+  <img src="https://img.shields.io/badge/Status-Doing-green"/>
+  <img src="https://img.shields.io/badge/Architecture-Clean%20Architecture-blue"/>
+  <img src="https://img.shields.io/badge/Backend-ASP.NET%20Core-purple"/>
+  <img src="https://img.shields.io/badge/Database-SQL%20%7C%20MySQL-orange"/>
 </p>
 
+---
 
-  ## 💻 Sobre o projeto
-  
-  <p align="justify"> O Sistema de Gestão de Portfólio de Investimentos é uma aplicação desenvolvida para permitir que uma empresa de consultoria financeira gerencie os investimentos disponíveis e os clientes comprem, vendam e acompanhem seus investimentos. O sistema foi desenvolvido em C# e utiliza o ASP.NET Core para fornecer serviços no backend. Este documento fornece informações detalhadas sobre como instalar, configurar e utilizar o sistema. </p>
+# 📌 Overview
+
+The Investment Portfolio Management System is an enterprise-level backend application designed for financial consulting companies to manage financial products, client investments, transactions, and automated maturity notifications.
+
+The system follows **Clean Architecture principles**, ensuring clear separation of concerns, maintainability, scalability, and robustness.
 
 ---
 
-  ## Gerenciamento de Projeto no Trello
-  
-  <p align="justify"> O Trello é uma ferramenta de gerenciamento de projetos baseada em quadros, que permite organizar tarefas e colaborar de forma eficiente. Utilizando o conceito de quadros, listas e cartões, o Trello permite que os usuários visualizem o progresso do projeto de forma intuitiva, movendo cartões entre listas para indicar o status das tarefas. Ele oferece recursos como atribuição de tarefas, prazos, checklists, comentários e integrações com outras ferramentas, tornando-o uma escolha popular para equipes de desenvolvimento de software, negócios, educação e muito mais. </p>
+# 🏗 Architectural Design
 
-**[Aqui está o quadro no Trello](https://trello.com/b/QqUd7HxG/sistema-de-gestao-de-portfolio-de-investimentos)**
+The project is structured using a layered architecture inspired by Clean Architecture:
+
+## Layers
+
+### 1️⃣ Presentation Layer (Controllers)
+- Handles HTTP requests and responses
+- Returns semantic HTTP status codes
+- Does NOT contain business logic
+- Uses Request/Response DTOs
+
+### 2️⃣ Application Layer (Services)
+- Contains business rules
+- Orchestrates use cases
+- Returns DTOs (never Entities)
+- Handles validation and domain consistency
+
+### 3️⃣ Domain Layer
+- Core business entities
+- BaseEntity with:
+  - Internal numeric ID
+  - Public GUID
+  - CreatedAt / UpdatedAt (UTC)
+- Business invariants
+
+### 4️⃣ Infrastructure Layer
+- Entity Framework Core
+- Database persistence
+- External integrations (SendGrid)
+- Quartz scheduled jobs
+- Logging configuration
 
 ---
- ### Pré-requisitos 
-  Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-  -   **SDK .NET Core:** Certifique-se de ter o SDK .NET Core instalado em sua máquina. Você pode baixá-lo **[aqui](https://dotnet.microsoft.com/pt-br/download)** 
-  -   **Ferramenta de Desenvolvimento:** Recomenda-se o uso de um editor de código como [VSCode](https://code.visualstudio.com/) ou [Visual Studio Community](https://nodejs.org/en/download/)
-  -   **Postman (Opcional):** Para testar as APIs, você pode usar o Postman. Ele pode ser baixado **[aqui](https://www.postman.com/downloads/)**
- ---
 
- ## 🛠 Configuração do Ambiente de Desenvolvimento:
-  
-  1. Instale o Visual Studio ou Visual Studio Code.
-  
-  2. Clone o Repositório:      
-      Clone o repositório para o seu ambiente de desenvolvimento local usando o seguinte comando:
+# ✅ Architectural Improvements
+
+## Separation of Responsibilities
+- Controller → HTTP only
+- Service → Business logic
+- Repository → Persistence
+- Mapper → Entity ↔ DTO conversion
+
+## API Contract Clarity
+- Request DTO ≠ Response DTO
+- Internal database ID is NOT exposed
+- GUID used externally
+- Proper HTTP semantics:
+  - 200 OK
+  - 201 Created
+  - 204 No Content
+  - 400 Bad Request
+  - 404 Not Found
+
+## Domain Modeling
+- BaseEntity abstraction
+- Reduced coupling between JPA/EF and JSON
+- Prevention of serialization loops
+- Protection against LazyInitialization-like issues
+
+---
+
+# 🔐 Security
+
+## Data Exposure Protection
+- Internal numeric IDs are hidden
+- Public GUID used for external identification
+- DTO-based exposure strategy
+
+## API Safety
+- Controlled DELETE, PUT and GET operations
+- No direct entity exposure
+- Strict request validation
+
+## Environment Security
+- SendGrid API key stored as environment variable
+- No secrets committed to repository
+
+---
+
+# 📊 Observability & Logging
+
+Structured logging implemented to improve:
+
+- Traceability
+- Production debugging
+- Audit capability
+- Error tracking
+
+Each critical action logs:
+
+- Operation name
+- Entity identifier (GUID)
+- Timestamp
+- Result (Success / Failure)
+
+This significantly increases system robustness and maintainability.
+
+---
+
+# 📈 Scalability Considerations
+
+- Layered separation enables horizontal scaling
+- Business logic isolated from HTTP layer
+- Database abstraction via EF Core
+- Quartz scheduler decoupled from controllers
+- DTO isolation prevents breaking API contracts
+
+---
+
+# 🛠 Technology Stack
+
+- C#
+- ASP.NET Core
+- Entity Framework Core
+- SQL Server / MySQL
+- Quartz (Job scheduling)
+- SendGrid (Email service)
+- Swagger (API documentation)
+- Git
+
+---
+ ### Prerequisites
+  Before getting started, make sure you have the following tools installed on your machine:
+  - **SDK .NET Core:** Ensure you have the .NET Core SDK installed on your machine. You can download it **[here](https://dotnet.microsoft.com/en-us/download)**
+  - **Development Tool:** It is recommended to use a code editor such as [VSCode](https://code.visualstudio.com/) or [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)
+  - **Postman (Optional):** To test the APIs, you can use Postman. It can be downloaded **[here](https://www.postman.com/downloads/)**
+
+---
+
+## 🛠 Development Environment Setup:
+
+  1. Install Visual Studio or Visual Studio Code.
+
+  2. Clone the Repository:
+      Clone the repository to your local development environment using the following command:
      ```sh
      git clone https://github.com/laismanieri/gestao_portfolio_investimento.git
-    
-  3. Acesse o Diretório do Projeto:    
-      Navegue até o diretório do projeto usando o terminal ou o prompt de comando:
+     ```
+
+  3. Navigate to the Project Directory:
+      Navigate to the project directory using the terminal or command prompt:
      ```sh
      cd gestao_portfolio_investimento
-    
-  4. Restaurar Dependências:
-      Use o comando dotnet restore para restaurar as dependências do projeto:
+     ```
+
+  4. Restore Dependencies:
+      Use the `dotnet restore` command to restore the project dependencies:
      ```sh
      dotnet restore
-    
-  5. Executar a Aplicação:
-      SQL Server: Configure a string de conexão no arquivo appsettings.json:
+     ```
+
+  5. Configure the Application:
+      **SQL Server:** Configure the connection string in the `appsettings.json` file:
      ```sh
      "ConnectionStrings": {
           "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
       }
-      ```
-     MySQL: Configure a string de conexão no arquivo appsettings.json para MySQL se estiver usando Pomelo.EntityFrameworkCore.MySql:
+     ```
+     **MySQL:** Configure the connection string in the `appsettings.json` file for MySQL if you are using Pomelo.EntityFrameworkCore.MySql:
      ```sh
      "ConnectionStrings": {
           "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
       }
-     
- 6. Executar a Aplicação:
-      Aplique as migrações para configurar o banco de dados:
+     ```
+
+  6. Run Database Migrations:
+      Apply the migrations to set up the database:
      ```sh
      dotnet ef database update
+     ```
 
- 7. Executar a Aplicação:
-      Aplique as migrações para configurar o banco de dados:
+  7. Run the Application:
+      Apply the migrations to configure the database:
      ```sh
-     dotnet ef database update    
-    
-  8. Testar as APIs:
-      Para testar as APIS acesse [aqui](https://github.com/laismanieri/gestao_portfolio_investimento/blob/main/GETTING_STARTED.md) a documentação de utilização.
+     dotnet ef database update
+     ```
 
-  9. Documentação Adicional:
-      Se necessário, consulte a documentação oficial do .NET Core para obter mais informações sobre o desenvolvimento e execução de aplicativos .NET Core: Documentação do **[aqui](https://learn.microsoft.com/pt-br/dotnet/fundamentals/)**
+  8. Test the APIs:
+      To test the APIs, access the usage documentation [here](https://github.com/laismanieri/gestao_portfolio_investimento/blob/main/GETTING_STARTED.md).
+
+  9. Additional Documentation:
+      If needed, refer to the official .NET Core documentation for more information on developing and running .NET Core applications: **[here](https://learn.microsoft.com/en-us/dotnet/fundamentals/)**
 
 ---
 
 <div align="justify"> 
-## 🛠 Tecnologias
-  
-  -   Linguagem de Programação C#: A aplicação é desenvolvida principalmente em C#, que é uma linguagem de programação moderna, orientada a objetos e fortemente tipada, amplamente utilizada para desenvolvimento de aplicativos na plataforma .NET.
-
-  -   ASP.NET Core: Framework para desenvolvimento de aplicativos web e APIs em C#, permitindo a criação de serviços RESTful e endpoints da API.
-
-  -   Entity Framework Core (EF Core): Um ORM (Object-Relational Mapping) que simplifica o acesso e a manipulação de dados em bancos de dados relacionais, permitindo que as entidades do modelo de dados sejam mapeadas para tabelas do banco de dados.
-
-  -   ASP.NET Core Identity: Fornece recursos para autenticação, autorização e gerenciamento de usuários.
-
-  -   Swagger: Utilizado para documentar e testar APIs, permitindo aos desenvolvedores visualizar e interagir facilmente com os endpoints da API.
-
-  -   JSON (JavaScript Object Notation): Formato de dados amplamente utilizado para troca de informações entre o cliente e o servidor.
-
-  -   RESTful APIs: As funcionalidades da aplicação são expostas através de APIs RESTful, seguindo os princípios e padrões de design REST para comunicação entre clientes e servidores.
-
-  -   Visual Studio / Visual Studio Code: IDEs (Integrated Development Environments) populares utilizadas para desenvolvimento em C#, oferecendo recursos avançados de edição, depuração e compilação.
-    
-  -   Swagger: Uma ferramenta para documentar, testar e visualizar APIs REST de forma amigável para os desenvolvedores. Integra-se facilmente a aplicativos ASP.NET Core, gerando automaticamente uma documentação interativa para a API. O Swagger simplifica o desenvolvimento, teste e integração de APIs, tornando o processo mais eficiente e colaborativo.
-    
-  -   MySQL: Um sistema de gerenciamento de banco de dados relacional open-source amplamente utilizado para armazenar e gerenciar dados. O MySQL é conhecido por sua confiabilidade, escalabilidade e desempenho, sendo uma escolha popular para aplicativos web e empresariais.
-
-  -   Git: Um sistema de controle de versão distribuído amplamente utilizado para gerenciamento de código-fonte. Permite que os desenvolvedores trabalhem colaborativamente em projetos de software, acompanhem alterações no código, revertam para versões anteriores e integrem alterações de forma eficiente. Comumente utilizado em conjunto com plataformas de hospedagem de código, como GitHub, GitLab e Bitbucket, para facilitar a colaboração e o compartilhamento de código entre equipes.
-
----
-  ## Modelagem de banco de dados
-<div align="center">  
-      <img alt="Modelo de banco de dados" src=https://github.com/laismanieri/gestao_portfolio_investimento/assets/82177551/f6f6dfaf-1044-44a6-b956-94f91e5e4cde">
-</div>
-  
----  
 
 
-## Documentação de Dependências do Projeto
-É dependência é um componente externo ou biblioteca que um projeto de software precisa para funcionar corretamente. Essas dependências fornecem funcionalidades adicionais que não estão incluídas no código principal do projeto.
-Este documento explica cada dependência utilizada no projeto e como instalá-las através do NuGet no Visual Studio Code.
+
+## Project Dependency Documentation
+
+A dependency is an external component or library that a software project needs in order to work correctly. These dependencies provide additional functionality that is not included in the project's core code.
+This document explains each dependency used in the project and how to install them via NuGet in Visual Studio Code.
 
 ## Dependências
 ### iTextSharp.LGPLv2.Core
-- **Descrição:** Biblioteca para manipulação de documentos PDF.
-- **Instalação:**
+- **Description:** Library for creating and manipulating PDF documents.
+- **Installation:**
   ```bash
   dotnet add package iTextSharp.LGPLv2.Core --version 3.4.20
 
 ### Microsoft.EntityFrameworkCore
-- **Descrição:** Provedor de acesso a dados ORM (Object-Relational Mapping) para o Entity Framework Core.
-- **Instalação:**
+- **Description:** ORM (Object-Relational Mapping) data access provider for Entity Framework Core.
+- **Installation:**
   ```bash
   dotnet add package Microsoft.EntityFrameworkCore --version 6.0.29
 
 ### Microsoft.EntityFrameworkCore.Design
-- **Descrição:** Ferramentas de design para Entity Framework Core, incluindo scaffolding de migrações.
-- **Instalação:**
+- **Description:** : Design-time tools for Entity Framework Core, including migration
+- **Installation:**
   ```bash
   dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.29
 
 ### Microsoft.EntityFrameworkCore.SqlServer
-- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
-- **Instalação:**
+- **Description:** SQL Server database provider for Entity Framework Core.
+- **Installation:**
   ```bash
   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.29
 
 ### Microsoft.EntityFrameworkCore.Tools
-- **Descrição:** Provedor de banco de dados SQL Server para Entity Framework Core.
-- **Instalação:**
+- **Description:** Entity Framework Core tools package (used for migrations and EF CLI tooling support).
+- **Installation:**
   ```bash
   dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0.29
 
 ### Microsoft.VisualStudio.Web.CodeGeneration.Design
-- **Descrição:** Ferramentas de geração de código para ASP.NET Core.
-- **Instalação:**
+- **Description:** Code generation (scaffolding) tools for ASP.NET Core.
+- **Installation:**
   ```bash
   dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
 
 ### Pomelo.EntityFrameworkCore.MySql
-- **Descrição:** Provedor de banco de dados MySQL para Entity Framework Core.
-- **Instalação:**
+- **Description:** MySQL database provider for Entity Framework Core.
+- **Installation:**
   ```bash
   dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
 
 ### Quartz
-- **Descrição:** Biblioteca de agendamento de tarefas (job scheduling).
-- **Instalação:**
+- **Description:** Job scheduling library for background task automation.
+- **Installation:**
   ```bash
   dotnet add package Quartz --version 3.9.0
 
 ### SendGrid
-- **Descrição:** Cliente para a API do SendGrid, utilizado para envio de e-mails.
-- **Instalação:**
+- **Description:** SendGrid API client used for sending transactional emails.
+- **Installation:**
   ```bash
   dotnet add package SendGrid --version 9.29.3
 
 ### Swashbuckle.AspNetCore
-- **Descrição:** Gera documentação Swagger para APIs ASP.NET Core.
-- **Instalação:**
+- **Description:** Generates Swagger/OpenAPI documentation for ASP.NET Core APIs.
+- **Installation:**
   ```bash
   dotnet add package Swashbuckle.AspNetCore --version 6.5.0
 
-## Instruções de Instalação pelo NuGet no Visual Studio Community
-Passo a Passo
-1. Abra o Visual Studio Community:
-            Inicie o Visual Studio Community e abra seu projeto
-2. Gerenciador de Pacotes NuGet:
-            Clique com o botão direito do mouse na solução ou no projeto em que deseja adicionar as dependências.
-            Selecione Gerenciar Pacotes NuGet... no menu de contexto.
-3. Procurar Pacotes:
-            No Gerenciador de Pacotes NuGet, vá até a aba Procurar.
-            No campo de pesquisa, digite o nome do pacote que deseja instalar (por exemplo, iTextSharp.LGPLv2.Core).
-4. Instalar Pacotes:      
-            Selecione o pacote correto na lista de resultados da pesquisa.
-            Clique no botão Instalar.
-5. Aceite os termos de licença, se solicitado:
-            Repita os passos de 3 a 4 para cada dependência listada abaixo.
+## NuGet Installation Instructions in Visual Studio Community
+
+### Step by step
+
+1. Open Visual Studio Community:  
+   Launch Visual Studio Community and open your project.
+
+2. NuGet Package Manager:  
+   Right-click the solution or the project where you want to add dependencies.  
+   Select **Manage NuGet Packages...** from the context menu.
+
+3. Search for packages:  
+   In the NuGet Package Manager, go to the **Browse** tab.  
+   In the search box, type the name of the package you want to install (for example, `iTextSharp.LGPLv2.Core`).
+
+4. Install packages:  
+   Select the correct package from the search results list.  
+   Click the **Install** button.
+
+5. Accept the license terms (if prompted):  
+   Repeat steps 3 and 4 for each dependency listed below.
 
 ---
 
-  ## ⚙️ Configuração das Variáveis de Ambiente para o SendGrid
+  ## ⚙️ SendGrid Environment Variable Configuration
+Step by Step
+1. Create a SendGrid Account:
+Go to the SendGrid website and create an account if you don't already have one.
 
-Passo a Passo
-1. Crie uma Conta no SendGrid:
-            Acesse o site do SendGrid e crie uma conta se você ainda não tiver uma.
-2. Obtenha sua Chave de API do SendGrid:
-            Faça login na sua conta do SendGrid.
-            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
-            Crie uma nova chave de API ou copie uma chave existente.
-3. Procurar Pacotes:
-            Faça login na sua conta do SendGrid.
-            No painel do SendGrid, navegue até as configurações da API ou chaves de API.
-            Crie uma nova chave de API ou copie uma chave existente.
-4. Defina a Variável de Ambiente no seu Sistema:     
-            No código da sua aplicação, você pode acessar essa variável de ambiente para obter a chave de API do SendGrid.
-            Dependendo da linguagem de programação e do framework que você está utilizando, pode haver diferentes maneiras de acessar variáveis de ambiente. No entanto, a maioria das linguagens oferece uma maneira de fazer isso de forma simples e direta.
-5. Teste a Configuração:
-            Depois de configurar a variável de ambiente, teste sua aplicação para garantir que ela esteja usando a chave de API do SendGrid corretamente.
-            Você pode enviar e-mails de teste para verificar se o envio está funcionando conforme esperado.
+2. Obtain your SendGrid API Key:
+Log in to your SendGrid account.
+In the SendGrid dashboard, navigate to API settings or API keys.
+Create a new API key or copy an existing one.
+
+3. Set the Environment Variable on your System:
+In your application code, you can access this environment variable to retrieve the SendGrid API key.
+Depending on the programming language and framework you are using, there may be different ways to access environment variables. However, most languages offer a simple and straightforward way to do this.
+
+4. Test the Configuration:
+After configuring the environment variable, test your application to ensure it is using the SendGrid API key correctly.
+You can send test emails to verify that sending is working as expected.
    
 ---
 
-  ## ⚙️ Funcionalidades
- 
+  ## ⚙️ Features 
       
-:heavy_check_mark: **Cadastro de Clientes:** Permite adicionar novos clientes ao sistema. Para cada cliente, são fornecidos detalhes como nome, endereço de e-mail, data de nascimento e endereço.
+:heavy_check_mark: Client Registration: Allows adding new clients to the system. For each client, details such as name, email address, date of birth, and address are provided.
 
-:heavy_check_mark: **Cadastro de Investimentos:** Permite adicionar novos investimentos ao sistema. Cada investimento está associado a um cliente e a um produto financeiro específico. Detalhes como quantidade, valor de compra e data de vencimento são fornecidos durante o cadastro.
+:heavy_check_mark: Investment Registration: Allows adding new investments to the system. Each investment is associated with a client and a specific financial product. Details such as quantity, purchase value, and maturity date are provided during registration.
 
-:heavy_check_mark: **Cadastro de Produto Financeiro:** Permite adicionar novos produtos financeiros ao sistema. Os produtos financeiros representam os ativos disponíveis para investimento e podem incluir ações, títulos, fundos mútuos, etc. Para cada produto financeiro, são fornecidos detalhes como tipo, nome, valor, etc.
+:heavy_check_mark: Financial Product Registration: Allows adding new financial products to the system. Financial products represent the assets available for investment and may include stocks, bonds, mutual funds, etc. For each financial product, details such as type, name, value, etc. are provided.
 
-:heavy_check_mark: **Cadastro de Transação:** Permite adicionar novas transações ao sistema. As transações representam as operações de compra e venda de produtos financeiros. Cada transação está associada a um investimento específico e inclui detalhes como quantidade, valor unitário e tipo de transação (compra ou venda).
+:heavy_check_mark: Transaction Registration: Allows adding new transactions to the system. Transactions represent buy and sell operations of financial products. Each transaction is associated with a specific investment and includes details such as quantity, unit value, and transaction type (buy or sell).
 
-:heavy_check_mark: **Listagem de Clientes:** Permite visualizar uma lista de todos os clientes cadastrados no sistema, incluindo detalhes como nome, e-mail, data de nascimento e endereço.
+:heavy_check_mark: Client Listing: Allows viewing a list of all clients registered in the system, including details such as name, email, date of birth, and address.
 
-:heavy_check_mark: **Listagem de Investimentos:** Permite visualizar uma lista de todos os investimentos cadastrados no sistema, incluindo detalhes como cliente associado, produto financeiro, quantidade, valor de compra e data de vencimento.
+:heavy_check_mark: Investment Listing: Allows viewing a list of all investments registered in the system, including details such as the associated client, financial product, quantity, purchase value, and maturity date.
 
-:heavy_check_mark: **Listagem de Produtos Financeiros:** Permite visualizar uma lista de todos os produtos financeiros cadastrados no sistema, incluindo detalhes como tipo, nome, valor, etc.
+:heavy_check_mark: Financial Product Listing: Allows viewing a list of all financial products registered in the system, including details such as type, name, value, etc.
 
-:heavy_check_mark: **Listagem de Transações:** Permite visualizar uma lista de todas as transações cadastradas no sistema, incluindo detalhes como investimento associado, quantidade, valor unitário e tipo de transação.
+:heavy_check_mark: Transaction Listing: Allows viewing a list of all transactions registered in the system, including details such as the associated investment, quantity, unit value, and transaction type.
 
-:heavy_check_mark: **Atualização de Clientes:** Permite atualizar os detalhes de um cliente existente no sistema, como nome, endereço de e-mail, data de nascimento, etc.
+:heavy_check_mark: Client Update: Allows updating the details of an existing client in the system, such as name, email address, date of birth, etc.
 
-:heavy_check_mark: **Atualização de Investimentos:** Permite atualizar os detalhes de um investimento existente no sistema, como quantidade, valor de compra, data de vencimento, etc.
+:heavy_check_mark: Investment Update: Allows updating the details of an existing investment in the system, such as quantity, purchase value, maturity date, etc.
 
-:heavy_check_mark: **Atualização de Produto Financeiro:** Permite atualizar os detalhes de um produto financeiro existente no sistema, como tipo, nome, valor, etc.
+:heavy_check_mark: Financial Product Update: Allows updating the details of an existing financial product in the system, such as type, name, value, etc.
 
-:heavy_check_mark: **Deleção de Clientes:** Permite excluir um cliente existente do sistema juntamente com todos os seus investimentos associados.
+:heavy_check_mark: Client Deletion: Allows deleting an existing client from the system along with all their associated investments.
 
-:heavy_check_mark: **Deleção de Investimentos:** Permite excluir um investimento existente do sistema.
+:heavy_check_mark: Investment Deletion: Allows deleting an existing investment from the system.
 
-:heavy_check_mark: **Deleção de Produto Financeiro:** Permite excluir um produto financeiro existente do sistema.
+:heavy_check_mark: Financial Product Deletion: Allows deleting an existing financial product from the system.
 
-:heavy_check_mark: **Negociar Produto Financeiro (Compra e Venda):** Permite aos clientes comprar ou vender produtos financeiros disponíveis no sistema.
+:heavy_check_mark: Trade Financial Product (Buy and Sell): Allows clients to buy or sell financial products available in the system.
 
-:heavy_check_mark: **Extrato do Produto:** Permite visualizar um extrato detalhado de um produto financeiro específico, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+:heavy_check_mark: Product Statement: Allows viewing a detailed statement of a specific financial product, including all transactions associated with it, such as purchases, sales, etc.
 
-:heavy_check_mark: **Extrato do Produto (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+:heavy_check_mark: Product Statement (PDF): Allows generating a detailed statement of a specific financial product in PDF format, including all transactions associated with it, such as purchases, sales, etc.
 
-:heavy_check_mark: **Extrato dos Investimentos por Cliente (PDF):** Permite gerar um extrato detalhado de um produto financeiro específico no formato PDF, incluindo todas as transações associadas a ele, como compras, vendas, etc.
+:heavy_check_mark: Investment Statement by Client (PDF): Allows generating a detailed statement of investments by client in PDF format, including all associated transactions such as purchases, sales, etc.
 
-:heavy_check_mark: **Disparo de e-mail automatico:** Disparo de e-mail diario com a relação dos investimentos que estão próximos do vencimento.
+:heavy_check_mark: Automatic Email Dispatch: Daily automated email with a list of investments that are close to their maturity date.
 
-## 👨‍💻 Contribuidores 
+👨‍💻 Contributors
 </div>
 Backend
 
