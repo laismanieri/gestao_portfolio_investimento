@@ -1,6 +1,4 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs;
-using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
-using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
+﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces

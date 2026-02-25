@@ -1,5 +1,4 @@
 ﻿using InvestmentPortfolioManagement.Application.Interfaces;
-using InvestmentPortfolioManagement.Infrastructure.Services;
 using Quartz;
 
 namespace InvestmentPortfolioManagement.Infrastructure.Jobs

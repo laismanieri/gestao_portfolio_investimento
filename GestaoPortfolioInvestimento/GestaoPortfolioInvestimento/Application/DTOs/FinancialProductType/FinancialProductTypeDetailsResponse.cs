@@ -1,6 +1,4 @@
-﻿using InvestmentPortfolioManagement.Domain.Entities;
-
-namespace InvestmentPortfolioManagement.Application.DTOs.FinancialProductType
+﻿namespace InvestmentPortfolioManagement.Application.DTOs.FinancialProductType
 {
     public class FinancialProductTypeDetailsResponse
     {

@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using InvestmentPortfolioManagement.Application.DTOs;
-using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;

@@ -1,8 +1,6 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs;
-using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
+﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;
-using InvestmentPortfolioManagement.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolioManagement.API.Controllers

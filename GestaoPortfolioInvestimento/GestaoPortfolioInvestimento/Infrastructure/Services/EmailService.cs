@@ -1,5 +1,4 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription;
-using InvestmentPortfolioManagement.Application.DTOs.Notifications;
+﻿using InvestmentPortfolioManagement.Application.DTOs.Notifications;
 using InvestmentPortfolioManagement.Application.Interfaces;
 using SendGrid;
 using SendGrid.Helpers.Mail;

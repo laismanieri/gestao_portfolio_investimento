@@ -1,7 +1,4 @@
-﻿using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
-using InvestmentPortfolioManagement.Domain.Entities;
-
-namespace InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription
+﻿namespace InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription
 {
     public class CustomerSubscriptionDetailResponse
     {

@@ -1,5 +1,4 @@
-﻿using InvestmentPortfolioManagement.Domain.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortfolioManagement.Application.DTOs.FinancialProduct
 {

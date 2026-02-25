@@ -1,12 +1,7 @@
-using InvestmentPortfolioManagement.Application.DTOs;
 using InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;
-using InvestmentPortfolioManagement.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace InvestmentPortfolioManagement.API.Controllers
 {

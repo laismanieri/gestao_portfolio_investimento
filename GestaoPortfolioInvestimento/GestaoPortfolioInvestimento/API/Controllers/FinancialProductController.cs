@@ -1,5 +1,4 @@
 using InvestmentPortfolioManagement.Application.DTOs;
-using InvestmentPortfolioManagement.Application.DTOs.Customer;
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;

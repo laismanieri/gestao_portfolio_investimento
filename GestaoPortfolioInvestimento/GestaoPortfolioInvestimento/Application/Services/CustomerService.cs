@@ -4,10 +4,7 @@ using InvestmentPortfolioManagement.Application.DTOs.Shared;
 using InvestmentPortfolioManagement.Application.Interfaces;
 using InvestmentPortfolioManagement.Domain.Entities;
 using InvestmentPortfolioManagement.Infrastructure;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace InvestmentPortfolioManagement.Application.Services
 {

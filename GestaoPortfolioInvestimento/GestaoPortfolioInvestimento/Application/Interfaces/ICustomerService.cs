@@ -1,7 +1,5 @@
 using InvestmentPortfolioManagement.Application.DTOs.Customer;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
-using InvestmentPortfolioManagement.Domain.Entities;
-using Microsoft.AspNetCore.JsonPatch;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 { 

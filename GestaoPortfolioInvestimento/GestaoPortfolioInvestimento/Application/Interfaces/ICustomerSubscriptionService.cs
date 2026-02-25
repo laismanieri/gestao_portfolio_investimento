@@ -1,7 +1,5 @@
 ﻿using InvestmentPortfolioManagement.Application.DTOs.CustomerSubscription;
-using InvestmentPortfolioManagement.Application.DTOs.FinancialProductType;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
-using InvestmentPortfolioManagement.Domain.Entities;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 {

@@ -2,7 +2,6 @@
 using InvestmentPortfolioManagement.Application.DTOs.FinancialProduct;
 using InvestmentPortfolioManagement.Application.DTOs.Notifications;
 using InvestmentPortfolioManagement.Application.DTOs.Shared;
-using InvestmentPortfolioManagement.Domain.Entities;
 
 namespace InvestmentPortfolioManagement.Application.Interfaces
 {
