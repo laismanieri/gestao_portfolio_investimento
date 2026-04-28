@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "vf+BxAEOCgt2kCthD4AxQ3JuR8ZJRYsDH2GnCfIuosI=",
-  "Source": "GestaoPortfolioInvestimento",
-  "BasePath": "_content/GestaoPortfolioInvestimento",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"rJHgLw1WN8DqMVQ42/Yr3m5ULboRnYY3ivZuT3x0Kxs=","Source":"InvestmentPortfolioManagement","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

@@ -1,20 +1,43 @@
-﻿using GestaoPortfolioInvestimento.Data;
-using GestaoPortfolioInvestimento.Interfaces;
-using GestaoPortfolioInvestimento.Jobs;
-using GestaoPortfolioInvestimento.Services;
+﻿using InvestmentPortfolioManagement.Application.Interfaces;
+using InvestmentPortfolioManagement.Application.Mappers;
+using InvestmentPortfolioManagement.Application.Services;
+using InvestmentPortfolioManagement.Infrastructure;
+using InvestmentPortfolioManagement.Infrastructure.Jobs;
+using InvestmentPortfolioManagement.Infrastructure.Middlewares;
+using InvestmentPortfolioManagement.Infrastructure.Services;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
-using Quartz;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var environment = builder.Environment;
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+SqliteConnection? inMemorySqliteConnection = null;
+
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+{
+    if (environment.IsDevelopment() || environment.IsEnvironment("Testing"))
+    {
+        if (inMemorySqliteConnection == null)
+        {
+            inMemorySqliteConnection = new SqliteConnection("Data Source=:memory:;Cache=Shared");
+            inMemorySqliteConnection.Open();
+        }
+
+        options.UseSqlite(inMemorySqliteConnection);
+    }
+    else
+    {
+        var cs = builder.Configuration.GetConnectionString("DefaultConnection");
+        options.UseMySql(cs, ServerVersion.AutoDetect(cs));
+    }
+});
 
 // Add services to the container.
 
@@ -27,13 +50,14 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddControllers();
 builder.Services.AddMemoryCache();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<ICliente, ClienteService>();
-builder.Services.AddScoped<IInvestimento, InvestimentoService>();
-builder.Services.AddScoped<IProdutoFinanceiro, ProdutoFinanceiroService>();
-builder.Services.AddScoped<ITransacao, TransacaoService>();
-builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ICustomerSubscriptionService, CustomerSubscriptionService>();
+builder.Services.AddScoped<IFinancialProductService, FinancialProductService>();
+builder.Services.AddScoped<IFinancialProductTypeService, FinancialProductTypeService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddTransient<IEmailNotificationService, EmailService>();
 
-builder.Services.AddTransient<ExtratoService>();
+builder.Services.AddTransient<StatementService>();
 builder.Services.AddTransient<EmailService>();
 builder.Services.AddTransient<QuartzHostedService>();
 
@@ -44,12 +68,20 @@ builder.Services.AddSingleton<IJobFactory, SingletonJobFactory>();
 builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
 
 // Register EnviarEmailJob as Transient
-builder.Services.AddTransient<EnviarEmailJob>();
+builder.Services.AddTransient<SendUpcomingInvestmentsEmailJob>();
 
 // Register QuartzHostedService as Hosted Service
 builder.Services.AddHostedService<QuartzHostedService>();
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+    context.Database.EnsureCreated();  
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -60,6 +92,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
